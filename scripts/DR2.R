@@ -136,7 +136,7 @@ do_sims <- function(n, pos_const, nsims) {
   })
   sim_results <- data.table::rbindlist(sim_results)
   key <- paste0("DR_iter=", nsims, "_n=", n, "_pos=", pos_const )
-  try({fwrite(sim_results, paste0("~/causalHAL/simResultsDR/sim_results_", key, ".csv"))})
+  try({fwrite(sim_results, paste0("~/DRinference/simResultsDR/sim_results_", key, ".csv"))})
   return(sim_results)
 }
 
