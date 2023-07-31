@@ -1,11 +1,8 @@
 library(data.table)
 library(sl3)
-
+library(causalHAL)
 library(future)
 d <- 3
-
-
-out <- do_sims(5000, 2, 50)
 
 
 do_sims <- function(n, pos_const, nsims) {
