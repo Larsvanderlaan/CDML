@@ -1,6 +1,6 @@
 library(data.table)
 library(sl3)
-library(causalHAL)
+
 library(future)
 d <- 3
 
