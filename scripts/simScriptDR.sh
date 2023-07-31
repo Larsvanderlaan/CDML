@@ -8,7 +8,7 @@ do
       do
     for misp in 1
     do
-    sbatch  --export=n=$n,const=$const ~/causalHAL/scripts/simScriptDR.sbatch
+    sbatch  --export=n=$n,const=$const ~/DRinference/scripts/simScriptDR.sbatch
     done
   done
 done
