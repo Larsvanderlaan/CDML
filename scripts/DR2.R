@@ -19,18 +19,18 @@ do_sims <- function(n, pos_const, nsims) {
   cols <- paste0("W", 1:d)
   #formula_A <- paste0("A~", paste0("s(", cols, ", k = 20, bs='bs',m=c(1,0))", collapse = " + "))
   #formula_Y <- paste0("Y~", paste0("s(", cols, ", k = 20, bs='bs',m=c(1,0))", collapse = " + "))
-  formula_A_quad <- paste0("A~", paste0("s(", cols, ", k = 50, bs='bs',m=c(1,1))", collapse = " + "))
-  formula_Y_quad <- paste0("Y~", paste0("s(", cols, ", k = 50, bs='bs',m=c(1,1))", collapse = " + "))
+  formula_A_quad <- paste0("A~", paste0("s(", cols, ", k = 30, bs='bs',m=c(1,1))", collapse = " + "))
+  formula_Y_quad <- paste0("Y~", paste0("s(", cols, ", k = 30, bs='bs',m=c(1,1))", collapse = " + "))
 
-  stack_earth_Y <-  Lrnr_earth$new(family = "binomial",   degree=1, pmethod = "cv", nfold = 5,    nk = 200)
-  stack_earth_A <-  Lrnr_earth$new(family = "binomial",  degree=1, pmethod = "cv", nfold = 5,   nk = 200)
+  stack_earth_Y <-  Lrnr_earth$new(family = "binomial",   degree=1, pmethod = "cv", nfold = 5,    nk = 100)
+  stack_earth_A <-  Lrnr_earth$new(family = "binomial",  degree=1, pmethod = "cv", nfold = 5,   nk = 100)
 
   stack_gam_Y_quad <-  Lrnr_gam$new(family = "binomial",
                                     formula = formula_Y_quad)
   stack_gam_A_quad <-  Lrnr_gam$new(family = "binomial",
                                     formula = formula_A_quad)
 
-  stack_rf <- Lrnr_ranger$new()
+  stack_rf <- Lrnr_ranger$new(max.depth = 10)
   stack_xg <- Stack$new(
     list(
       Lrnr_xgboost$new(min_child_weight = max(10, (n)^(1/3)), max_depth = 2, nrounds = 30, eta = 0.15 ),
