@@ -5,12 +5,13 @@ library(future)
 plan(multisession, workers = 3)
 
 
-do_real_data <- function(data_name = c("lalonde_cps", "lalonde_psid", "twins")) {
+# = c("lalonde_cps", "lalonde_psid", "twins")
+do_real_data <- function(data_name) {
   print(data_name)
   data_name <- match.arg(data_name)
 
   link <- "https://raw.githubusercontent.com/bradyneal/realcause/master/realcause_datasets/"
-  data <- fread(paste0(link, data_name, "_sample", i, ".csv"))
+  data <- fread(paste0(link, data_name, "_sample", 0, ".csv"))
   d <- ncol(data) - 4
 
 
