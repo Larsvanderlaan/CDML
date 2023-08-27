@@ -1,13 +1,11 @@
 library(data.table)
 library(sl3)
-library(doFuture)
+library(xgboost)
 library(future)
-
-
-#Lrnr_gam$new(), Lrnr_earth$new(degree = 1),
-#
-
-out <- do_sims(2000, 2, 3)
+plan(multisession, workers = 3)
+d <- 2
+seed_start <- 12345
+set.seed(seed_start)
 
 do_sims <- function(n, pos_const, nsims) {
   loss_inv <- function (pred, observed) {
@@ -19,41 +17,58 @@ do_sims <- function(n, pos_const, nsims) {
   }
 
   #stack <-  Lrnr_earth$new(degree =1, family = binomial(), pmethod = "cv", nk = 100, nfold = 10)
-  #lrnr_hal_inv <- Lrnr_hal9001$new(smoothness_orders = 0, num_knots = c(100,100), max_degree = 2, screen_variables = FALSE, family = "gaussian") # Stack$new(Lrnr_gam$new(family = "gaussian") , Lrnr_gam$new(family = "binomial")) #
+  #lrnr_hal_inv <- Lrnr_hal9001$new(smoothness_orders = 0, num_knots = c(100,100), max_degree = 2, screen_variables = FALSE, family = "gaussian") # Stack$new(Lrnr_glmnet$new(family = "gaussian") , Lrnr_glmnet$new(family = "binomial")) #
   cols <- paste0("W", 1:d)
-   #formula_A <- paste0("A~", paste0("s(", cols, ", k = 20, bs='bs',m=c(1,0))", collapse = " + "))
+  #formula_A <- paste0("A~", paste0("s(", cols, ", k = 20, bs='bs',m=c(1,0))", collapse = " + "))
   #formula_Y <- paste0("Y~", paste0("s(", cols, ", k = 20, bs='bs',m=c(1,0))", collapse = " + "))
-  formula_A_quad <- paste0("A~", paste0("s(", cols, ", k = 25, bs='bs',m=c(1,1))", collapse = " + "))
-  formula_Y_quad <- paste0("Y~", paste0("s(", cols, ", k = 25, bs='bs',m=c(1,1))", collapse = " + "))
+  formula_A_quad <- paste0("A~", paste0("s(", cols, ", k = 10, bs='bs',m=c(1,1))", collapse = " + "))
+  formula_Y_quad <- paste0("Y~", paste0("s(", cols, ", k = 10, bs='bs',m=c(1,1))", collapse = " + "))
 
-  stack_earth_Y <-  Lrnr_earth$new(family = "binomial", pmethod = "cv", nfold=5, degree=1)
-  stack_earth_A <-  Lrnr_earth$new(family = "binomial", pmethod = "cv", nfold=5, degree=1)
+  stack_earth_Y <-  Lrnr_earth$new(family = "binomial",   degree=2)
+  stack_earth_A <-  Lrnr_earth$new(family = "binomial",  degree=2)
 
-  stack_gam_Y_quad <-  Lrnr_gam$new(family = "binomial",
-                               formula = formula_Y_quad)
-  stack_gam_A_quad <-  Lrnr_gam$new(family = "binomial",
-                               formula = formula_A_quad)
+  stack_glmnet_Y_quad <-  Lrnr_glmnet$new(formula = ~.^2)
+  stack_glmnet_A_quad <-  Lrnr_glmnet$new(formula = ~.^2)
 
-  stack_xg <- Stack$new(
+  stack_hal <-  Lrnr_hal9001$new(smoothness_orders = 0, num_knots = c(30, 30), max_degree = 2, screen_variables = FALSE)
+
+
+  stack_rf <-  Lrnr_ranger$new(max.depth = 10, min.node.size = 10)
+
+  stack_xg_pi <- Stack$new(
     list(
-      Lrnr_xgboost$new(min_child_weight = max(10, (n)^(1/3)), max_depth = 3, nrounds = 30, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = max(10, (n)^(1/3)), max_depth = 4, nrounds = 30, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = max(10, (n)^(1/3)), max_depth = 5, nrounds = 30, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = max(10, (n)^(1/3)), max_depth = 6, nrounds = 30, eta = 0.15 )
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 1, nrounds = 15, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 2, nrounds = 15, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 3, nrounds = 15, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 4, nrounds = 15, eta = 0.15 )
+    )
+  )
+
+  stack_xg_mu <- Stack$new(
+    list(
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 1, nrounds = 15, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 2, nrounds = 15, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 3, nrounds = 15, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 4, nrounds = 15, eta = 0.15 )
     )
   )
 
 
   lrnr_mu_earth <-  Pipeline$new(Lrnr_cv$new(stack_earth_Y), Lrnr_cv_selector$new(loss_squared_error))
   lrnr_pi_earth <- Pipeline$new(Lrnr_cv$new(stack_earth_A), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_mu_gam_quad <-  Pipeline$new(Lrnr_cv$new(stack_gam_Y_quad), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_pi_gam_quad <- Pipeline$new(Lrnr_cv$new(stack_gam_A_quad), Lrnr_cv_selector$new(loss_squared_error))
-    lrnr_mu_xg <-  Pipeline$new(Lrnr_cv$new(stack_xg), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_pi_xg <- Pipeline$new(Lrnr_cv$new(stack_xg), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_mu_glmnet_quad <-  Pipeline$new(Lrnr_cv$new(stack_glmnet_Y_quad), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_pi_glmnet_quad <- Pipeline$new(Lrnr_cv$new(stack_glmnet_A_quad), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_mu_xg <-  Pipeline$new(Lrnr_cv$new(stack_xg_mu), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_pi_xg <- Pipeline$new(Lrnr_cv$new(stack_xg_pi), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_mu_rf <-  Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_pi_rf <- Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
 
+  lrnr_pi_hal <- Pipeline$new(Lrnr_cv$new(stack_hal), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_mu_hal <- Pipeline$new(Lrnr_cv$new(stack_hal), Lrnr_cv_selector$new(loss_squared_error))
 
   sim_results <- lapply(1:nsims, function(i){
     try({
+      set.seed(seed_start + i)
       print(paste0("iter: ", i))
       data_list <- get_data(n, pos_const)
       W <- data_list$W
@@ -61,11 +76,17 @@ do_sims <- function(n, pos_const, nsims) {
       Y <- data_list$Y
       ATE <- data_list$ATE
       n <- length(A)
+      folds <- 5
       initial_estimators_earth <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_earth, lrnr_pi = lrnr_pi_earth, folds = 5, invert = FALSE)
       folds <- initial_estimators_earth$folds
-      initial_estimators_gam_quad <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_gam_quad, lrnr_pi = lrnr_pi_gam_quad, folds = 5, invert = FALSE)
-       initial_estimators_xg <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_xg, lrnr_pi = lrnr_pi_xg, folds = folds, invert = FALSE)
-      initial_estimators_misp <- compute_initial(W,A,Y, lrnr_mu =  Lrnr_cv$new(Lrnr_mean$new()), lrnr_pi =  Lrnr_cv$new(Lrnr_mean$new()), folds = folds)
+      initial_estimators_glmnet_quad <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_glmnet_quad, lrnr_pi = lrnr_pi_glmnet_quad, folds = folds, invert = FALSE)
+      initial_estimators_xg <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_xg, lrnr_pi = lrnr_pi_xg, folds = folds, invert = FALSE)
+      #folds <- initial_estimators_xg$folds
+      initial_estimators_rf <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_rf, lrnr_pi = lrnr_pi_rf, folds = folds, invert = FALSE)
+
+      initial_estimators_hal <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_hal, lrnr_pi = lrnr_pi_hal, folds = folds, invert = FALSE)
+
+      initial_estimators_misp <- compute_initial(W,A,Y, lrnr_mu =  Lrnr_cv$new(Lrnr_glmnet$new()), lrnr_pi =  Lrnr_cv$new(Lrnr_glmnet$new()), folds = folds)
 
       out_list <- list()
 
@@ -80,20 +101,21 @@ do_sims <- function(n, pos_const, nsims) {
       # sqrt(mean((1/calibrated_estimators$pi1[A==1] - 1/data_list$pi[A==1])^2))
       # sqrt(mean((1/calibrated_estimators$pi0[A==0] - 1/(1-data_list$pi[A==0]))^2))
 
-
-      for(lrnr in c("earth", "gam_1",   "xgboost")) {
+      for(lrnr in c("earth", "glmnet_1",   "xgboost", "rf", "hal")) {
+        #for(lrnr in c( "xgboost",  "hal")) {
         print(lrnr)
         if(lrnr=="earth") {
           initial_estimators <- initial_estimators_earth
-        } else if(lrnr=="gam_1") {
-          initial_estimators <- initial_estimators_gam_quad
-        } else if(lrnr=="gam_2") {
-          initial_estimators <- initial_estimators_gam_cube
-        } else
-        {
+        } else if(lrnr=="glmnet_1") {
+          initial_estimators <- initial_estimators_glmnet_quad
+        } else if(lrnr=="rf") {
+          initial_estimators <- initial_estimators_rf
+        } else if(lrnr=="xgboost") {
           initial_estimators <- initial_estimators_xg
+        } else if(lrnr == "hal") {
+          initial_estimators <- initial_estimators_hal
         }
-        for(misp in c("1", "2", "3", "4")) {
+        for(misp in c("1", "2", "3" )) {
           mu1 <- initial_estimators$mu1
           mu0 <- initial_estimators$mu0
           pi1 <- initial_estimators$pi1
@@ -113,7 +135,7 @@ do_sims <- function(n, pos_const, nsims) {
 
 
           out_AIPW <- compute_AIPW(A,Y, mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0)
-          out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 5000, folds = folds, alpha = 0.05)
+          out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 500, folds = folds, alpha = 0.05)
           #out <- matrix(unlist(c(misp, out_AuDRIE, out_AIPW)), nrow=1)
           out <- as.data.table(rbind(unlist(out_AuDRIE), unlist(out_AIPW)))
           colnames(out) <- c("estimate", "CI_left", "CI_right")
@@ -134,45 +156,30 @@ do_sims <- function(n, pos_const, nsims) {
   })
   sim_results <- data.table::rbindlist(sim_results)
   key <- paste0("DR_iter=", nsims, "_n=", n, "_pos=", pos_const )
-  try({fwrite(sim_results, paste0("~/causalHAL/simResultsDR/sim_results_", key, ".csv"))})
+  try({fwrite(sim_results, paste0("~/DRinference/simResultsDR/sim_results_", key, ".csv"))})
   return(sim_results)
 }
 
 
 get_data <- function(n, pos_const) {
-  s <- sqrt(n)
-  d <- 5*s
-  W <- replicate(d, runif(n, -1, 1))
+  d <- 2
+  W1 <- 2*runif(n, -1, 1)
+  W2 <- rbinom(n, 1, 0.5)
+  W <- cbind(W1,W2)
   colnames(W) <- paste0("W", 1:d)
-
-  beta1 <- rnorm(d) * rbinom(d, 1, s/d)
-  beta1 <- 3* beta1 / sum(abs(beta1))
-  pi0 <- plogis(W %*% beta1)
+  pi0 <- rbinom(n, 1, plogis(-W1 + 2*W1*W2))
   A <- rbinom(n, 1, pi0)
-  beta2 <- rnorm(d) * sign(beta1)
-  beta2 <-  2* beta2 / sum(abs(beta2)) + beta1/3
-  mu0 <-  plogis(  -0.5 + W %*% beta2)
-  cor(mu0, pi0)
-  beta3 <- rnorm(d) * rbinom(d, 1, s/d)
-  beta3 <-  beta3 / sum(abs(beta3)) + beta1
-  mu1 <- plogis(0.2 + W %*% beta3)
+  mu0 <-  plogis( - W1 + 2*W1*W2)
+  mu1 <-  plogis(0.5*(1+ W2) - W1 + 2*W1*W2)
   mu <- ifelse(A==1, mu1, mu0)
   Y <- rbinom(n, 1, mu)
-  print(mean(mu1 - mu0))
-  mean(Y[A==1]) - mean(Y[A==0])
-
-  out <- list(W=W, A = A, Y = Y,   pi = pi0, mu0 = mu0, mu1 = mu1)
-
-  W <- replicate(d, runif(1000000, -1, 1))
-  pi0 <- plogis(pos_const * link)
-  A <- rbinom(n, 1, pi0)
-  mu0 <-  plogis(link - 0.75)
-  mu1 <- plogis(link + 0.75 + (cos(4*W[,1]) + W[,2]*sin(W[,2]) + sqrt(abs(W[,3])))/2)
-  mu <- ifelse(A==1, mu1, mu0)
-  Y <- rbinom(n, 1, mu)
+  mean(mu1 - mu0)
+  mean(Y[A==1]) -  mean(Y[A==0])
+  #(sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]) - 0.5)
   ATE <- mean(mu1 - mu0)
-  #mean(Y[A==1]) - mean(Y[A==0])
-  out$ATE <- ATE
+  out <- list(W=W, A = A, Y = Y,   pi = pi0, mu0 = mu0, mu1 = mu1, ATE = ATE)
+
+
 
 
 
@@ -190,19 +197,19 @@ get_data <- function(n, pos_const) {
 #   beta_1 <- beta_1 / sum(abs(beta_1))
 #   beta_2 <- (rnorm(d, 0, 1))
 #   beta_2 <- beta_2 / sum(abs(beta_2))
-#   pi0 <- plogis(pos_const * (W%*%beta_1 + sin(4*W)%*%beta_2) )
+#   pi0 <- plogis(pos_const * (W%*%beta_1 + sin(3.14*W)%*%beta_2) )
 #   A <- rbinom(n, 1, pi0)
 #   beta_3 <- abs(rnorm(d, 0, 1)) * sign(beta_1)
 #   beta_3 <- beta_3 / sum(abs(beta_3))
 #   mu0 <-  plogis(qlogis(pi0) - 0.5)
-#   mu1 <- plogis(qlogis(mu0) + (1 + 2*cos(4*W)%*%beta_3))
+#   mu1 <- plogis(qlogis(mu0) + (1 + 2*cos(3.14*W)%*%beta_3))
 #   mu <- ifelse(A==1, mu1, mu0)
 #   Y <- rbinom(n, 1, mu)
 #
 #   Wbig <- replicate(d, runif(1000000, -1, 1))
-#   pi0big <- plogis(pos_const * (Wbig%*%beta_1 + sin(4*Wbig)%*%beta_2) )
+#   pi0big <- plogis(pos_const * (Wbig%*%beta_1 + sin(3.14*Wbig)%*%beta_2) )
 #   mu0big <-  plogis(qlogis(pi0big) - 0.5)
-#   mu1big <- plogis(qlogis(mu0big) + (1 + 2*cos(4*Wbig)%*%beta_3))
+#   mu1big <- plogis(qlogis(mu0big) + (1 + 2*cos(3.14*Wbig)%*%beta_3))
 #   ATE <- mean(mu1big - mu0big)
 #   print(ATE)
 #
@@ -212,7 +219,7 @@ get_data <- function(n, pos_const) {
 
 
 
-compute_AuDRIE_boot <-  function(A,Y, mu1, mu0, pi1, pi0, nboot = 5000, folds, alpha = 0.05) {
+compute_AuDRIE_boot <-  function(A,Y, mu1, mu0, pi1, pi0, nboot = 1000, folds, alpha = 0.05) {
   data <- data.table(A, Y, mu1, mu0, pi1, pi0)
   folds <- lapply(folds, `[[`, "validation_set")
   tau_n <- compute_AuDRIE(A,Y, mu1, mu0, pi1, pi0)
@@ -252,12 +259,9 @@ compute_AuDRIE <- function(A,Y, mu1, mu0, pi1, pi0) {
 }
 
 compute_AIPW <- function(A,Y, mu1, mu0, pi1, pi0) {
+  n <- length(A)
   pi1 <- pmax(pi1,  25/(sqrt(n)*log(n)))
   pi0 <- pmax(pi0,  25/(sqrt(n)*log(n)))
-
-  #pi1 <- truncate_pscore_adaptive(A, pi1)
-  #pi0 <- truncate_pscore_adaptive(1-A, pi0)
-  n <- length(A)
   mu <- ifelse(A==1, mu1, mu0)
   alpha_n <- ifelse(A==1, 1/pi1, - 1/pi0)
   tau_n <-  mean(mu1 - mu0 + alpha_n * (Y - mu))
@@ -266,63 +270,77 @@ compute_AIPW <- function(A,Y, mu1, mu0, pi1, pi0) {
 }
 
 
-
+isoreg_with_xgboost <- function(x,y,max_depth = 15, min_child_weight = 20) {
+  data <- xgboost::xgb.DMatrix(data = as.matrix(x), label = as.vector(y))
+  iso_fit <- xgboost::xgb.train(params = list(max_depth = max_depth,
+                                              min_child_weight = min_child_weight,
+                                              monotone_constraints = 1,
+                                              eta = 1, gamma = 0,
+                                              lambda = 0),
+                                data = data, nrounds = 1)
+  fun <- function(x) {
+    data_pred <- xgboost::xgb.DMatrix(data = as.matrix(x))
+    pred <- predict(iso_fit, data_pred)
+    return(pred)
+  }
+  return(fun)
+}
 
 calibrate_nuisances <- function(A, Y,mu1, mu0, pi1, pi0) {
-  calibrator_mu1 <- as.stepfun(isoreg(mu1[A==1], Y[A==1]))
+
+  calibrator_mu1 <- isoreg_with_xgboost(mu1[A==1], Y[A==1])
   mu1_star <- calibrator_mu1(mu1)
-  calibrator_mu0 <- as.stepfun(isoreg(mu0[A==0], Y[A==0]))
+  calibrator_mu0 <- isoreg_with_xgboost(mu0[A==0], Y[A==0])
   mu0_star <- calibrator_mu0(mu0)
 
 
-  calibrator_pi1 <- as.stepfun(isoreg(pi1, A))
+  calibrator_pi1 <- isoreg_with_xgboost(pi1, A)
   pi1_star <- calibrator_pi1(pi1)
-  calibrator_pi0 <- as.stepfun(isoreg(pi0, 1-A))
+  calibrator_pi0 <- isoreg_with_xgboost(pi0, 1-A)
   pi0_star <- calibrator_pi0(pi0)
   return(list(mu1_star= mu1_star, mu0_star=mu0_star, pi1_star = pi1_star, pi0_star = pi0_star))
 }
+
+# calibrate_nuisances <- function(A, Y,mu1, mu0, pi1, pi0) {
+#   calibrator_mu1 <- as.stepfun(isoreg(mu1[A==1], Y[A==1]))
+#   mu1_star <- calibrator_mu1(mu1)
+#   calibrator_mu0 <- as.stepfun(isoreg(mu0[A==0], Y[A==0]))
+#   mu0_star <- calibrator_mu0(mu0)
+#
+#
+#   calibrator_pi1 <- as.stepfun(isoreg(pi1, A))
+#   pi1_star <- calibrator_pi1(pi1)
+#   calibrator_pi0 <- as.stepfun(isoreg(pi0, 1-A))
+#   pi0_star <- calibrator_pi0(pi0)
+#   return(list(mu1_star= mu1_star, mu0_star=mu0_star, pi1_star = pi1_star, pi0_star = pi0_star))
+# }
 
 
 
 
 compute_initial <- function(W,A,Y, lrnr_mu, lrnr_pi, folds,   invert = FALSE) {
   data <- data.table(W,A,Y)
-
-  taskY <- sl3_Task$new(data, covariates = colnames(W), outcome  = "Y", outcome_type = "binomial", folds = folds)
-
-  folds <- taskY$folds
-  taskA <- sl3_Task$new(data, covariates = colnames(W), outcome  = "A", folds = folds, outcome_type = "binomial")
-  print("mu")
-  fit1 <- lrnr_mu$train(taskY[A==1])
-  mu1 <-  fit1$predict(taskY)
-  fit0 <- lrnr_mu$train(taskY[A==0])
-  mu0 <- fit0$predict(taskY)
+  print(lrnr_mu)
+  taskY0 <- sl3_Task$new(data, covariates = colnames(W), outcome  = "Y", outcome_type = "binomial", folds = folds)
+  folds <- taskY0$folds
+  fit0 <- lrnr_mu$train(taskY0[A==0])
+  mu0 <- fit0$predict(taskY0)
+  data$mu0 <- qlogis(mu0)
+  taskY1 <- sl3_Task$new(data, covariates = c(colnames(W)), outcome  = "Y", outcome_type = "binomial", folds = folds)
+  fit1 <- lrnr_mu$train(taskY1[A==1])
+  mu1 <-  fit1$predict(taskY1)
+  print(fit0$fit_object$learner_fits$Lrnr_cv_selector_NULL$fit_object$cv_risk)
   print(fit1$fit_object$learner_fits$Lrnr_cv_selector_NULL$fit_object$cv_risk)
 
-  print(fit0$fit_object$learner_fits$Lrnr_cv_selector_NULL$fit_object$cv_risk)
 
-  print("done_mu")
-  print("pi")
+  taskA <- sl3_Task$new(data, covariates = colnames(W), outcome  = "A", folds = folds, outcome_type = "binomial")
+
   fit1 <- lrnr_pi$train(taskA)
   pi1 <- fit1$predict(taskA)
-  print(fit1$fit_object$learner_fits$Lrnr_cv_selector_NULL$fit_object$cv_risk)
-  if(invert) {
-    print("invert")
-    data0 <- data
-    data0$A <- 1-A
-    taskA0 <- sl3_Task$new(data0, covariates = colnames(W), outcome  = "A", folds = folds, outcome_type = "continuous")
-    fit0 <- lrnr_pi$train(taskA0)
-    pi0 <- fit0$predict(taskA0)
-    print(fit0$fit_object$learner_fits$Lrnr_cv_selector_NULL$fit_object$cv_risk)
+  pi0 <- 1- pi1
 
 
-    pi1 <- 1/pi1
-    pi0 <- 1/pi0
-  } else {
-    pi0 <- 1 - pi1
-  }
-
-
+  print("done")
   return(list(mu1 = mu1, mu0 = mu0, pi1 = pi1, pi0 = pi0, folds = folds))
 }
 
