@@ -1,0 +1,4 @@
+Error in eval(formal.args[[as.character(substitute(arg))]], envir = sys.frame(sysP)) : 
+  argument is missing, with no default
+Calls: do_real_data -> match.arg -> eval -> eval
+Execution halted

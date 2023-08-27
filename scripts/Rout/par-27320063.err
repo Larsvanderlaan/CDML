@@ -1,0 +1,4 @@
+Error in serverSocket(port = port) : 
+  creation of server socket failed: port 11146 cannot be opened
+Calls: source ... ClusterRegistry -> makeCluster -> makeClusterPSOCK -> serverSocket
+Execution halted

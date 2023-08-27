@@ -1,0 +1,54 @@
+LOADING R
+R LOADED
+[1] "/home/lvanderl/Rlibs2"                         
+[2] "/app/software/R/4.3.1-gfbf-2022b/lib/R/library"
+[1] "/home/lvanderl/sieveSims"
+[1] "iter: 1"
+[1] "Lrnr_cv"
+[1] "Lrnr_earth_2_3_backward_0_1_0_0_binomial_200"
+[1] "Lrnr_cv_selector_NULL"
+[1] "Lrnr_cv"
+[1] "Lrnr_earth_2_3_backward_0_1_0_0_binomial_200"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1409603 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_gam_Y~s(W1, k = 50, bs='bs',m=c(1,1)) + s(W2, k = 50, bs='bs',m=c(1,1)) + s(W3, k = 50, bs='bs',m=c(1,1))_binomial_GCV.Cp"
+[1] "Lrnr_cv_selector_NULL"
+[1] "Lrnr_cv"
+[1] "Lrnr_gam_A~s(W1, k = 50, bs='bs',m=c(1,1)) + s(W2, k = 50, bs='bs',m=c(1,1)) + s(W3, k = 50, bs='bs',m=c(1,1))_binomial_GCV.Cp"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1381765 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_xgboost_20_1_5_6_0.25" "Lrnr_xgboost_20_1_5_4_0.25"
+[3] "Lrnr_xgboost_20_1_5_5_0.25"
+[1] "Lrnr_cv_selector_NULL"
+[1] "Lrnr_cv"
+[1] "Lrnr_xgboost_20_1_5_6_0.25" "Lrnr_xgboost_20_1_5_4_0.25"
+[3] "Lrnr_xgboost_20_1_5_5_0.25"
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_xgboost_20_1_5_6_0.25 Lrnr_xgboost_20_1_5_4_0.25 
+                 0.1437403                  0.1415167 
+Lrnr_xgboost_20_1_5_5_0.25 
+                 0.1432700 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_ranger_500_TRUE_none_1_10_10"
+[1] "Lrnr_cv_selector_NULL"
+[1] "Lrnr_cv"
+[1] "Lrnr_ranger_500_TRUE_none_1_10_10"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1438291 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_mean"
+[1] "Lrnr_cv"
+[1] "Lrnr_mean"
+NULL
+[1] "done"
+[1] "earth"
+[1] "gam_1"

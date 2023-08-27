@@ -1,0 +1,5 @@
+Warning message:
+NAs introduced by coercion 
+Error in do_real_data(data_name = ) : object 'i' not found
+Calls: do_real_data -> fread -> paste0
+Execution halted
