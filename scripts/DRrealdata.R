@@ -6,6 +6,7 @@ plan(multisession, workers = 3)
 
 
 do_real_data <- function(data_name = c("lalonde_cps", "lalonde_psid", "twins")) {
+  print(data_name)
   data_name <- match.arg(data_name)
 
   link <- "https://raw.githubusercontent.com/bradyneal/realcause/master/realcause_datasets/"

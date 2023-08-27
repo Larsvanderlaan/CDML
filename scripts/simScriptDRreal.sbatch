@@ -8,4 +8,4 @@
 echo "LOADING R"
 module load R
 echo "R LOADED"
-Rscript -e 'source("~/DRinference/scripts/R_setup.R"); source("~/DRinference/scripts/DRrealdata.R"); data_name = as.numeric(Sys.getenv("data_name")); do_real_data(data_name)'
+Rscript -e 'source("~/DRinference/scripts/R_setup.R"); source("~/DRinference/scripts/DRrealdata.R"); data_name = as.numeric(Sys.getenv("data_name")); do_real_data(data_name = )'
