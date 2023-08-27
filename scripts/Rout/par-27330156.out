@@ -7,3 +7,67 @@ R LOADED
 [1] "Lrnr_cv"
 [1] "Lrnr_earth_2_3_cv_5_1_0_0_binomial_100"
 [1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1941874 
+predictions 
+  0.1539171 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_gam_Y~s(W1, k = 40, bs='bs',m=c(1,1)) + s(W2, k = 40, bs='bs',m=c(1,1)) + s(W3, k = 40, bs='bs',m=c(1,1))_binomial_GCV.Cp"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1947708 
+predictions 
+  0.1520592 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_xgboost_10_1_15_5_0.2" "Lrnr_xgboost_10_1_15_2_0.2"
+[3] "Lrnr_xgboost_10_1_15_3_0.2" "Lrnr_xgboost_10_1_15_4_0.2"
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_xgboost_10_1_15_5_0.2 Lrnr_xgboost_10_1_15_2_0.2 
+                 0.1988656                  0.2023584 
+Lrnr_xgboost_10_1_15_3_0.2 Lrnr_xgboost_10_1_15_4_0.2 
+                 0.1992727                  0.1984627 
+Lrnr_xgboost_10_1_15_5_0.2 Lrnr_xgboost_10_1_15_2_0.2 
+                 0.1589391                  0.1634301 
+Lrnr_xgboost_10_1_15_3_0.2 Lrnr_xgboost_10_1_15_4_0.2 
+                 0.1592623                  0.1585372 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_ranger_500_TRUE_none_1_10_5"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.2030478 
+predictions 
+  0.1603435 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_mean"
+NULL
+NULL
+[1] "done"
+[1] "earth"
+[1] "gam_1"
+[1] "xgboost"
+[1] "rf"
+[1] "iter: 2"
+[1] "Lrnr_cv"
+[1] "Lrnr_earth_2_3_cv_5_1_0_0_binomial_100"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.2000942 
+predictions 
+  0.1526342 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_gam_Y~s(W1, k = 40, bs='bs',m=c(1,1)) + s(W2, k = 40, bs='bs',m=c(1,1)) + s(W3, k = 40, bs='bs',m=c(1,1))_binomial_GCV.Cp"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1968763 
+predictions 
+  0.1481897 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_xgboost_10_1_15_5_0.2" "Lrnr_xgboost_10_1_15_2_0.2"
+[3] "Lrnr_xgboost_10_1_15_3_0.2" "Lrnr_xgboost_10_1_15_4_0.2"
+[1] "Lrnr_cv_selector_NULL"
