@@ -24,10 +24,10 @@ do_real_data <- function(data_name) {
 
   stack_xg <- Stack$new(
     list(
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 5, nrounds = 20, eta = 0.25 )
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 2, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 3, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 4, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 5, nrounds = 20, eta = 0.2 )
 
     )
   )
@@ -94,7 +94,7 @@ do_real_data <- function(data_name) {
 
 
           out_AIPW <- compute_AIPW(A,Y, mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0)
-          out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 500, folds = folds, alpha = 0.05)
+          out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 1000, folds = folds, alpha = 0.05)
           #out <- matrix(unlist(c(misp, out_AuDRIE, out_AIPW)), nrow=1)
           out <- as.data.table(rbind(unlist(out_AuDRIE), unlist(out_AIPW)))
           colnames(out) <- c("estimate", "CI_left", "CI_right")
@@ -113,7 +113,7 @@ do_real_data <- function(data_name) {
     return(data.table())
   })
   sim_results <- data.table::rbindlist(sim_results)
-  key <- paste0(data_name )
+  key <- data_name
   try({fwrite(sim_results, paste0("~/DRinference/simResultsDR/sim_results_", key, ".csv"))})
   return(sim_results)
 }
@@ -144,7 +144,7 @@ compute_AuDRIE_boot <-  function(A,Y, mu1, mu0, pi1, pi0, nboot = 5000, folds, a
   return(list(estimate = tau_n, CI = CI))
 }
 
-isoreg_with_xgboost <- function(x,y,max_depth = 15, min_child_weight = 20) {
+isoreg_with_xgboost <- function(x,y,max_depth = 15, min_child_weight = 10) {
 
 
   data <- xgboost::xgb.DMatrix(data = as.matrix(x), label = as.vector(y))
@@ -195,10 +195,11 @@ compute_AIPW <- function(A,Y, mu1, mu0, pi1, pi0) {
 
 
 calibrate_nuisances <- function(A, Y,mu1, mu0, pi1, pi0) {
-  calibrator_mu1 <- isoreg_with_xgboost(mu1[A==1], Y[A==1])
-  mu1_star <- calibrator_mu1(mu1)
-  calibrator_mu0 <- isoreg_with_xgboost(mu0[A==0], Y[A==0])
-  mu0_star <- calibrator_mu0(mu0)
+  mu <- ifelse(A==1, mu1 , mu0)
+  calibrator_mu <- isoreg_with_xgboost(mu, Y)
+  mu1_star <- calibrator_mu(mu1)
+  #calibrator_mu0 <- isoreg_with_xgboost(mu0[A==0], Y[A==0])
+  mu0_star <- calibrator_mu(mu0)
 
 
   calibrator_pi1 <- isoreg_with_xgboost(pi1, A)
