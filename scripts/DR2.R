@@ -4,7 +4,7 @@ library(xgboost)
 library(future)
 plan(multisession, workers = 3)
 d <- 3
-
+set.seed(123456)
 
 do_sims <- function(n, pos_const, nsims) {
   loss_inv <- function (pred, observed) {
@@ -52,7 +52,7 @@ do_sims <- function(n, pos_const, nsims) {
   lrnr_mu_rf <-  Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
   lrnr_pi_rf <- Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
 
-
+  set.seed(123456)
   sim_results <- lapply(1:nsims, function(i){
     try({
       print(paste0("iter: ", i))

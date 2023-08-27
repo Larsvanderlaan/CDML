@@ -3,7 +3,7 @@ library(sl3)
 library(xgboost)
 library(future)
 plan(multisession, workers = 3)
-
+set.seed(123456)
 
 # = c("lalonde_cps", "lalonde_psid", "twins")
 do_real_data <- function(data_name) {
