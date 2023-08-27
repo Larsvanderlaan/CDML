@@ -27,7 +27,11 @@ do_real_data <- function(data_name) {
       Lrnr_xgboost$new(min_child_weight = 15, max_depth = 2, nrounds = 20, eta = 0.2 ),
       Lrnr_xgboost$new(min_child_weight = 15, max_depth = 3, nrounds = 20, eta = 0.2 ),
       Lrnr_xgboost$new(min_child_weight = 15, max_depth = 4, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 5, nrounds = 20, eta = 0.2 )
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 5, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 2, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 3, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 4, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 5, nrounds = 10, eta = 0.2 )
 
     )
   )

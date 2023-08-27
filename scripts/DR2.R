@@ -35,7 +35,7 @@ do_sims <- function(n, pos_const, nsims) {
   stack_hal <-  Lrnr_hal9001$new(smoothness_orders = 0, num_knots = 50, max_degree = 1)
 
 
-  stack_rf <-  Lrnr_ranger$new(max.depth = 8, min.node.size = 5)
+  stack_rf <-  Lrnr_ranger$new(max.depth = 8, min.node.size = 10)
 
   stack_xg_pi <- Stack$new(
     list(
