@@ -93,7 +93,7 @@ do_real_data <- function(data_name) {
         } else if(lrnr=="rf") {
           initial_estimators <- initial_estimators_rf
         } else if(lrnr == "all") {
-          iinitial_estimators <- nitial_estimators_all
+          iinitial_estimators <- initial_estimators_all
         } else
         {
           initial_estimators <- initial_estimators_xg
