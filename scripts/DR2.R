@@ -24,8 +24,8 @@ do_sims <- function(n, pos_const, nsims) {
   formula_A_quad <- paste0("A~", paste0("s(", cols, ", k = 50, bs='bs',m=c(1,1))", collapse = " + "))
   formula_Y_quad <- paste0("Y~", paste0("s(", cols, ", k = 50, bs='bs',m=c(1,1))", collapse = " + "))
 
-  stack_earth_Y <-  Lrnr_earth$new(family = "binomial",   degree=2,     nk = 200)
-  stack_earth_A <-  Lrnr_earth$new(family = "binomial",  degree=2,   nk = 200)
+  stack_earth_Y <-  Lrnr_earth$new(family = "gaussian",   degree=2,     nk = 200)
+  stack_earth_A <-  Lrnr_earth$new(family = "gaussian",  degree=2,   nk = 200)
 
   stack_gam_Y_quad <-  Lrnr_gam$new(family = "binomial",
                                     formula = formula_Y_quad)
@@ -34,7 +34,7 @@ do_sims <- function(n, pos_const, nsims) {
 
   stack_rf <-  Lrnr_ranger$new(max.depth = 10, min.node.size = 10)
 
-  stack_xg <- Stack$new(
+  stack_xg_pi <- Stack$new(
     list(
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 20, eta = 0.25 ),
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.25 ),
@@ -43,13 +43,22 @@ do_sims <- function(n, pos_const, nsims) {
     )
   )
 
+  stack_xg_mu <- Stack$new(
+    list(
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 1, nrounds = 30, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 30, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 30, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 30, eta = 0.15 )
+    )
+  )
+
 
   lrnr_mu_earth <-  Pipeline$new(Lrnr_cv$new(stack_earth_Y), Lrnr_cv_selector$new(loss_squared_error))
   lrnr_pi_earth <- Pipeline$new(Lrnr_cv$new(stack_earth_A), Lrnr_cv_selector$new(loss_squared_error))
   lrnr_mu_gam_quad <-  Pipeline$new(Lrnr_cv$new(stack_gam_Y_quad), Lrnr_cv_selector$new(loss_squared_error))
   lrnr_pi_gam_quad <- Pipeline$new(Lrnr_cv$new(stack_gam_A_quad), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_mu_xg <-  Pipeline$new(Lrnr_cv$new(stack_xg), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_pi_xg <- Pipeline$new(Lrnr_cv$new(stack_xg), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_mu_xg <-  Pipeline$new(Lrnr_cv$new(stack_xg_mu), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_pi_xg <- Pipeline$new(Lrnr_cv$new(stack_xg_pi), Lrnr_cv_selector$new(loss_squared_error))
   lrnr_mu_rf <-  Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
   lrnr_pi_rf <- Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
 
@@ -118,7 +127,7 @@ do_sims <- function(n, pos_const, nsims) {
 
 
           out_AIPW <- compute_AIPW(A,Y, mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0)
-          out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 2500, folds = folds, alpha = 0.05)
+          out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 500, folds = folds, alpha = 0.05)
           #out <- matrix(unlist(c(misp, out_AuDRIE, out_AIPW)), nrow=1)
           out <- as.data.table(rbind(unlist(out_AuDRIE), unlist(out_AIPW)))
           colnames(out) <- c("estimate", "CI_left", "CI_right")
@@ -150,43 +159,43 @@ get_data <- function(n, pos_const) {
   colnames(W) <- paste0("W", 1:d)
 
 
-  link <- (sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]) - 0.5)
+  link <- (sign(W[,1]) * sqrt(abs(W[,1])) + sin(3*W[,2]) + W[,3]*sin(W[,3]) - 0.5)
   pi0 <- plogis(pos_const * link)
   A <- rbinom(n, 1, pi0)
   mu <- plogis(-1 +
-                 (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sign(W[,3]) * sqrt(abs(W[,3]))) +
-                 A * (1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]))
+                 (cos(3*W[,1]) + W[,2]*sin(W[,2]) + W[,3]) +
+                 A * 0.8*(1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3*W[,2]) + W[,3]*sin(W[,3]))
   )
   mu0 <- plogis( -1 +
-                   (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sign(W[,3]) * sqrt(abs(W[,3]))) +
-                   0 * (1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]))
+                   (cos(3*W[,1]) + W[,2]*sin(W[,2]) + W[,3]) +
+                   0 * 0.8*(1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3*W[,2]) + W[,3]*sin(W[,3]))
   )
   mu1 <- plogis(-1 +
-                  (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sign(W[,3]) * sqrt(abs(W[,3]))) +
-                  1* (1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]))
+                  (cos(3*W[,1]) + W[,2]*sin(W[,2]) + W[,3]) +
+                  1* 0.8*(1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3*W[,2]) + W[,3]*sin(W[,3]))
   )
   #mu0 <-  plogis(-link - 0.75)
-  #mu1 <- plogis(link + 0.75 + (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sqrt(abs(W[,3])))/2)
+  #mu1 <- plogis(link + 0.75 + (cos(3*W[,1]) + W[,2]*sin(W[,2]) + sqrt(abs(W[,3])))/2)
   Y <- rbinom(n, 1, mu)
 
 
   out <- list(W=W, A = A, Y = Y,   pi = pi0, mu0 = mu0, mu1 = mu1)
 
   W <- replicate(d, runif(1000000, -1, 1))
-  link <- 0.75*(sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]) - 0.5)
+  link <- (sign(W[,1]) * sqrt(abs(W[,1])) + sin(3*W[,2]) + W[,3]*sin(W[,3]) - 0.5)
   pi0 <- plogis(pos_const * link)
-  A <- rbinom(1000000, 1, pi0)
+  A <- rbinom(n, 1, pi0)
   mu <- plogis(-1 +
-                 (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sign(W[,3]) * sqrt(abs(W[,3]))) +
-                 A * (1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]))
+                 (cos(3*W[,1]) + W[,2]*sin(W[,2]) + W[,3]) +
+                 A * 0.8*(1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3*W[,2]) + W[,3]*sin(W[,3]))
   )
   mu0 <- plogis( -1 +
-                   (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sign(W[,3]) * sqrt(abs(W[,3]))) +
-                   0 * (1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]))
+                   (cos(3*W[,1]) + W[,2]*sin(W[,2]) + W[,3]) +
+                   0 * 0.8*(1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3*W[,2]) + W[,3]*sin(W[,3]))
   )
   mu1 <- plogis(-1 +
-                  (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sign(W[,3]) * sqrt(abs(W[,3]))) +
-                  1* (1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]))
+                  (cos(3*W[,1]) + W[,2]*sin(W[,2]) + W[,3]) +
+                  1* 0.8*(1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3*W[,2]) + W[,3]*sin(W[,3]))
   )
   Y <- rbinom(1000000, 1, A*mu1 + (1-A)*mu0)
   ATE <- mean(mu1 - mu0)
@@ -210,19 +219,19 @@ get_data <- function(n, pos_const) {
 #   beta_1 <- beta_1 / sum(abs(beta_1))
 #   beta_2 <- (rnorm(d, 0, 1))
 #   beta_2 <- beta_2 / sum(abs(beta_2))
-#   pi0 <- plogis(pos_const * (W%*%beta_1 + sin(3.14*W)%*%beta_2) )
+#   pi0 <- plogis(pos_const * (W%*%beta_1 + sin(3*W)%*%beta_2) )
 #   A <- rbinom(n, 1, pi0)
 #   beta_3 <- abs(rnorm(d, 0, 1)) * sign(beta_1)
 #   beta_3 <- beta_3 / sum(abs(beta_3))
 #   mu0 <-  plogis(qlogis(pi0) - 0.5)
-#   mu1 <- plogis(qlogis(mu0) + (1 + 2*cos(3.14*W)%*%beta_3))
+#   mu1 <- plogis(qlogis(mu0) + (1 + 2*cos(3*W)%*%beta_3))
 #   mu <- ifelse(A==1, mu1, mu0)
 #   Y <- rbinom(n, 1, mu)
 #
 #   Wbig <- replicate(d, runif(1000000, -1, 1))
-#   pi0big <- plogis(pos_const * (Wbig%*%beta_1 + sin(3.14*Wbig)%*%beta_2) )
+#   pi0big <- plogis(pos_const * (Wbig%*%beta_1 + sin(3*Wbig)%*%beta_2) )
 #   mu0big <-  plogis(qlogis(pi0big) - 0.5)
-#   mu1big <- plogis(qlogis(mu0big) + (1 + 2*cos(3.14*Wbig)%*%beta_3))
+#   mu1big <- plogis(qlogis(mu0big) + (1 + 2*cos(3*Wbig)%*%beta_3))
 #   ATE <- mean(mu1big - mu0big)
 #   print(ATE)
 #
