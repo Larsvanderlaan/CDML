@@ -21,11 +21,11 @@ do_sims <- function(n, pos_const, nsims) {
   cols <- paste0("W", 1:d)
   #formula_A <- paste0("A~", paste0("s(", cols, ", k = 20, bs='bs',m=c(1,0))", collapse = " + "))
   #formula_Y <- paste0("Y~", paste0("s(", cols, ", k = 20, bs='bs',m=c(1,0))", collapse = " + "))
-  formula_A_quad <- paste0("A~", paste0("s(", cols, ", k = 30, bs='bs',m=c(1,1))", collapse = " + "))
-  formula_Y_quad <- paste0("Y~", paste0("s(", cols, ", k = 30, bs='bs',m=c(1,1))", collapse = " + "))
+  formula_A_quad <- paste0("A~", paste0("s(", cols, ", k = 40, bs='bs',m=c(1,1))", collapse = " + "))
+  formula_Y_quad <- paste0("Y~", paste0("s(", cols, ", k = 40, bs='bs',m=c(1,1))", collapse = " + "))
 
-  stack_earth_Y <-  Lrnr_earth$new(family = "binomial",   degree=1,     nk = 100, pmethod = "cv", nfold = 5)
-  stack_earth_A <-  Lrnr_earth$new(family = "binomial",  degree=1,   nk = 100, pmethod = "cv", nfold = 5)
+  stack_earth_Y <-  Lrnr_earth$new(family = "binomial",   degree=2,     nk = 100, pmethod = "cv", nfold = 5)
+  stack_earth_A <-  Lrnr_earth$new(family = "binomial",  degree=2,   nk = 100, pmethod = "cv", nfold = 5)
 
   stack_gam_Y_quad <-  Lrnr_gam$new(family = "binomial",
                                     formula = formula_Y_quad)
@@ -35,14 +35,14 @@ do_sims <- function(n, pos_const, nsims) {
   stack_hal <-  Lrnr_hal9001$new(smoothness_orders = 0, num_knots = 50, max_degree = 1)
 
 
-  stack_rf <-  Lrnr_ranger$new(max.depth = 8, min.node.size = 10)
+  stack_rf <-  Lrnr_ranger$new(max.depth = 10, min.node.size = 5)
 
   stack_xg_pi <- Stack$new(
     list(
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 5, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 2, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 3, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 4, nrounds = 10, eta = 0.2 )
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 5, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 2, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 3, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 4, nrounds = 10, eta = 0.2 )
     )
   )
 
