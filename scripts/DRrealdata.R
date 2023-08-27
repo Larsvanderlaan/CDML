@@ -1,0 +1,270 @@
+library(data.table)
+library(sl3)
+library(xgboost)
+library(future)
+plan(multisession, workers = 3)
+
+
+do_real_data <- function(data_name = c("lalonde_cps", "lalonde_psid", "twins")) {
+  data_name <- match.arg(data_name)
+
+  link <- "https://raw.githubusercontent.com/bradyneal/realcause/master/realcause_datasets/"
+  data <- fread(paste0(link, data_name, "_sample", i, ".csv"))
+  d <- ncol(data) - 4
+
+
+
+  stack_gam <- Stack$new(Lrnr_earth$new(degree=2,   nk = 100),
+                         Lrnr_gam$new(),
+                         Lrnr_glmnet$new()
+  )
+
+  stack_rf <- Lrnr_ranger$new(max.depth = 10)
+
+  stack_xg <- Stack$new(
+    list(
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 5, nrounds = 20, eta = 0.25 )
+
+    )
+  )
+
+
+  lrnr_mu_gam <-  Pipeline$new(Lrnr_cv$new(stack_gam), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_pi_gam <- Pipeline$new(Lrnr_cv$new(stack_gam), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_mu_xg <-  Pipeline$new(Lrnr_cv$new(stack_xg), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_pi_xg <- Pipeline$new(Lrnr_cv$new(stack_xg), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_mu_rf <-  Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_pi_rf <- Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
+
+
+  sim_results <- lapply(0:99, function(i){
+    try({
+      print(paste0("iter: ", i))
+      link <- "https://raw.githubusercontent.com/bradyneal/realcause/master/realcause_datasets/"
+      data <- fread(paste0(link, data_name, "_sample", i, ".csv"))
+
+      covariates <- setdiff(names(data), c( "t", "y", "y0", "y1", "ite"))
+      W <- as.matrix(data[, covariates, with = FALSE])
+      A <- data[, "t", with = FALSE][[1]]
+      Y <- data[, "y", with = FALSE][[1]]
+      ATE <- mean(data$ite)
+      n <- length(A)
+
+      initial_estimators_gam <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_gam, lrnr_pi = lrnr_pi_gam, folds = 5, invert = FALSE)
+      folds <- initial_estimators_gam$folds
+      initial_estimators_xg <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_xg, lrnr_pi = lrnr_pi_xg, folds = folds, invert = FALSE)
+      initial_estimators_rf <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_rf, lrnr_pi = lrnr_pi_rf, folds = folds, invert = FALSE)
+
+      initial_estimators_misp <- compute_initial(W,A,Y, lrnr_mu =  Lrnr_cv$new(Lrnr_mean$new()), lrnr_pi =  Lrnr_cv$new(Lrnr_mean$new()), folds = folds)
+
+      out_list <- list()
+
+
+      for(lrnr in c("gam_1",   "xgboost", "rf")) {
+        print(lrnr)
+        if(lrnr=="gam_1") {
+          initial_estimators <- initial_estimators_gam
+        } else if(lrnr=="rf") {
+          initial_estimators <- initial_estimators_rf
+        } else
+        {
+          initial_estimators <- initial_estimators_xg
+        }
+        for(misp in c("1", "2", "3", "4")) {
+          mu1 <- initial_estimators$mu1
+          mu0 <- initial_estimators$mu0
+          pi1 <- initial_estimators$pi1
+          pi0 <- initial_estimators$pi0
+          if(misp == "2") {
+            mu1 <- initial_estimators_misp$mu1
+            mu0 <- initial_estimators_misp$mu0
+          } else if(misp == "3" ) {
+            pi1 <- initial_estimators_misp$pi1
+            pi0 <- initial_estimators_misp$pi0
+          } else if(misp == "4") {
+            mu1 <- initial_estimators_misp$mu1
+            mu0 <- initial_estimators_misp$mu0
+            pi1 <- initial_estimators_misp$pi1
+            pi0 <- initial_estimators_misp$pi0
+          }
+
+
+          out_AIPW <- compute_AIPW(A,Y, mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0)
+          out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 500, folds = folds, alpha = 0.05)
+          #out <- matrix(unlist(c(misp, out_AuDRIE, out_AIPW)), nrow=1)
+          out <- as.data.table(rbind(unlist(out_AuDRIE), unlist(out_AIPW)))
+          colnames(out) <- c("estimate", "CI_left", "CI_right")
+          out$misp <- misp
+          out$estimator <- c("auDRI", "AIPW")
+          out$lrnr <- lrnr
+          out_list[[paste0(misp, lrnr)]] <- out
+        }
+      }
+      out <- rbindlist(out_list)
+      out$n <- n
+      out$ATE <- ATE
+      out$iter <- i
+      return(as.data.table(out))
+    })
+    return(data.table())
+  })
+  sim_results <- data.table::rbindlist(sim_results)
+  key <- paste0(data_name )
+  try({fwrite(sim_results, paste0("~/DRinference/simResultsDR/sim_results_", key, ".csv"))})
+  return(sim_results)
+}
+
+
+
+compute_AuDRIE_boot <-  function(A,Y, mu1, mu0, pi1, pi0, nboot = 5000, folds, alpha = 0.05) {
+  data <- data.table(A, Y, mu1, mu0, pi1, pi0)
+  folds <- lapply(folds, `[[`, "validation_set")
+  tau_n <- compute_AuDRIE(A,Y, mu1, mu0, pi1, pi0)
+
+  bootstrap_estimates <- sapply(1:nboot, function(iter){
+    try({
+      bootstrap_indices <- unlist(lapply(folds, function(fold) {
+        sample(fold, length(fold), replace = TRUE)
+      }))
+      data_boot <- data[bootstrap_indices,]
+      tau_boot <- compute_AuDRIE(data_boot$A, data_boot$Y, mu1 = data_boot$mu1, mu0 = data_boot$mu0, pi1 = data_boot$pi1, pi0 =data_boot$pi0)
+      return(tau_boot)
+    })
+    return(NULL)
+  })
+
+
+
+
+  CI <- tau_n + quantile(bootstrap_estimates - median(bootstrap_estimates), c(alpha/2, 1-alpha/2), na.rm = TRUE)
+  return(list(estimate = tau_n, CI = CI))
+}
+
+isoreg_with_xgboost <- function(x,y,max_depth = 15, min_child_weight = 20) {
+
+
+  data <- xgboost::xgb.DMatrix(data = as.matrix(x), label = as.vector(y))
+  iso_fit <- xgboost::xgb.train(params = list(max_depth = max_depth,
+                                              min_child_weight = min_child_weight,
+                                   monotone_constraints = 1,
+                                   eta = 1, gamma = 0,
+                                   lambda = 0),
+                     data = data, nrounds = 1)
+
+  fun <- function(x) {
+    data_pred <- xgboost::xgb.DMatrix(data = as.matrix(x))
+    pred <- predict(iso_fit, data_pred)
+    return(pred)
+  }
+  return(fun)
+}
+
+compute_AuDRIE <- function(A,Y, mu1, mu0, pi1, pi0) {
+  calibrated_estimators  <- calibrate_nuisances(A,Y, mu1 = mu1, mu0 = mu0, pi1 = pi1, pi0 = pi0)
+  mu1_star <- calibrated_estimators$mu1_star
+  mu0_star <- calibrated_estimators$mu0_star
+  pi1_star <- calibrated_estimators$pi1_star
+  pi0_star <- calibrated_estimators$pi0_star
+
+  mu_star <- ifelse(A==1, mu1_star, mu0_star)
+  alpha_n <- ifelse(A==1, 1/pi1_star, - 1/pi0_star)
+  tau_n <-  mean(mu1_star - mu0_star + alpha_n * (Y - mu_star))
+  return(tau_n)
+}
+
+compute_AIPW <- function(A,Y, mu1, mu0, pi1, pi0) {
+  n <- length(A)
+  pi1 <- pmax(pi1,  25/(sqrt(n)*log(n)))
+  pi0 <- pmax(pi0,  25/(sqrt(n)*log(n)))
+
+  #pi1 <- truncate_pscore_adaptive(A, pi1)
+  #pi0 <- truncate_pscore_adaptive(1-A, pi0)
+
+  mu <- ifelse(A==1, mu1, mu0)
+  alpha_n <- ifelse(A==1, 1/pi1, - 1/pi0)
+  tau_n <-  mean(mu1 - mu0 + alpha_n * (Y - mu))
+  CI <- tau_n + c(-1,1) * qnorm(1-0.025) * sd(mu1 - mu0 + alpha_n * (Y - mu))/sqrt(n)
+  return(list(estimate = tau_n, CI = CI))
+}
+
+
+
+
+calibrate_nuisances <- function(A, Y,mu1, mu0, pi1, pi0) {
+  calibrator_mu1 <- isoreg_with_xgboost(mu1[A==1], Y[A==1])
+  mu1_star <- calibrator_mu1(mu1)
+  calibrator_mu0 <- isoreg_with_xgboost(mu0[A==0], Y[A==0])
+  mu0_star <- calibrator_mu0(mu0)
+
+
+  calibrator_pi1 <- isoreg_with_xgboost(pi1, A)
+  pi1_star <- calibrator_pi1(pi1)
+  calibrator_pi0 <- isoreg_with_xgboost(pi0, 1-A)
+  pi0_star <- calibrator_pi0(pi0)
+  return(list(mu1_star= mu1_star, mu0_star=mu0_star, pi1_star = pi1_star, pi0_star = pi0_star))
+}
+
+
+
+
+
+compute_initial <- function(W,A,Y, lrnr_mu, lrnr_pi, folds,   invert = FALSE) {
+  data <- data.table(W,A,Y)
+  print(lrnr_mu)
+  taskY0 <- sl3_Task$new(data, covariates = colnames(W), outcome  = "Y"  ,folds = folds)
+  folds <- taskY0$folds
+  fit0 <- lrnr_mu$train(taskY0[A==0])
+  mu0 <- fit0$predict(taskY0)
+  data$offset <- mu0
+  taskY1 <- sl3_Task$new(data, covariates = c(colnames(W), "offset"), outcome  = "Y"  ,folds = folds)
+  fit1 <- lrnr_mu$train(taskY1[A==1])
+  mu1 <-  fit1$predict(taskY1)
+
+
+  print(lrnr_pi)
+  taskA <- sl3_Task$new(data, covariates = colnames(W), outcome  = "A", folds = folds, outcome_type = "binomial")
+
+  fit1 <- lrnr_pi$train(taskA)
+  pi1 <- fit1$predict(taskA)
+  print(fit1$fit_object$learner_fits$Lrnr_cv_selector_NULL$fit_object$cv_risk)
+  if(invert) {
+
+    data0 <- data
+    data0$A <- 1-A
+    taskA0 <- sl3_Task$new(data0, covariates = colnames(W), outcome  = "A", folds = folds, outcome_type = "continuous")
+    fit0 <- lrnr_pi$train(taskA0)
+    pi0 <- fit0$predict(taskA0)
+    print(fit0$fit_object$learner_fits$Lrnr_cv_selector_NULL$fit_object$cv_risk)
+
+
+    pi1 <- 1/pi1
+    pi0 <- 1/pi0
+  } else {
+    pi0 <- 1 - pi1
+  }
+
+  print("done")
+  return(list(mu1 = mu1, mu0 = mu0, pi1 = pi1, pi0 = pi0, folds = folds))
+}
+
+truncate_pscore_adaptive <- function(A, pi, min_trunc_level = 1e-8) {
+  risk_function <- function(cutoff, level) {
+    pi <- pmax(pi, cutoff)
+    pi <- pmin(pi, 1 - cutoff)
+    alpha <- A/pi - (1-A)/(1-pi) #Riesz-representor
+    alpha1 <- 1/pi
+    alpha0 <- - 1/(1-pi)
+    mean(alpha^2 - 2*(alpha1 - alpha0))
+  }
+  cutoff <- optim(1e-5, fn = risk_function, method = "Brent", lower = min_trunc_level, upper = 0.5, level = 1)$par
+  pi <- pmin(pi, 1 - cutoff)
+  pi <- pmax(pi, cutoff)
+  pi
+}
+
+
+
+

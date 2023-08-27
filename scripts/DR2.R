@@ -1,7 +1,8 @@
 library(data.table)
 library(sl3)
-
+library(xgboost)
 library(future)
+plan(multisession, workers = 3)
 d <- 3
 
 
@@ -19,24 +20,24 @@ do_sims <- function(n, pos_const, nsims) {
   cols <- paste0("W", 1:d)
   #formula_A <- paste0("A~", paste0("s(", cols, ", k = 20, bs='bs',m=c(1,0))", collapse = " + "))
   #formula_Y <- paste0("Y~", paste0("s(", cols, ", k = 20, bs='bs',m=c(1,0))", collapse = " + "))
-  formula_A_quad <- paste0("A~", paste0("s(", cols, ", k = 30, bs='bs',m=c(1,1))", collapse = " + "))
-  formula_Y_quad <- paste0("Y~", paste0("s(", cols, ", k = 30, bs='bs',m=c(1,1))", collapse = " + "))
+  formula_A_quad <- paste0("A~", paste0("s(", cols, ", k = 40, bs='bs',m=c(1,1))", collapse = " + "))
+  formula_Y_quad <- paste0("Y~", paste0("s(", cols, ", k = 40, bs='bs',m=c(1,1))", collapse = " + "))
 
-  stack_earth_Y <-  Lrnr_earth$new(family = "binomial",   degree=1, pmethod = "cv", nfold = 5,    nk = 100)
-  stack_earth_A <-  Lrnr_earth$new(family = "binomial",  degree=1, pmethod = "cv", nfold = 5,   nk = 100)
+  stack_earth_Y <-  Lrnr_earth$new(family = "binomial",   degree=2,     nk = 100)
+  stack_earth_A <-  Lrnr_earth$new(family = "binomial",  degree=2,   nk = 100)
 
   stack_gam_Y_quad <-  Lrnr_gam$new(family = "binomial",
                                     formula = formula_Y_quad)
   stack_gam_A_quad <-  Lrnr_gam$new(family = "binomial",
                                     formula = formula_A_quad)
 
-  stack_rf <- Lrnr_ranger$new(max.depth = 10)
+  stack_rf <-  Lrnr_ranger$new(max.depth = 10, min.node.size = 10)
+
   stack_xg <- Stack$new(
     list(
-      Lrnr_xgboost$new(min_child_weight = max(10, (n)^(1/3)), max_depth = 2, nrounds = 30, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = max(10, (n)^(1/3)), max_depth = 3, nrounds = 30, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = max(10, (n)^(1/3)), max_depth = 4, nrounds = 30, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = max(10, (n)^(1/3)), max_depth = 5, nrounds = 30, eta = 0.15 )
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 5, nrounds = 20, eta = 0.25 )
 
     )
   )
@@ -115,7 +116,7 @@ do_sims <- function(n, pos_const, nsims) {
 
 
           out_AIPW <- compute_AIPW(A,Y, mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0)
-          out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 1000, folds = folds, alpha = 0.05)
+          out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 2500, folds = folds, alpha = 0.05)
           #out <- matrix(unlist(c(misp, out_AuDRIE, out_AIPW)), nrow=1)
           out <- as.data.table(rbind(unlist(out_AuDRIE), unlist(out_AIPW)))
           colnames(out) <- c("estimate", "CI_left", "CI_right")
@@ -147,19 +148,19 @@ get_data <- function(n, pos_const) {
   colnames(W) <- paste0("W", 1:d)
 
 
-  link <- 0.75*(sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]) - 0.5)
+  link <- (sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]) - 0.5)
   pi0 <- plogis(pos_const * link)
   A <- rbinom(n, 1, pi0)
   mu <- plogis(-1 +
-                 (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sqrt(abs(W[,3]))) +
+                 (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sign(W[,3]) * sqrt(abs(W[,3]))) +
                  A * (1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]))
   )
   mu0 <- plogis( -1 +
-                   (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sqrt(abs(W[,3]))) +
+                   (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sign(W[,3]) * sqrt(abs(W[,3]))) +
                    0 * (1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]))
   )
   mu1 <- plogis(-1 +
-                  (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sqrt(abs(W[,3]))) +
+                  (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sign(W[,3]) * sqrt(abs(W[,3]))) +
                   1* (1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]))
   )
   #mu0 <-  plogis(-link - 0.75)
@@ -174,15 +175,15 @@ get_data <- function(n, pos_const) {
   pi0 <- plogis(pos_const * link)
   A <- rbinom(1000000, 1, pi0)
   mu <- plogis(-1 +
-                 (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sqrt(abs(W[,3]))) +
+                 (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sign(W[,3]) * sqrt(abs(W[,3]))) +
                  A * (1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]))
   )
   mu0 <- plogis( -1 +
-                   (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sqrt(abs(W[,3]))) +
+                   (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sign(W[,3]) * sqrt(abs(W[,3]))) +
                    0 * (1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]))
   )
   mu1 <- plogis(-1 +
-                  (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sqrt(abs(W[,3]))) +
+                  (cos(3.14*W[,1]) + W[,2]*sin(W[,2]) + sign(W[,3]) * sqrt(abs(W[,3]))) +
                   1* (1 + sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]))
   )
   Y <- rbinom(1000000, 1, A*mu1 + (1-A)*mu0)
@@ -229,7 +230,7 @@ get_data <- function(n, pos_const) {
 
 
 
-compute_AuDRIE_boot <-  function(A,Y, mu1, mu0, pi1, pi0, nboot = 5000, folds, alpha = 0.05) {
+compute_AuDRIE_boot <-  function(A,Y, mu1, mu0, pi1, pi0, nboot = 1000, folds, alpha = 0.05) {
   data <- data.table(A, Y, mu1, mu0, pi1, pi0)
   folds <- lapply(folds, `[[`, "validation_set")
   tau_n <- compute_AuDRIE(A,Y, mu1, mu0, pi1, pi0)
@@ -269,12 +270,9 @@ compute_AuDRIE <- function(A,Y, mu1, mu0, pi1, pi0) {
 }
 
 compute_AIPW <- function(A,Y, mu1, mu0, pi1, pi0) {
+  n <- length(A)
   pi1 <- pmax(pi1,  25/(sqrt(n)*log(n)))
   pi0 <- pmax(pi0,  25/(sqrt(n)*log(n)))
-
-  #pi1 <- truncate_pscore_adaptive(A, pi1)
-  #pi0 <- truncate_pscore_adaptive(1-A, pi0)
-  n <- length(A)
   mu <- ifelse(A==1, mu1, mu0)
   alpha_n <- ifelse(A==1, 1/pi1, - 1/pi0)
   tau_n <-  mean(mu1 - mu0 + alpha_n * (Y - mu))
@@ -283,21 +281,50 @@ compute_AIPW <- function(A,Y, mu1, mu0, pi1, pi0) {
 }
 
 
-
+isoreg_with_xgboost <- function(x,y,max_depth = 15, min_child_weight = 20) {
+  data <- xgboost::xgb.DMatrix(data = as.matrix(x), label = as.vector(y))
+  iso_fit <- xgboost::xgb.train(params = list(max_depth = max_depth,
+                                              min_child_weight = min_child_weight,
+                                              monotone_constraints = 1,
+                                              eta = 1, gamma = 0,
+                                              lambda = 0),
+                                data = data, nrounds = 1)
+  fun <- function(x) {
+    data_pred <- xgboost::xgb.DMatrix(data = as.matrix(x))
+    pred <- predict(iso_fit, data_pred)
+    return(pred)
+  }
+  return(fun)
+}
 
 calibrate_nuisances <- function(A, Y,mu1, mu0, pi1, pi0) {
-  calibrator_mu1 <- as.stepfun(isoreg(mu1[A==1], Y[A==1]))
+
+  calibrator_mu1 <- isoreg_with_xgboost(mu1[A==1], Y[A==1])
   mu1_star <- calibrator_mu1(mu1)
-  calibrator_mu0 <- as.stepfun(isoreg(mu0[A==0], Y[A==0]))
+  calibrator_mu0 <- isoreg_with_xgboost(mu0[A==0], Y[A==0])
   mu0_star <- calibrator_mu0(mu0)
 
 
-  calibrator_pi1 <- as.stepfun(isoreg(pi1, A))
+  calibrator_pi1 <- isoreg_with_xgboost(pi1, A)
   pi1_star <- calibrator_pi1(pi1)
-  calibrator_pi0 <- as.stepfun(isoreg(pi0, 1-A))
+  calibrator_pi0 <- isoreg_with_xgboost(pi0, 1-A)
   pi0_star <- calibrator_pi0(pi0)
   return(list(mu1_star= mu1_star, mu0_star=mu0_star, pi1_star = pi1_star, pi0_star = pi0_star))
 }
+
+# calibrate_nuisances <- function(A, Y,mu1, mu0, pi1, pi0) {
+#   calibrator_mu1 <- as.stepfun(isoreg(mu1[A==1], Y[A==1]))
+#   mu1_star <- calibrator_mu1(mu1)
+#   calibrator_mu0 <- as.stepfun(isoreg(mu0[A==0], Y[A==0]))
+#   mu0_star <- calibrator_mu0(mu0)
+#
+#
+#   calibrator_pi1 <- as.stepfun(isoreg(pi1, A))
+#   pi1_star <- calibrator_pi1(pi1)
+#   calibrator_pi0 <- as.stepfun(isoreg(pi0, 1-A))
+#   pi0_star <- calibrator_pi0(pi0)
+#   return(list(mu1_star= mu1_star, mu0_star=mu0_star, pi1_star = pi1_star, pi0_star = pi0_star))
+# }
 
 
 
