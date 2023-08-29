@@ -130,7 +130,7 @@ do_real_data <- function(data_name) {
   })
   sim_results <- data.table::rbindlist(sim_results)
   key <- data_name
-  try({fwrite(sim_results, paste0("~/DRinference/simResultsDR/sim_results_", key, ".csv"))})
+  try({fwrite(sim_results, paste0("~/DRinference/simResultsDR/sim_results_", key, "_strata.csv"))})
   return(sim_results)
 }
 
@@ -208,20 +208,20 @@ compute_AIPW <- function(A,Y, mu1, mu0, pi1, pi0) {
 
 
 calibrate_nuisances <- function(A, Y,mu1, mu0, pi1, pi0) {
-  mu <- ifelse(A==1, mu1 , mu0)
-  calibrator_mu <- isoreg_with_xgboost(mu, Y)
-  mu1_star <- calibrator_mu(mu1)
-  mu0_star <- calibrator_mu(mu0)
+  # mu <- ifelse(A==1, mu1 , mu0)
+  # calibrator_mu <- isoreg_with_xgboost(mu, Y)
+  # mu1_star <- calibrator_mu(mu1)
+  # mu0_star <- calibrator_mu(mu0)
   # print(quantile(mu1))
   # print(quantile(mu1_star))
   # print(table(mu1_star))
   # print(table(mu0_star))
 
 
-  # calibrator_mu1 <- isoreg_with_xgboost(mu1[A==1], Y[A==1])
-  # mu1_star <- calibrator_mu1(mu1)
-  # calibrator_mu0 <- isoreg_with_xgboost(mu0[A==0], Y[A==0])
-  # mu0_star <- calibrator_mu0(mu0)
+  calibrator_mu1 <- isoreg_with_xgboost(mu1[A==1], Y[A==1])
+  mu1_star <- calibrator_mu1(mu1)
+  calibrator_mu0 <- isoreg_with_xgboost(mu0[A==0], Y[A==0])
+  mu0_star <- calibrator_mu0(mu0)
 
 
   calibrator_pi1 <- isoreg_with_xgboost(pi1, A)
