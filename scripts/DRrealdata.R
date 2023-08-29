@@ -64,20 +64,28 @@ do_real_data <- function(data_name) {
   if(data_name == "ihdp") {
     iters <- 1:100
   }
+  # library(reticulate)
+  # np <- import("numpy")
+  # # print(getwd())
+  # # data_list <- np$load("./data/ihdp_npci_1-100.train.npz")
+  # data_list <- np$load("~/DRinference/data/ihdp_npci_1-100.train.npz")
+  # for(i in 1:100) {
+  #
+  #   data <- data.table(x=data_list["x"][,,i], t = as.vector(data_list["t"][,i]), y = as.vector(data_list["yf"][,i]), ate = data_list["ate"] )
+  #   fwrite(data, paste0("./data/", "ihdp_npci_", i, ".csv"))
+  #
+  #
+  # }
   sim_results <- lapply(iters, function(i){
     try({
       print(paste0("iter: ", i))
       if(data_name == "ihdp") {
-        library(reticulate)
-        np <- import("numpy")
-        print(getwd())
-        data_list <- np$load("./data/ihdp_npci_1-100.train.npz")
-        ATE <- data_list["ate"]
-        W <- as.matrix(data_list["x"][,,i])
-        covariates <- paste0("W", seq_len(ncol(W)))
-        colnames(W) <- covariates
-        A <- as.vector(data_list["t"][,i])
-        Y <- as.vector(data_list["yf"][,i])
+        data <- fread(paste0("~/DRinference/data/ihdp_npci_", i, ".csv"))
+        covariates <- setdiff(names(data), c( "t", "yf", "ate"))
+        W <- as.matrix(data[, covariates, with = FALSE])
+        A <- data[, "t", with = FALSE][[1]]
+        Y <- data[, "y", with = FALSE][[1]]
+        ATE <- mean(data$ate)
       } else {
         link <- "https://raw.githubusercontent.com/bradyneal/realcause/master/realcause_datasets/"
         data <- fread(paste0(link, data_name, "_sample", i, ".csv"))
