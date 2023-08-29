@@ -122,7 +122,7 @@ do_real_data <- function(data_name) {
   })
   sim_results <- data.table::rbindlist(sim_results)
   key <- data_name
-  try({fwrite(sim_results, paste0("~/DRinference/simResultsDR/sim_results_", key, ".csv"))})
+  try({fwrite(sim_results, paste0("~/DRinference/simResultsDR/sim_results_", key, "_strata.csv"))})
   return(sim_results)
 }
 
