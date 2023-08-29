@@ -42,7 +42,7 @@ do_real_data <- function(data_name) {
     try({
       print(paste0("iter: ", i))
       if(data_name == "ihdp") {
-        data <- fread(paste0("~/DRinference/data/ihdp_npci_", i, ".csv"))
+        data <- fread(paste0("~/DRinference/data/ihdp/ihdp_npci_", i, ".csv"))
         covariates <- setdiff(names(data), c( "t", "yf", "ate"))
         W <- as.matrix(data[, covariates, with = FALSE])
         A <- data[, "t", with = FALSE][[1]]
