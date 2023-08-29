@@ -18,18 +18,23 @@ do_real_data <- function(data_name) {
       Lrnr_earth$new(degree=2),
       Lrnr_gam$new(),
       Lrnr_glmnet$new(),
-      Lrnr_bayesglm$new(),
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 1, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 2, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 3, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 4, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 5, nrounds = 20, eta = 0.2 )
+      Lrnr_glm$new(),
+      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 2, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 3, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 4, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 5, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 1, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 2, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 3, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 4, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 5, nrounds = 20, eta = 0.2 )
 
     )
   )
-  if(data_name == "acic2017") {
-    stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
-  }
+  stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
+  #if(data_name == "acic2017") {
+   # stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
+  #}
 
  lrnr_mu_all <-  Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
   lrnr_pi_all <- Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
@@ -70,7 +75,8 @@ do_real_data <- function(data_name) {
         A <- data[, "t", with = FALSE][[1]]
         Y <- data[, "y", with = FALSE][[1]]
         ATE <- mean(data$ite)
-      }
+        }
+      print(dim(W))
 
       n <- length(A)
       folds <- 10
