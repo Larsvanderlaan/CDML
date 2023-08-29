@@ -14,9 +14,11 @@ do_real_data <- function(data_name) {
   stack_all <- Stack$new(
     list(
       Lrnr_ranger$new(max.depth = 10),
+      Lrnr_earth$new(degree=1),
       Lrnr_earth$new(degree=2),
       Lrnr_gam$new(),
       Lrnr_glmnet$new(),
+      Lrnr_bayesglm$new(),
       Lrnr_xgboost$new(min_child_weight = 15, max_depth = 1, nrounds = 20, eta = 0.2 ),
       Lrnr_xgboost$new(min_child_weight = 15, max_depth = 2, nrounds = 20, eta = 0.2 ),
       Lrnr_xgboost$new(min_child_weight = 15, max_depth = 3, nrounds = 20, eta = 0.2 ),
