@@ -11,29 +11,6 @@ do_real_data <- function(data_name) {
 
 
 
-
-  stack_gam <- Stack$new(Lrnr_earth$new(degree=2,   nk = 100),
-                         Lrnr_gam$new(),
-                         Lrnr_glmnet$new()
-  )
-
-  stack_rf <- Lrnr_ranger$new(max.depth = 10)
-
-  stack_xg <- Stack$new(
-    list(
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 2, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 3, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 4, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 5, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 2, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 3, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 4, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 5, nrounds = 10, eta = 0.2 )
-
-    )
-  )
-
-
   stack_all <- Stack$new(
     list(
       Lrnr_ranger$new(max.depth = 10),
@@ -52,13 +29,7 @@ do_real_data <- function(data_name) {
     stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
   }
 
-  lrnr_mu_gam <-  Pipeline$new(Lrnr_cv$new(stack_gam), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_pi_gam <- Pipeline$new(Lrnr_cv$new(stack_gam), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_mu_xg <-  Pipeline$new(Lrnr_cv$new(stack_xg), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_pi_xg <- Pipeline$new(Lrnr_cv$new(stack_xg), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_mu_rf <-  Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_pi_rf <- Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_mu_all <-  Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
+ lrnr_mu_all <-  Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
   lrnr_pi_all <- Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
 
 
@@ -66,18 +37,7 @@ do_real_data <- function(data_name) {
   if(data_name %in% c("ihdp", "acic2017") ){
     iters <- 1:100
   }
-  # library(reticulate)
-  # np <- import("numpy")
-  # # print(getwd())
-  # # data_list <- np$load("./data/ihdp_npci_1-100.train.npz")
-  # data_list <- np$load("~/DRinference/data/ihdp_npci_1-100.train.npz")
-  # for(i in 1:100) {
-  #
-  #   data <- data.table(x=data_list["x"][,,i], t = as.vector(data_list["t"][,i]), y = as.vector(data_list["yf"][,i]), ate = data_list["ate"] )
-  #   fwrite(data, paste0("./data/", "ihdp_npci_", i, ".csv"))
-  #
-  #
-  # }
+
   sim_results <- lapply(iters, function(i){
     try({
       print(paste0("iter: ", i))
@@ -112,28 +72,16 @@ do_real_data <- function(data_name) {
 
       n <- length(A)
       folds <- 10
-      #initial_estimators_gam <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_gam, lrnr_pi = lrnr_pi_gam, folds = 5, invert = FALSE)
-      #folds <- initial_estimators_gam$folds
-      #initial_estimators_xg <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_xg, lrnr_pi = lrnr_pi_xg, folds = folds, invert = FALSE)
-      #initial_estimators_rf <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_rf, lrnr_pi = lrnr_pi_rf, folds = folds, invert = FALSE)
       initial_estimators_all <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_all, lrnr_pi = lrnr_pi_all, folds = folds, invert = FALSE)
       folds <- initial_estimators_all$folds
       initial_estimators_misp <- compute_initial(W,A,Y, lrnr_mu =  Lrnr_cv$new(Lrnr_mean$new()), lrnr_pi =  Lrnr_cv$new(Lrnr_mean$new()), folds = folds)
 
       out_list <- list()
 
-
       for(lrnr in c( "all")) {
         print(lrnr)
-        if(lrnr=="gam_1") {
-          initial_estimators <- initial_estimators_gam
-        } else if(lrnr=="rf") {
-          initial_estimators <- initial_estimators_rf
-        } else if(lrnr == "all") {
+         if(lrnr == "all") {
           initial_estimators <- initial_estimators_all
-        } else
-        {
-          initial_estimators <- initial_estimators_xg
         }
         for(misp in c("1", "2", "3")) {
           mu1 <- initial_estimators$mu1
@@ -156,7 +104,6 @@ do_real_data <- function(data_name) {
 
           out_AIPW <- compute_AIPW(A,Y, mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0)
           out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 1000, folds = folds, alpha = 0.05)
-          #out <- matrix(unlist(c(misp, out_AuDRIE, out_AIPW)), nrow=1)
           out <- as.data.table(rbind(unlist(out_AuDRIE), unlist(out_AIPW)))
           colnames(out) <- c("estimate", "CI_left", "CI_right")
           out$misp <- misp
@@ -253,11 +200,12 @@ compute_AIPW <- function(A,Y, mu1, mu0, pi1, pi0) {
 
 
 calibrate_nuisances <- function(A, Y,mu1, mu0, pi1, pi0) {
-  mu <- ifelse(A==1, mu1 , mu0)
-  calibrator_mu <- isoreg_with_xgboost(mu, Y)
-  mu1_star <- calibrator_mu(mu1)
-  #calibrator_mu0 <- isoreg_with_xgboost(mu0[A==0], Y[A==0])
-  mu0_star <- calibrator_mu(mu0)
+  #mu <- ifelse(A==1, mu1 , mu0)
+  #calibrator_mu <- isoreg_with_xgboost(mu, Y)
+  calibrator_mu1 <- isoreg_with_xgboost(mu1[A==1], Y[A==1])
+  mu1_star <- calibrator_mu1(mu1)
+  calibrator_mu0 <- isoreg_with_xgboost(mu0[A==0], Y[A==0])
+  mu0_star <- calibrator_mu0(mu0)
 
 
   calibrator_pi1 <- isoreg_with_xgboost(pi1, A)
