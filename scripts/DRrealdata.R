@@ -3,13 +3,12 @@ library(sl3)
 library(xgboost)
 set.seed(123456)
 
+
+
 # = c("lalonde_cps", "lalonde_psid", "twins")
 do_real_data <- function(data_name) {
   print(data_name)
 
-  link <- "https://raw.githubusercontent.com/bradyneal/realcause/master/realcause_datasets/"
-  data <- fread(paste0(link, data_name, "_sample", 0, ".csv"))
-  d <- ncol(data) - 4
 
 
 
@@ -61,17 +60,35 @@ do_real_data <- function(data_name) {
   lrnr_pi_all <- Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
 
 
-  sim_results <- lapply(0:99, function(i){
+  iters <- 0:99
+  if(data_name == "ihdp") {
+    iters <- 1:100
+  }
+  sim_results <- lapply(iters, function(i){
     try({
       print(paste0("iter: ", i))
-      link <- "https://raw.githubusercontent.com/bradyneal/realcause/master/realcause_datasets/"
-      data <- fread(paste0(link, data_name, "_sample", i, ".csv"))
+      if(data_name == "ihdp") {
+        library(reticulate)
+        np <- import("numpy")
+        print(getwd())
+        data_list <- np$load("./data/ihdp_npci_1-100.train.npz")
+        ATE <- data_list["ate"]
+        W <- as.matrix(data_list["x"][,,i])
+        covariates <- paste0("W", seq_len(ncol(W)))
+        colnames(W) <- covariates
+        A <- as.vector(data_list["t"][,i])
+        Y <- as.vector(data_list["yf"][,i])
+      } else {
+        link <- "https://raw.githubusercontent.com/bradyneal/realcause/master/realcause_datasets/"
+        data <- fread(paste0(link, data_name, "_sample", i, ".csv"))
 
-      covariates <- setdiff(names(data), c( "t", "y", "y0", "y1", "ite"))
-      W <- as.matrix(data[, covariates, with = FALSE])
-      A <- data[, "t", with = FALSE][[1]]
-      Y <- data[, "y", with = FALSE][[1]]
-      ATE <- mean(data$ite)
+        covariates <- setdiff(names(data), c( "t", "y", "y0", "y1", "ite"))
+        W <- as.matrix(data[, covariates, with = FALSE])
+        A <- data[, "t", with = FALSE][[1]]
+        Y <- data[, "y", with = FALSE][[1]]
+        ATE <- mean(data$ite)
+      }
+
       n <- length(A)
       folds <- 10
       #initial_estimators_gam <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_gam, lrnr_pi = lrnr_pi_gam, folds = 5, invert = FALSE)
@@ -168,13 +185,13 @@ compute_AuDRIE_boot <-  function(A,Y, mu1, mu0, pi1, pi0, nboot = 5000, folds, a
 }
 
 isoreg_with_xgboost <- function(x,y,max_depth = 15, min_child_weight = 10) {
-    data <- xgboost::xgb.DMatrix(data = as.matrix(x), label = as.vector(y))
-    iso_fit <- xgboost::xgb.train(params = list(max_depth = max_depth,
-                                                min_child_weight = min_child_weight,
-                                                monotone_constraints = 1,
-                                                eta = 1, gamma = 0,
-                                                lambda = 0),
-                                  data = data, nrounds = 1)
+  data <- xgboost::xgb.DMatrix(data = as.matrix(x), label = as.vector(y))
+  iso_fit <- xgboost::xgb.train(params = list(max_depth = max_depth,
+                                              min_child_weight = min_child_weight,
+                                              monotone_constraints = 1,
+                                              eta = 1, gamma = 0,
+                                              lambda = 0),
+                                data = data, nrounds = 1)
   fun <- function(x) {
     data_pred <- xgboost::xgb.DMatrix(data = as.matrix(x))
     pred <- predict(iso_fit, data_pred)
