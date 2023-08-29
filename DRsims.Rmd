@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ```{r}
+library(data.table)
 out <- sim_results_lalonde_psid
 results <- as.data.table(out)
 results$ATE <- mean(results$ATE)
@@ -29,6 +30,7 @@ results$sd <- results$sd /abs(ATE)
  results$bias <- results$bias /abs(ATE)
  results <- results[results$misp !=4, ]
  results
+ results[results$lrnr=="all"]
 
  
 ```

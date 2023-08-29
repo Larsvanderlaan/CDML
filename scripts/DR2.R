@@ -292,7 +292,7 @@ compute_AIPW <- function(A,Y, mu1, mu0, pi1, pi0) {
 }
 
 
-isoreg_with_xgboost <- function(x,y,max_depth = 15, min_child_weight = 20) {
+isoreg_with_xgboost <- function(x,y,max_depth = 15, min_child_weight = 10) {
   data <- xgboost::xgb.DMatrix(data = as.matrix(x), label = as.vector(y))
   iso_fit <- xgboost::xgb.train(params = list(max_depth = max_depth,
                                               min_child_weight = min_child_weight,

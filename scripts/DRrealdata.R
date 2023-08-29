@@ -43,6 +43,7 @@ do_real_data <- function(data_name) {
       Lrnr_earth$new(degree=2,   nk = 100),
       Lrnr_gam$new(),
       Lrnr_glmnet$new(),
+      Lrnr_xgboost$new(min_child_weight = 15, max_depth = 1, nrounds = 20, eta = 0.2 ),
       Lrnr_xgboost$new(min_child_weight = 15, max_depth = 2, nrounds = 20, eta = 0.2 ),
       Lrnr_xgboost$new(min_child_weight = 15, max_depth = 3, nrounds = 20, eta = 0.2 ),
       Lrnr_xgboost$new(min_child_weight = 15, max_depth = 4, nrounds = 20, eta = 0.2 ),
@@ -74,31 +75,31 @@ do_real_data <- function(data_name) {
       Y <- data[, "y", with = FALSE][[1]]
       ATE <- mean(data$ite)
       n <- length(A)
-
-      initial_estimators_gam <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_gam, lrnr_pi = lrnr_pi_gam, folds = 5, invert = FALSE)
-      folds <- initial_estimators_gam$folds
-      initial_estimators_xg <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_xg, lrnr_pi = lrnr_pi_xg, folds = folds, invert = FALSE)
-      initial_estimators_rf <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_rf, lrnr_pi = lrnr_pi_rf, folds = folds, invert = FALSE)
+      folds <- 10
+      #initial_estimators_gam <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_gam, lrnr_pi = lrnr_pi_gam, folds = 5, invert = FALSE)
+      #folds <- initial_estimators_gam$folds
+      #initial_estimators_xg <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_xg, lrnr_pi = lrnr_pi_xg, folds = folds, invert = FALSE)
+      #initial_estimators_rf <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_rf, lrnr_pi = lrnr_pi_rf, folds = folds, invert = FALSE)
       initial_estimators_all <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_all, lrnr_pi = lrnr_pi_all, folds = folds, invert = FALSE)
-
+      folds <- initial_estimators_all$folds
       initial_estimators_misp <- compute_initial(W,A,Y, lrnr_mu =  Lrnr_cv$new(Lrnr_mean$new()), lrnr_pi =  Lrnr_cv$new(Lrnr_mean$new()), folds = folds)
 
       out_list <- list()
 
 
-      for(lrnr in c("gam_1",   "xgboost", "rf", "all")) {
+      for(lrnr in c( "all")) {
         print(lrnr)
         if(lrnr=="gam_1") {
           initial_estimators <- initial_estimators_gam
         } else if(lrnr=="rf") {
           initial_estimators <- initial_estimators_rf
         } else if(lrnr == "all") {
-          iinitial_estimators <- initial_estimators_all
+          initial_estimators <- initial_estimators_all
         } else
         {
           initial_estimators <- initial_estimators_xg
         }
-        for(misp in c("1", "2", "3", "4")) {
+        for(misp in c("1", "2", "3")) {
           mu1 <- initial_estimators$mu1
           mu0 <- initial_estimators$mu0
           pi1 <- initial_estimators$pi1
@@ -169,16 +170,13 @@ compute_AuDRIE_boot <-  function(A,Y, mu1, mu0, pi1, pi0, nboot = 5000, folds, a
 }
 
 isoreg_with_xgboost <- function(x,y,max_depth = 15, min_child_weight = 10) {
-
-
-  data <- xgboost::xgb.DMatrix(data = as.matrix(x), label = as.vector(y))
-  iso_fit <- xgboost::xgb.train(params = list(max_depth = max_depth,
-                                              min_child_weight = min_child_weight,
-                                              monotone_constraints = 1,
-                                              eta = 1, gamma = 0,
-                                              lambda = 0),
-                                data = data, nrounds = 1)
-
+    data <- xgboost::xgb.DMatrix(data = as.matrix(x), label = as.vector(y))
+    iso_fit <- xgboost::xgb.train(params = list(max_depth = max_depth,
+                                                min_child_weight = min_child_weight,
+                                                monotone_constraints = 1,
+                                                eta = 1, gamma = 0,
+                                                lambda = 0),
+                                  data = data, nrounds = 1)
   fun <- function(x) {
     data_pred <- xgboost::xgb.DMatrix(data = as.matrix(x))
     pred <- predict(iso_fit, data_pred)
