@@ -48,7 +48,9 @@ do_real_data <- function(data_name) {
 
     )
   )
-
+  if(data_name == "acic2017") {
+    stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
+  }
 
   lrnr_mu_gam <-  Pipeline$new(Lrnr_cv$new(stack_gam), Lrnr_cv_selector$new(loss_squared_error))
   lrnr_pi_gam <- Pipeline$new(Lrnr_cv$new(stack_gam), Lrnr_cv_selector$new(loss_squared_error))
@@ -61,7 +63,7 @@ do_real_data <- function(data_name) {
 
 
   iters <- 0:99
-  if(data_name == "ihdp") {
+  if(data_name %in% c("ihdp", "acic2017") ){
     iters <- 1:100
   }
   # library(reticulate)
@@ -86,7 +88,18 @@ do_real_data <- function(data_name) {
         A <- data[, "t", with = FALSE][[1]]
         Y <- data[, "y", with = FALSE][[1]]
         ATE <- mean(data$ate)
-      } else {
+      } else if(data_name == "acic2017") {
+
+        if(!require(aciccomp2017)) {
+          devtools::install_github("vdorie/aciccomp/2017")
+        }
+        library(aciccomp2017)
+        W <- aciccomp2017::input_2017
+        data <- dgp_2017(24, i)
+        A <- data$z
+        Y <- data$y
+        ATE <- mean(data$alpha)
+        } else {
         link <- "https://raw.githubusercontent.com/bradyneal/realcause/master/realcause_datasets/"
         data <- fread(paste0(link, data_name, "_sample", i, ".csv"))
 
