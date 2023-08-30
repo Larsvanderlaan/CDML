@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(data.table)
-out <- sim_results_lalonde_psid
+out <- sim_results_twins_strata 
 results <- as.data.table(out)
 results$ATE <- mean(results$ATE)
 results[, coverage := CI_left <= ATE & CI_right >= ATE]

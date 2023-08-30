@@ -31,8 +31,12 @@ do_real_data <- function(data_name) {
 
     )
   )
+  # if(length(grep("acic2017", data_name)) > 0 ) {
+  #   stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
+  # }
   stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
-  #if(data_name == "acic2017") {
+
+   #if(data_name == "acic2017") {
    # stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
   #}
 
@@ -50,12 +54,12 @@ do_real_data <- function(data_name) {
       print(paste0("iter: ", i))
       if(data_name == "ihdp") {
         data <- fread(paste0("~/DRinference/data/ihdp/ihdp_npci_", i, ".csv"))
-        covariates <- setdiff(names(data), c( "t", "yf", "ate"))
+        covariates <- setdiff(names(data), c( "t", "y", "ate"))
         W <- as.matrix(data[, covariates, with = FALSE])
         A <- data[, "t", with = FALSE][[1]]
         Y <- data[, "y", with = FALSE][[1]]
         ATE <- mean(data$ate)
-      } else if(data_name == "acic2017") {
+      } else if(data_name == "acic2017_24") {
 
         if(!require(aciccomp2017)) {
           devtools::install_github("vdorie/aciccomp/2017")
@@ -66,7 +70,20 @@ do_real_data <- function(data_name) {
         A <- data$z
         Y <- data$y
         ATE <- mean(data$alpha)
-        } else {
+        } else if(length(grep("acic2017", data_name)) > 0 ) {
+          sim_id <- as.numeric(gsub("acic2017_", "", data_name))
+
+          if(!require(aciccomp2017)) {
+            devtools::install_github("vdorie/aciccomp/2017")
+          }
+          library(aciccomp2017)
+          W <- aciccomp2017::input_2017
+          data <- dgp_2017(sim_id, i)
+          A <- data$z
+          Y <- data$y
+          ATE <- mean(data$alpha)
+        }
+      else {
         link <- "https://raw.githubusercontent.com/bradyneal/realcause/master/realcause_datasets/"
         data <- fread(paste0(link, data_name, "_sample", i, ".csv"))
 
