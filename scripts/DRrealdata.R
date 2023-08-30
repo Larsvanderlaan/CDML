@@ -31,48 +31,62 @@ do_real_data <- function(data_name) {
 
     )
   )
-  # if(length(grep("acic2017", data_name)) > 0 ) {
-  #   stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
-  # }
-  stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
 
-   #if(data_name == "acic2017") {
-   # stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
+  if(length(grep("acic2017", data_name)) > 0 ) {
+    stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
+  } else {
+    stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
+  }
+
+
+  #stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
+
+  #if(data_name == "acic2017") {
+  # stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
   #}
 
- lrnr_mu_all <-  Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
+  #stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
+  #stack_all <- Lrnr_glmnet$new()
+
+  lrnr_mu_all <-  Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
   lrnr_pi_all <- Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
 
 
   iters <- 0:99
-  if(data_name %in% c("ihdp") || length(grep("acic2017", data_name)) > 0 ){
+  if(length(grep("acic2017", data_name)) > 0 ){
+    iters <- 1:250
+  }
+  if(data_name %in% c("ihdp") ){
     iters <- 1:100
   }
+
   print(iters)
 
   sim_results <- lapply(iters, function(i){
     try({
       print(paste0("iter: ", i))
       if(data_name == "ihdp") {
-        data <- fread(paste0("~/DRinference/data/ihdp/ihdp_npci_", i, ".csv"))
+        data <- fread(paste0("./data/ihdp/ihdp_npci_", i, ".csv"))
+
+        #data <- fread(paste0("~/DRinference/data/ihdp/ihdp_npci_", i, ".csv"))
         covariates <- setdiff(names(data), c( "t", "y", "ate"))
         W <- as.matrix(data[, covariates, with = FALSE])
         A <- data[, "t", with = FALSE][[1]]
         Y <- data[, "y", with = FALSE][[1]]
         ATE <- mean(data$ate)
       } else if(length(grep("acic2017", data_name)) > 0 ) {
-          sim_id <- as.numeric(gsub("acic2017_", "", data_name))
-          print(sim_id)
-          if(!require(aciccomp2017)) {
-            devtools::install_github("vdorie/aciccomp/2017")
-          }
-          library(aciccomp2017)
-          W <- aciccomp2017::input_2017
-          data <- dgp_2017(sim_id, i)
-          A <- data$z
-          Y <- data$y
-          ATE <- mean(data$alpha)
+        sim_id <- as.numeric(gsub("acic2017_", "", data_name))
+        print(sim_id)
+        if(!require(aciccomp2017)) {
+          devtools::install_github("vdorie/aciccomp/2017")
         }
+        library(aciccomp2017)
+        W <- aciccomp2017::input_2017
+        data <- dgp_2017(sim_id, i)
+        A <- data$z
+        Y <- data$y
+        ATE <- mean(data$alpha)
+      }
       else {
         link <- "https://raw.githubusercontent.com/bradyneal/realcause/master/realcause_datasets/"
         data <- fread(paste0(link, data_name, "_sample", i, ".csv"))
@@ -82,7 +96,7 @@ do_real_data <- function(data_name) {
         A <- data[, "t", with = FALSE][[1]]
         Y <- data[, "y", with = FALSE][[1]]
         ATE <- mean(data$ite)
-        }
+      }
       print(dim(W))
 
       n <- length(A)
@@ -95,7 +109,7 @@ do_real_data <- function(data_name) {
 
       for(lrnr in c( "all")) {
         print(lrnr)
-         if(lrnr == "all") {
+        if(lrnr == "all") {
           initial_estimators <- initial_estimators_all
         }
         for(misp in c("1", "2", "3")) {
@@ -118,7 +132,9 @@ do_real_data <- function(data_name) {
 
 
           out_AIPW <- compute_AIPW(A,Y, mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0)
+
           out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 1000, folds = folds, alpha = 0.05)
+
           out <- as.data.table(rbind(unlist(out_AuDRIE), unlist(out_AIPW)))
           colnames(out) <- c("estimate", "CI_left", "CI_right")
           out$misp <- misp
@@ -198,6 +214,7 @@ compute_AuDRIE <- function(A,Y, mu1, mu0, pi1, pi0) {
 
 compute_AIPW <- function(A,Y, mu1, mu0, pi1, pi0) {
   n <- length(A)
+
   pi1 <- pmax(pi1,  25/(sqrt(n)*log(n)))
   pi0 <- pmax(pi0,  25/(sqrt(n)*log(n)))
 
@@ -207,7 +224,9 @@ compute_AIPW <- function(A,Y, mu1, mu0, pi1, pi0) {
   mu <- ifelse(A==1, mu1, mu0)
   alpha_n <- ifelse(A==1, 1/pi1, - 1/pi0)
   tau_n <-  mean(mu1 - mu0 + alpha_n * (Y - mu))
-  CI <- tau_n + c(-1,1) * qnorm(1-0.025) * sd(mu1 - mu0 + alpha_n * (Y - mu))/sqrt(n)
+  se <- sd(mu1 - mu0 + alpha_n * (Y - mu))/sqrt(n)
+
+  CI <- tau_n + c(-1,1) * qnorm(1-0.025) * se
   return(list(estimate = tau_n, CI = CI))
 }
 
