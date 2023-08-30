@@ -28,7 +28,6 @@ do_real_data <- function(data_name) {
       Lrnr_xgboost$new(min_child_weight = 10, max_depth = 3, nrounds = 20, eta = 0.2 ),
       Lrnr_xgboost$new(min_child_weight = 10, max_depth = 4, nrounds = 20, eta = 0.2 ),
       Lrnr_xgboost$new(min_child_weight = 10, max_depth = 5, nrounds = 20, eta = 0.2 )
-
     )
   )
 
@@ -38,15 +37,6 @@ do_real_data <- function(data_name) {
     stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
   }
 
-
-  #stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
-
-  #if(data_name == "acic2017") {
-  # stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
-  #}
-
-  #stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
-  #stack_all <- Lrnr_glmnet$new()
 
   lrnr_mu_all <-  Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
   lrnr_pi_all <- Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
