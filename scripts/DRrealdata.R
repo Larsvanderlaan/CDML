@@ -45,9 +45,10 @@ do_real_data <- function(data_name) {
 
 
   iters <- 0:99
-  if(data_name %in% c("ihdp", "acic2017") ){
+  if(data_name %in% c("ihdp") || length(grep("acic2017", data_name)) > 0 ){
     iters <- 1:100
   }
+  print(iters)
 
   sim_results <- lapply(iters, function(i){
     try({
@@ -59,20 +60,9 @@ do_real_data <- function(data_name) {
         A <- data[, "t", with = FALSE][[1]]
         Y <- data[, "y", with = FALSE][[1]]
         ATE <- mean(data$ate)
-      } else if(data_name == "acic2017_24") {
-
-        if(!require(aciccomp2017)) {
-          devtools::install_github("vdorie/aciccomp/2017")
-        }
-        library(aciccomp2017)
-        W <- aciccomp2017::input_2017
-        data <- dgp_2017(24, i)
-        A <- data$z
-        Y <- data$y
-        ATE <- mean(data$alpha)
-        } else if(length(grep("acic2017", data_name)) > 0 ) {
+      } else if(length(grep("acic2017", data_name)) > 0 ) {
           sim_id <- as.numeric(gsub("acic2017_", "", data_name))
-
+          print(sim_id)
           if(!require(aciccomp2017)) {
             devtools::install_github("vdorie/aciccomp/2017")
           }
