@@ -38,6 +38,7 @@ do_real_data <- function(data_name) {
   }
 
 
+
   lrnr_mu_all <-  Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
   lrnr_pi_all <- Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
 
@@ -133,6 +134,7 @@ do_real_data <- function(data_name) {
           out_list[[paste0(misp, lrnr)]] <- out
         }
       }
+      print(out$estimate - ATE)
       out <- rbindlist(out_list)
       out$n <- n
       out$ATE <- ATE
@@ -253,7 +255,7 @@ calibrate_nuisances <- function(A, Y,mu1, mu0, pi1, pi0) {
 
 compute_initial <- function(W,A,Y, lrnr_mu, lrnr_pi, folds,   invert = FALSE) {
   data <- data.table(W,A,Y)
-  print(lrnr_mu)
+
   taskY0 <- sl3_Task$new(data, covariates = colnames(W), outcome  = "Y"  ,folds = folds)
   folds <- taskY0$folds
   fit0 <- lrnr_mu$train(taskY0[A==0])
@@ -263,8 +265,13 @@ compute_initial <- function(W,A,Y, lrnr_mu, lrnr_pi, folds,   invert = FALSE) {
   fit1 <- lrnr_mu$train(taskY1[A==1])
   mu1 <-  fit1$predict(taskY1)
 
+  print(fit0$fit_object$learner_fits$Lrnr_cv_selector_NULL$fit_object$cv_risk)
 
-  print(lrnr_pi)
+  print(fit1$fit_object$learner_fits$Lrnr_cv_selector_NULL$fit_object$cv_risk)
+
+
+
+
   taskA <- sl3_Task$new(data, covariates = colnames(W), outcome  = "A", folds = folds, outcome_type = "binomial")
 
   fit1 <- lrnr_pi$train(taskA)

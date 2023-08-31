@@ -14,13 +14,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(data.table)
-out <- sim_results_twins_strata 
+out <- sim_results_lalonde_cps_strata
 results <- as.data.table(out)
-results$ATE <- mean(results$ATE)
+ ATE <- mean(results$ATE)
+results$ATE <-ATE
 results[, coverage := CI_left <= ATE & CI_right >= ATE]
 results[, sd := abs(CI_left -CI_right)/1.96/2]
-  ATE <- unique(results$ATE)
  
+
 results <- unique(results[, .(sd = mean(sd), se = sd(estimate-ATE), bias = abs(mean(estimate - ATE)), coverage = mean(coverage)), by = c( "misp",   "estimator", "lrnr")])
 results[, rmse := sqrt(bias^2 + se^2)]
  
