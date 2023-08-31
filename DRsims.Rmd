@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(data.table)
-out <- sim_results_lalonde_cps_strata
+out <- sim_results_acic2017_19_strata
 results <- as.data.table(out)
  ATE <- mean(results$ATE)
 results$ATE <-ATE
