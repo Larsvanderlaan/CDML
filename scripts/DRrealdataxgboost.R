@@ -13,18 +13,18 @@ do_real_data <- function(data_name) {
 
   stack_all <- Stack$new(
     list(
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 3, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 4, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 5, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 6, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 3, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 4, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 5, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 6, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 3, nrounds = 30, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 4, nrounds = 30, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 5, nrounds = 30, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 6, nrounds = 30, eta = 0.2 )
+      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 3, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 4, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 5, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 6, nrounds = 10, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 3, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 4, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 5, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 6, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 3, nrounds = 30, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 4, nrounds = 30, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 5, nrounds = 30, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 6, nrounds = 30, eta = 0.2 )
     )
   )
 
