@@ -5,7 +5,8 @@ d <- 3
 seed_start <- 98103
 set.seed(seed_start)
 
-do_sims <- function(n, pos_const, nsims) {
+do_sims <- function(n, nsims) {
+  pos_const <- 2 #not used
   loss_inv <- function (pred, observed) {
     A <- observed
     pred <- truncate_pscore_adaptive(A, pred)
@@ -14,66 +15,45 @@ do_sims <- function(n, pos_const, nsims) {
     return(out)
   }
 
-  #stack <-  Lrnr_earth$new(degree =1, family = binomial(), pmethod = "cv", nk = 100, nfold = 10)
-  #lrnr_hal_inv <- Lrnr_hal9001$new(smoothness_orders = 0, num_knots = c(100,100), max_degree = 2, screen_variables = FALSE, family = "gaussian") # Stack$new(Lrnr_gam$new(family = "gaussian") , Lrnr_gam$new(family = "binomial")) #
-  cols <- paste0("W", 1:d)
-  #formula_A <- paste0("A~", paste0("s(", cols, ", k = 20, bs='bs',m=c(1,0))", collapse = " + "))
-  #formula_Y <- paste0("Y~", paste0("s(", cols, ", k = 20, bs='bs',m=c(1,0))", collapse = " + "))
-  formula_A_quad <- paste0("A~", paste0("s(", cols, ", k = 30, bs='bs',m=c(1,1))", collapse = " + "))
-  formula_Y_quad <- paste0("Y~", paste0("s(", cols, ", k = 30, bs='bs',m=c(1,1))", collapse = " + "))
-
-  stack_earth_Y <-  Lrnr_earth$new(family = "binomial",   degree=1,     nk = 100, pmethod = "cv", nfold = 5)
-  stack_earth_A <-  Lrnr_earth$new(family = "binomial",  degree=1,   nk = 100, pmethod = "cv", nfold = 5)
-
-  stack_gam_Y_quad <-  Lrnr_gam$new(family = "binomial",
-                                    formula = formula_Y_quad)
-  stack_gam_A_quad <-  Lrnr_gam$new(family = "binomial",
-                                    formula = formula_A_quad)
-
-  stack_hal <-  Lrnr_hal9001$new(smoothness_orders = 0, num_knots = 50, max_degree = 1)
-
-
-  stack_rf <-  Lrnr_ranger$new(max.depth = 8, min.node.size = 10)
-
-  stack_xg_pi <- Stack$new(
+  stack_parametric <- Stack$new(
     list(
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 5, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 2, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 3, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 4, nrounds = 10, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 5, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 2, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 3, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 10, max_depth = 4, nrounds = 20, eta = 0.2 )
+      Lrnr_earth$new(degree=1),
+      Lrnr_earth$new(degree=2),
+      Lrnr_gam$new(),
+      Lrnr_glm$new(),
+      Lrnr_glmnet$new(formula = ~ .^2)
     )
   )
 
-  stack_xg_mu <- stack_xg_pi
 
-  stack_all <- list(
-    Lrnr_glmnet$new(),
-    Lrnr_gam$new(),
-    Lrnr_earth$new(degree = 2),
-    Lrnr_ranger$new(max.depth = 10, min.node.size = 5),
-    Lrnr_xgboost$new(min_child_weight = 15, max_depth = 5, nrounds = 15, eta = 0.2 ),
-    Lrnr_xgboost$new(min_child_weight = 15, max_depth = 2, nrounds = 15, eta = 0.2 ),
-    Lrnr_xgboost$new(min_child_weight = 15, max_depth = 3, nrounds = 15, eta = 0.2 ),
-    Lrnr_xgboost$new(min_child_weight = 15, max_depth = 4, nrounds = 15, eta = 0.2 )
+  stack_rf <-  Lrnr_ranger$new(max.depth = 12)
+
+  stack_xg <- Stack$new(
+    list(
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.3 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.3 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.3 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.15 )
+    )
   )
 
 
-  lrnr_mu_earth <-  Pipeline$new(Lrnr_cv$new(stack_earth_Y), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_pi_earth <- Pipeline$new(Lrnr_cv$new(stack_earth_A), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_mu_gam_quad <-  Pipeline$new(Lrnr_cv$new(stack_gam_Y_quad), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_pi_gam_quad <- Pipeline$new(Lrnr_cv$new(stack_gam_A_quad), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_mu_xg <-  Pipeline$new(Lrnr_cv$new(stack_xg_mu), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_pi_xg <- Pipeline$new(Lrnr_cv$new(stack_xg_pi), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_mu_rf <-  Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_pi_rf <- Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
-   lrnr_pi_hal <- Pipeline$new(Lrnr_cv$new(stack_hal), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_mu_hal <- Pipeline$new(Lrnr_cv$new(stack_hal), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_pi_all <- Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_mu_all <- Pipeline$new(Lrnr_cv$new(stack_all), Lrnr_cv_selector$new(loss_squared_error))
+
+
+
+
+  lrnr_parametric <-  Pipeline$new(Lrnr_cv$new(stack_parametric), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_rf <-   Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_xg <-  Pipeline$new(Lrnr_cv$new(stack_xg), Lrnr_cv_selector$new(loss_squared_error))
+
 
   sim_results <- lapply(1:nsims, function(i){
     try({
@@ -86,49 +66,21 @@ do_sims <- function(n, pos_const, nsims) {
       ATE <- data_list$ATE
       n <- length(A)
       folds <- 5
-      initial_estimators_earth <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_earth, lrnr_pi = lrnr_pi_earth, folds = 5, invert = FALSE)
-      folds <- initial_estimators_earth$folds
-      initial_estimators_gam_quad <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_gam_quad, lrnr_pi = lrnr_pi_gam_quad, folds = folds, invert = FALSE)
-      initial_estimators_xg <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_xg, lrnr_pi = lrnr_pi_xg, folds = folds, invert = FALSE)
-      initial_estimators_rf <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_rf, lrnr_pi = lrnr_pi_rf, folds = folds, invert = FALSE)
-      initial_estimators_all <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_all, lrnr_pi = lrnr_pi_all, folds = folds, invert = FALSE)
-
-     # initial_estimators_hal <- compute_initial(W,A,Y, lrnr_mu = lrnr_mu_hal, lrnr_pi = lrnr_pi_hal, folds = folds, invert = FALSE)
-
+      initial_estimators_parametric <- compute_initial(W,A,Y, lrnr_mu = lrnr_parametric, lrnr_pi = lrnr_parametric, folds = 5, invert = FALSE)
+      folds <- initial_estimators_parametric$folds
+      initial_estimators_xg <- compute_initial(W,A,Y, lrnr_mu = lrnr_xg, lrnr_pi = lrnr_xg, folds = folds, invert = FALSE)
+      initial_estimators_rf <- compute_initial(W,A,Y, lrnr_mu = lrnr_rf, lrnr_pi = lrnr_rf, folds = folds, invert = FALSE)
       initial_estimators_misp <- compute_initial(W,A,Y, lrnr_mu =  Lrnr_cv$new(Lrnr_mean$new()), lrnr_pi =  Lrnr_cv$new(Lrnr_mean$new()), folds = folds)
 
       out_list <- list()
 
-      #
-      # plot(1/initial_estimators$pi1[A==1],1/data_list$pi[A==1] )
-      # plot(1/initial_estimators$pi0[A==0],1/(1-data_list$pi[A==0] ))
-      # plot(1/calibrated_estimators$pi1[A==1],1/data_list$pi[A==1] )
-      # plot(1/calibrated_estimators$pi0[A==0],1/(1-data_list$pi[A==0] ))
-      #
-      # sqrt(mean((1/initial_estimators$pi1[A==1] - 1/data_list$pi[A==1])^2))
-      # sqrt(mean((1/initial_estimators$pi0[A==0] - 1/(1-data_list$pi[A==0]))^2))
-      # sqrt(mean((1/calibrated_estimators$pi1[A==1] - 1/data_list$pi[A==1])^2))
-      # sqrt(mean((1/calibrated_estimators$pi0[A==0] - 1/(1-data_list$pi[A==0]))^2))
-
-      for(lrnr in c("earth", "gam_1",   "xgboost", "rf", "all" )) {
-        #for(lrnr in c( "xgboost",  "hal")) {
-        print(lrnr)
-        if(lrnr=="earth") {
-          initial_estimators <- initial_estimators_earth
-        } else if(lrnr=="gam_1") {
-          initial_estimators <- initial_estimators_gam_quad
-        } else if(lrnr=="rf") {
-          initial_estimators <- initial_estimators_rf
-        } else if(lrnr=="xgboost") {
-          initial_estimators <- initial_estimators_xg
-        } else if(lrnr == "all") {
-          initial_estimators <- initial_estimators_all
-        }
+      for(lrnr in c("parametric", "xg",   "rf" )) {
+        initial_estimators <- get(paste0("initial_estimators_", lrnr))
         for(misp in c("1", "2", "3" )) {
-          mu1 <- initial_estimators$mu1 #+ rnorm(n, sin(5*W[,1]) * n^{-0.85/3}, 2*n^{-1.7/3})
-          mu0 <- initial_estimators$mu0 #+ rnorm(n, sin(5*W[,1]) * n^{-0.85/3}, 2*n^{-1.7/3})
-          pi1 <- initial_estimators$pi1 # plogis(qlogis(initial_estimators$pi1) + rnorm(n, sin(5*W[,1]) * 2*n^{-0.85/3}, n^{-1.7/3}))
-          pi0 <- initial_estimators$pi0 # plogis(qlogis(initial_estimators$pi0) + rnorm(n, sin(5*W[,1]) * 2*n^{-0.85/3}, n^{-1.7/3}))
+          mu1 <- initial_estimators$mu1
+          mu0 <- initial_estimators$mu0
+          pi1 <- initial_estimators$pi1
+          pi0 <- initial_estimators$pi0
           if(misp == "2") {
             mu1 <- initial_estimators_misp$mu1
             mu0 <- initial_estimators_misp$mu0
@@ -145,7 +97,6 @@ do_sims <- function(n, pos_const, nsims) {
 
           out_AIPW <- compute_AIPW(A,Y, mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0)
           out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 500, folds = folds, alpha = 0.05)
-          #out <- matrix(unlist(c(misp, out_AuDRIE, out_AIPW)), nrow=1)
           out <- as.data.table(rbind(unlist(out_AuDRIE), unlist(out_AIPW)))
           colnames(out) <- c("estimate", "CI_left", "CI_right")
           out$misp <- misp
