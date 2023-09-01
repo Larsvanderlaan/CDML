@@ -46155,3 +46155,686 @@ NULL
 [1] "done"
 [1] "earth"
 [1] "gam_1"
+[1] "xgboost"
+[1] "rf"
+[1] "all"
+[1] "iter: 544"
+[1] "Lrnr_cv"
+[1] "Lrnr_earth_1_3_cv_5_1_0_0_binomial_100"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1919359 
+predictions 
+  0.1551982 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_gam_Y~s(W1, k = 30, bs='bs',m=c(1,1)) + s(W2, k = 30, bs='bs',m=c(1,1)) + s(W3, k = 30, bs='bs',m=c(1,1))_binomial_GCV.Cp"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1907285 
+predictions 
+  0.1569777 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_xgboost_10_1_10_5_0.2" "Lrnr_xgboost_10_1_10_2_0.2"
+[3] "Lrnr_xgboost_10_1_10_3_0.2" "Lrnr_xgboost_10_1_10_4_0.2"
+[5] "Lrnr_xgboost_20_1_10_5_0.2" "Lrnr_xgboost_20_1_10_2_0.2"
+[7] "Lrnr_xgboost_20_1_10_3_0.2" "Lrnr_xgboost_20_1_10_4_0.2"
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1949589                  0.1969130 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1935188                  0.1938202 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1961234                  0.1925444 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1934215                  0.1949746 
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1617597                  0.1677310 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1631133                  0.1622326 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1609505                  0.1614085 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1595479                  0.1608189 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_ranger_500_TRUE_none_1_8_10"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1964809 
+predictions 
+  0.1623762 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_glmnet_NULL_deviance_10_1_100_TRUE"
+[2] "Lrnr_gam_NULL_NULL_GCV.Cp"              
+[3] "Lrnr_earth_2_3_backward_0_1_0_0"        
+[4] "Lrnr_ranger_500_TRUE_none_1_10_5"       
+[5] "Lrnr_xgboost_15_1_15_5_0.2"             
+[6] "Lrnr_xgboost_15_1_15_2_0.2"             
+[7] "Lrnr_xgboost_15_1_15_3_0.2"             
+[8] "Lrnr_xgboost_15_1_15_4_0.2"             
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.2129696                               0.1903246 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1961976                               0.2004737 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1942434                               0.1939324 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1915840                               0.1931259 
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.1815553                               0.1566062 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1597480                               0.1649582 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1609000                               0.1628421 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1595544                               0.1606576 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_mean"
+NULL
+NULL
+[1] "done"
+[1] "earth"
+[1] "gam_1"
+[1] "xgboost"
+[1] "rf"
+[1] "all"
+[1] "iter: 545"
+[1] "Lrnr_cv"
+[1] "Lrnr_earth_1_3_cv_5_1_0_0_binomial_100"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+   0.198828 
+predictions 
+  0.1630601 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_gam_Y~s(W1, k = 30, bs='bs',m=c(1,1)) + s(W2, k = 30, bs='bs',m=c(1,1)) + s(W3, k = 30, bs='bs',m=c(1,1))_binomial_GCV.Cp"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1965183 
+predictions 
+  0.1631765 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_xgboost_10_1_10_5_0.2" "Lrnr_xgboost_10_1_10_2_0.2"
+[3] "Lrnr_xgboost_10_1_10_3_0.2" "Lrnr_xgboost_10_1_10_4_0.2"
+[5] "Lrnr_xgboost_20_1_10_5_0.2" "Lrnr_xgboost_20_1_10_2_0.2"
+[7] "Lrnr_xgboost_20_1_10_3_0.2" "Lrnr_xgboost_20_1_10_4_0.2"
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.2005454                  0.2045075 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.2009082                  0.1992882 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.2001981                  0.1992449 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1987727                  0.1990872 
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1683685                  0.1714816 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1664591                  0.1672102 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1685349                  0.1659609 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1650385                  0.1667281 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_ranger_500_TRUE_none_1_8_10"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.2014368 
+predictions 
+  0.1691133 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_glmnet_NULL_deviance_10_1_100_TRUE"
+[2] "Lrnr_gam_NULL_NULL_GCV.Cp"              
+[3] "Lrnr_earth_2_3_backward_0_1_0_0"        
+[4] "Lrnr_ranger_500_TRUE_none_1_10_5"       
+[5] "Lrnr_xgboost_15_1_15_5_0.2"             
+[6] "Lrnr_xgboost_15_1_15_2_0.2"             
+[7] "Lrnr_xgboost_15_1_15_3_0.2"             
+[8] "Lrnr_xgboost_15_1_15_4_0.2"             
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.2173199                               0.1961676 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1974934                               0.2026526 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.2004593                               0.2010730 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1985913                               0.1982983 
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.1843614                               0.1628518 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1650532                               0.1730762 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1657220                               0.1669951 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1640752                               0.1649216 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_mean"
+NULL
+NULL
+[1] "done"
+[1] "earth"
+[1] "gam_1"
+[1] "xgboost"
+[1] "rf"
+[1] "all"
+[1] "iter: 546"
+[1] "Lrnr_cv"
+[1] "Lrnr_earth_1_3_cv_5_1_0_0_binomial_100"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1913214 
+predictions 
+  0.1660639 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_gam_Y~s(W1, k = 30, bs='bs',m=c(1,1)) + s(W2, k = 30, bs='bs',m=c(1,1)) + s(W3, k = 30, bs='bs',m=c(1,1))_binomial_GCV.Cp"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1897633 
+predictions 
+  0.1649133 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_xgboost_10_1_10_5_0.2" "Lrnr_xgboost_10_1_10_2_0.2"
+[3] "Lrnr_xgboost_10_1_10_3_0.2" "Lrnr_xgboost_10_1_10_4_0.2"
+[5] "Lrnr_xgboost_20_1_10_5_0.2" "Lrnr_xgboost_20_1_10_2_0.2"
+[7] "Lrnr_xgboost_20_1_10_3_0.2" "Lrnr_xgboost_20_1_10_4_0.2"
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1953896                  0.1977778 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1952608                  0.1946122 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1949199                  0.1935882 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1935298                  0.1932969 
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1709942                  0.1765681 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1719000                  0.1704700 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1705933                  0.1701647 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1700958                  0.1690096 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_ranger_500_TRUE_none_1_8_10"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1936206 
+predictions 
+  0.1727503 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_glmnet_NULL_deviance_10_1_100_TRUE"
+[2] "Lrnr_gam_NULL_NULL_GCV.Cp"              
+[3] "Lrnr_earth_2_3_backward_0_1_0_0"        
+[4] "Lrnr_ranger_500_TRUE_none_1_10_5"       
+[5] "Lrnr_xgboost_15_1_15_5_0.2"             
+[6] "Lrnr_xgboost_15_1_15_2_0.2"             
+[7] "Lrnr_xgboost_15_1_15_3_0.2"             
+[8] "Lrnr_xgboost_15_1_15_4_0.2"             
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.2087906                               0.1902566 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1927418                               0.1958096 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1937216                               0.1949393 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1939818                               0.1940001 
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.1883506                               0.1643199 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1717427                               0.1761202 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1704524                               0.1719553 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1694080                               0.1688145 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_mean"
+NULL
+NULL
+[1] "done"
+[1] "earth"
+[1] "gam_1"
+[1] "xgboost"
+[1] "rf"
+[1] "all"
+[1] "iter: 547"
+[1] "Lrnr_cv"
+[1] "Lrnr_earth_1_3_cv_5_1_0_0_binomial_100"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1962249 
+predictions 
+  0.1680955 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_gam_Y~s(W1, k = 30, bs='bs',m=c(1,1)) + s(W2, k = 30, bs='bs',m=c(1,1)) + s(W3, k = 30, bs='bs',m=c(1,1))_binomial_GCV.Cp"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1943747 
+predictions 
+   0.167914 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_xgboost_10_1_10_5_0.2" "Lrnr_xgboost_10_1_10_2_0.2"
+[3] "Lrnr_xgboost_10_1_10_3_0.2" "Lrnr_xgboost_10_1_10_4_0.2"
+[5] "Lrnr_xgboost_20_1_10_5_0.2" "Lrnr_xgboost_20_1_10_2_0.2"
+[7] "Lrnr_xgboost_20_1_10_3_0.2" "Lrnr_xgboost_20_1_10_4_0.2"
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.2021309                  0.2016021 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.2001438                  0.2006996 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.2046288                  0.1988497 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1999583                  0.2019020 
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1736308                  0.1770953 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1733110                  0.1732708 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1736177                  0.1716756 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1702652                  0.1722688 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_ranger_500_TRUE_none_1_8_10"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.2025867 
+predictions 
+   0.172366 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_glmnet_NULL_deviance_10_1_100_TRUE"
+[2] "Lrnr_gam_NULL_NULL_GCV.Cp"              
+[3] "Lrnr_earth_2_3_backward_0_1_0_0"        
+[4] "Lrnr_ranger_500_TRUE_none_1_10_5"       
+[5] "Lrnr_xgboost_15_1_15_5_0.2"             
+[6] "Lrnr_xgboost_15_1_15_2_0.2"             
+[7] "Lrnr_xgboost_15_1_15_3_0.2"             
+[8] "Lrnr_xgboost_15_1_15_4_0.2"             
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.2142714                               0.1944104 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1968477                               0.2066814 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.2006719                               0.1995641 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1991426                               0.1993118 
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.1830440                               0.1668060 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1672495                               0.1744959 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1720652                               0.1731569 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1707938                               0.1716316 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_mean"
+NULL
+NULL
+[1] "done"
+[1] "earth"
+[1] "gam_1"
+[1] "xgboost"
+[1] "rf"
+[1] "all"
+[1] "iter: 548"
+[1] "Lrnr_cv"
+[1] "Lrnr_earth_1_3_cv_5_1_0_0_binomial_100"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1905425 
+predictions 
+  0.1544833 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_gam_Y~s(W1, k = 30, bs='bs',m=c(1,1)) + s(W2, k = 30, bs='bs',m=c(1,1)) + s(W3, k = 30, bs='bs',m=c(1,1))_binomial_GCV.Cp"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1905099 
+predictions 
+  0.1538066 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_xgboost_10_1_10_5_0.2" "Lrnr_xgboost_10_1_10_2_0.2"
+[3] "Lrnr_xgboost_10_1_10_3_0.2" "Lrnr_xgboost_10_1_10_4_0.2"
+[5] "Lrnr_xgboost_20_1_10_5_0.2" "Lrnr_xgboost_20_1_10_2_0.2"
+[7] "Lrnr_xgboost_20_1_10_3_0.2" "Lrnr_xgboost_20_1_10_4_0.2"
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1962613                  0.1952882 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1932611                  0.1946753 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1974057                  0.1911002 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1930780                  0.1945131 
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1580736                  0.1624128 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1580917                  0.1571670 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1567119                  0.1561071 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1549994                  0.1557864 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_ranger_500_TRUE_none_1_8_10"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1939514 
+predictions 
+  0.1563654 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_glmnet_NULL_deviance_10_1_100_TRUE"
+[2] "Lrnr_gam_NULL_NULL_GCV.Cp"              
+[3] "Lrnr_earth_2_3_backward_0_1_0_0"        
+[4] "Lrnr_ranger_500_TRUE_none_1_10_5"       
+[5] "Lrnr_xgboost_15_1_15_5_0.2"             
+[6] "Lrnr_xgboost_15_1_15_2_0.2"             
+[7] "Lrnr_xgboost_15_1_15_3_0.2"             
+[8] "Lrnr_xgboost_15_1_15_4_0.2"             
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.2099700                               0.1894816 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1910543                               0.1972799 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1956791                               0.1922226 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1921962                               0.1934213 
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.1770749                               0.1529926 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1563254                               0.1594107 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1553359                               0.1574760 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1554785                               0.1556523 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_mean"
+NULL
+NULL
+[1] "done"
+[1] "earth"
+[1] "gam_1"
+[1] "xgboost"
+[1] "rf"
+[1] "all"
+[1] "iter: 549"
+[1] "Lrnr_cv"
+[1] "Lrnr_earth_1_3_cv_5_1_0_0_binomial_100"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+   0.196942 
+predictions 
+  0.1621969 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_gam_Y~s(W1, k = 30, bs='bs',m=c(1,1)) + s(W2, k = 30, bs='bs',m=c(1,1)) + s(W3, k = 30, bs='bs',m=c(1,1))_binomial_GCV.Cp"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1945372 
+predictions 
+    0.16134 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_xgboost_10_1_10_5_0.2" "Lrnr_xgboost_10_1_10_2_0.2"
+[3] "Lrnr_xgboost_10_1_10_3_0.2" "Lrnr_xgboost_10_1_10_4_0.2"
+[5] "Lrnr_xgboost_20_1_10_5_0.2" "Lrnr_xgboost_20_1_10_2_0.2"
+[7] "Lrnr_xgboost_20_1_10_3_0.2" "Lrnr_xgboost_20_1_10_4_0.2"
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1985713                  0.1980223 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1956859                  0.1968127 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1997889                  0.1942320 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1950741                  0.1971119 
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1672514                  0.1704054 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1675251                  0.1662241 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1660395                  0.1645712 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1648108                  0.1650659 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_ranger_500_TRUE_none_1_8_10"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1973675 
+predictions 
+  0.1651866 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_glmnet_NULL_deviance_10_1_100_TRUE"
+[2] "Lrnr_gam_NULL_NULL_GCV.Cp"              
+[3] "Lrnr_earth_2_3_backward_0_1_0_0"        
+[4] "Lrnr_ranger_500_TRUE_none_1_10_5"       
+[5] "Lrnr_xgboost_15_1_15_5_0.2"             
+[6] "Lrnr_xgboost_15_1_15_2_0.2"             
+[7] "Lrnr_xgboost_15_1_15_3_0.2"             
+[8] "Lrnr_xgboost_15_1_15_4_0.2"             
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.2115698                               0.1933164 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1970329                               0.1998958 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1975835                               0.1955213 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1953681                               0.1964751 
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.1829961                               0.1610892 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1630483                               0.1678260 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1666448                               0.1662276 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1658099                               0.1653379 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_mean"
+NULL
+NULL
+[1] "done"
+[1] "earth"
+[1] "gam_1"
+[1] "xgboost"
+[1] "rf"
+[1] "all"
+[1] "iter: 550"
+[1] "Lrnr_cv"
+[1] "Lrnr_earth_1_3_cv_5_1_0_0_binomial_100"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1853074 
+predictions 
+  0.1561514 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_gam_Y~s(W1, k = 30, bs='bs',m=c(1,1)) + s(W2, k = 30, bs='bs',m=c(1,1)) + s(W3, k = 30, bs='bs',m=c(1,1))_binomial_GCV.Cp"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1828605 
+predictions 
+  0.1540418 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_xgboost_10_1_10_5_0.2" "Lrnr_xgboost_10_1_10_2_0.2"
+[3] "Lrnr_xgboost_10_1_10_3_0.2" "Lrnr_xgboost_10_1_10_4_0.2"
+[5] "Lrnr_xgboost_20_1_10_5_0.2" "Lrnr_xgboost_20_1_10_2_0.2"
+[7] "Lrnr_xgboost_20_1_10_3_0.2" "Lrnr_xgboost_20_1_10_4_0.2"
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1873005                  0.1902162 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1853024                  0.1859298 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1882688                  0.1851890 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1846185                  0.1859361 
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1583067                  0.1657455 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1599098                  0.1585244 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1561537                  0.1576844 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1561880                  0.1561352 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_ranger_500_TRUE_none_1_8_10"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1876321 
+predictions 
+  0.1562214 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_glmnet_NULL_deviance_10_1_100_TRUE"
+[2] "Lrnr_gam_NULL_NULL_GCV.Cp"              
+[3] "Lrnr_earth_2_3_backward_0_1_0_0"        
+[4] "Lrnr_ranger_500_TRUE_none_1_10_5"       
+[5] "Lrnr_xgboost_15_1_15_5_0.2"             
+[6] "Lrnr_xgboost_15_1_15_2_0.2"             
+[7] "Lrnr_xgboost_15_1_15_3_0.2"             
+[8] "Lrnr_xgboost_15_1_15_4_0.2"             
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.2087430                               0.1822313 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1838763                               0.1909399 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1868000                               0.1867562 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1845333                               0.1847306 
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.1756856                               0.1540154 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1593578                               0.1576736 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1557236                               0.1599942 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1559666                               0.1551579 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_mean"
+NULL
+NULL
+[1] "done"
+[1] "earth"
+[1] "gam_1"
+[1] "xgboost"
+[1] "rf"
+[1] "all"
+[1] "iter: 551"
+[1] "Lrnr_cv"
+[1] "Lrnr_earth_1_3_cv_5_1_0_0_binomial_100"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1922488 
+predictions 
+  0.1568596 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_gam_Y~s(W1, k = 30, bs='bs',m=c(1,1)) + s(W2, k = 30, bs='bs',m=c(1,1)) + s(W3, k = 30, bs='bs',m=c(1,1))_binomial_GCV.Cp"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1919117 
+predictions 
+  0.1560911 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_xgboost_10_1_10_5_0.2" "Lrnr_xgboost_10_1_10_2_0.2"
+[3] "Lrnr_xgboost_10_1_10_3_0.2" "Lrnr_xgboost_10_1_10_4_0.2"
+[5] "Lrnr_xgboost_20_1_10_5_0.2" "Lrnr_xgboost_20_1_10_2_0.2"
+[7] "Lrnr_xgboost_20_1_10_3_0.2" "Lrnr_xgboost_20_1_10_4_0.2"
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1968674                  0.1991982 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1964263                  0.1967284 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1972175                  0.1949424 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1948143                  0.1966420 
+Lrnr_xgboost_10_1_10_5_0.2 Lrnr_xgboost_10_1_10_2_0.2 
+                 0.1611668                  0.1675482 
+Lrnr_xgboost_10_1_10_3_0.2 Lrnr_xgboost_10_1_10_4_0.2 
+                 0.1640322                  0.1612183 
+Lrnr_xgboost_20_1_10_5_0.2 Lrnr_xgboost_20_1_10_2_0.2 
+                 0.1612886                  0.1617889 
+Lrnr_xgboost_20_1_10_3_0.2 Lrnr_xgboost_20_1_10_4_0.2 
+                 0.1596138                  0.1600303 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_ranger_500_TRUE_none_1_8_10"
+[1] "Lrnr_cv_selector_NULL"
+predictions 
+  0.1964656 
+predictions 
+  0.1606764 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_glmnet_NULL_deviance_10_1_100_TRUE"
+[2] "Lrnr_gam_NULL_NULL_GCV.Cp"              
+[3] "Lrnr_earth_2_3_backward_0_1_0_0"        
+[4] "Lrnr_ranger_500_TRUE_none_1_10_5"       
+[5] "Lrnr_xgboost_15_1_15_5_0.2"             
+[6] "Lrnr_xgboost_15_1_15_2_0.2"             
+[7] "Lrnr_xgboost_15_1_15_3_0.2"             
+[8] "Lrnr_xgboost_15_1_15_4_0.2"             
+[1] "Lrnr_cv_selector_NULL"
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.2151227                               0.1911404 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1968515                               0.1991831 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1968034                               0.1962967 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1946292                               0.1955737 
+Lrnr_glmnet_NULL_deviance_10_1_100_TRUE               Lrnr_gam_NULL_NULL_GCV.Cp 
+                              0.1788828                               0.1553925 
+        Lrnr_earth_2_3_backward_0_1_0_0        Lrnr_ranger_500_TRUE_none_1_10_5 
+                              0.1601840                               0.1633354 
+             Lrnr_xgboost_15_1_15_5_0.2              Lrnr_xgboost_15_1_15_2_0.2 
+                              0.1593724                               0.1636518 
+             Lrnr_xgboost_15_1_15_3_0.2              Lrnr_xgboost_15_1_15_4_0.2 
+                              0.1597549                               0.1594498 
+[1] "done"
+[1] "Lrnr_cv"
+[1] "Lrnr_mean"
+NULL
+NULL
+[1] "done"
+[1] "earth"
+[1] "gam_1"
+[1] "xgboost"
+[1] "rf"
+[1] "all"

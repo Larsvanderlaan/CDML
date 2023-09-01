@@ -1,0 +1,383 @@
+LOADING R
+R LOADED
+[1] "/home/lvanderl/Rlibs2"                         
+[2] "/app/software/R/4.3.1-gfbf-2022b/lib/R/library"
+[1] "/home/lvanderl/sieveSims"
+[1] "acic2017_23"
+  [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+ [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+ [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+ [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+ [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+ [91]  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107 108
+[109] 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126
+[127] 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144
+[145] 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162
+[163] 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180
+[181] 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198
+[199] 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216
+[217] 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234
+[235] 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250
+[1] "iter: 1"
+[1] 23
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_12 Lrnr_earth_1_3_backward_0_1_0_0 
+                       3.465866                        3.354861 
+Lrnr_earth_2_3_backward_0_1_0_0       Lrnr_gam_NULL_NULL_GCV.Cp 
+                       3.354167                        3.334722 
+                  Lrnr_glm_TRUE       Lrnr_xgboost_20_1_3_1_0.3 
+                       3.390122                        3.379193 
+      Lrnr_xgboost_20_1_3_2_0.3       Lrnr_xgboost_20_1_3_3_0.3 
+                       3.366989                        3.393401 
+      Lrnr_xgboost_20_1_3_4_0.3       Lrnr_xgboost_20_1_3_5_0.3 
+                       3.428765                        3.507086 
+      Lrnr_xgboost_20_1_3_6_0.3      Lrnr_xgboost_20_1_3_1_0.25 
+                       3.558875                        3.392824 
+     Lrnr_xgboost_20_1_3_2_0.25      Lrnr_xgboost_20_1_3_3_0.25 
+                       3.366300                        3.388535 
+     Lrnr_xgboost_20_1_3_4_0.25      Lrnr_xgboost_20_1_3_5_0.25 
+                       3.421716                        3.463867 
+     Lrnr_xgboost_20_1_3_6_0.25       Lrnr_xgboost_20_1_3_1_0.2 
+                       3.549408                        3.413600 
+      Lrnr_xgboost_20_1_3_2_0.2       Lrnr_xgboost_20_1_3_3_0.2 
+                       3.366698                        3.370013 
+      Lrnr_xgboost_20_1_3_4_0.2       Lrnr_xgboost_20_1_3_5_0.2 
+                       3.401701                        3.455254 
+      Lrnr_xgboost_20_1_3_6_0.2      Lrnr_xgboost_20_1_3_1_0.15 
+                       3.521160                        3.463030 
+     Lrnr_xgboost_20_1_3_2_0.15      Lrnr_xgboost_20_1_3_3_0.15 
+                       3.376282                        3.371065 
+     Lrnr_xgboost_20_1_3_4_0.15      Lrnr_xgboost_20_1_3_5_0.15 
+                       3.394348                        3.433359 
+     Lrnr_xgboost_20_1_3_6_0.15 
+                       3.492082 
+ Lrnr_ranger_500_TRUE_none_1_12 Lrnr_earth_1_3_backward_0_1_0_0 
+                       3.939432                        3.578457 
+Lrnr_earth_2_3_backward_0_1_0_0       Lrnr_gam_NULL_NULL_GCV.Cp 
+                       3.605177                        3.856335 
+                  Lrnr_glm_TRUE       Lrnr_xgboost_20_1_3_1_0.3 
+                       3.853658                        3.763258 
+      Lrnr_xgboost_20_1_3_2_0.3       Lrnr_xgboost_20_1_3_3_0.3 
+                       3.653701                        3.668414 
+      Lrnr_xgboost_20_1_3_4_0.3       Lrnr_xgboost_20_1_3_5_0.3 
+                       3.738193                        3.879238 
+      Lrnr_xgboost_20_1_3_6_0.3      Lrnr_xgboost_20_1_3_1_0.25 
+                       3.990162                        3.881892 
+     Lrnr_xgboost_20_1_3_2_0.25      Lrnr_xgboost_20_1_3_3_0.25 
+                       3.657974                        3.671372 
+     Lrnr_xgboost_20_1_3_4_0.25      Lrnr_xgboost_20_1_3_5_0.25 
+                       3.729100                        3.806462 
+     Lrnr_xgboost_20_1_3_6_0.25       Lrnr_xgboost_20_1_3_1_0.2 
+                       3.922761                        4.054935 
+      Lrnr_xgboost_20_1_3_2_0.2       Lrnr_xgboost_20_1_3_3_0.2 
+                       3.700621                        3.681383 
+      Lrnr_xgboost_20_1_3_4_0.2       Lrnr_xgboost_20_1_3_5_0.2 
+                       3.698186                        3.795229 
+      Lrnr_xgboost_20_1_3_6_0.2      Lrnr_xgboost_20_1_3_1_0.15 
+                       3.885338                        4.364344 
+     Lrnr_xgboost_20_1_3_2_0.15      Lrnr_xgboost_20_1_3_3_0.15 
+                       3.811667                        3.692295 
+     Lrnr_xgboost_20_1_3_4_0.15      Lrnr_xgboost_20_1_3_5_0.15 
+                       3.704124                        3.797389 
+     Lrnr_xgboost_20_1_3_6_0.15 
+                       3.836308 
+ Lrnr_ranger_500_TRUE_none_1_12 Lrnr_earth_1_3_backward_0_1_0_0 
+                      0.2310726                       0.2254837 
+Lrnr_earth_2_3_backward_0_1_0_0       Lrnr_gam_NULL_NULL_GCV.Cp 
+                      0.2254837                       0.2247468 
+                  Lrnr_glm_TRUE       Lrnr_xgboost_20_1_3_1_0.3 
+                      0.2250712                       0.2267709 
+      Lrnr_xgboost_20_1_3_2_0.3       Lrnr_xgboost_20_1_3_3_0.3 
+                      0.2268556                       0.2276412 
+      Lrnr_xgboost_20_1_3_4_0.3       Lrnr_xgboost_20_1_3_5_0.3 
+                      0.2285194                       0.2300339 
+      Lrnr_xgboost_20_1_3_6_0.3      Lrnr_xgboost_20_1_3_1_0.25 
+                      0.2313658                       0.2271778 
+     Lrnr_xgboost_20_1_3_2_0.25      Lrnr_xgboost_20_1_3_3_0.25 
+                      0.2265531                       0.2274144 
+     Lrnr_xgboost_20_1_3_4_0.25      Lrnr_xgboost_20_1_3_5_0.25 
+                      0.2279561                       0.2297711 
+     Lrnr_xgboost_20_1_3_6_0.25       Lrnr_xgboost_20_1_3_1_0.2 
+                      0.2314236                       0.2278593 
+      Lrnr_xgboost_20_1_3_2_0.2       Lrnr_xgboost_20_1_3_3_0.2 
+                      0.2266024                       0.2271738 
+      Lrnr_xgboost_20_1_3_4_0.2       Lrnr_xgboost_20_1_3_5_0.2 
+                      0.2280333                       0.2292994 
+      Lrnr_xgboost_20_1_3_6_0.2      Lrnr_xgboost_20_1_3_1_0.15 
+                      0.2306362                       0.2295934 
+     Lrnr_xgboost_20_1_3_2_0.15      Lrnr_xgboost_20_1_3_3_0.15 
+                      0.2271693                       0.2269704 
+     Lrnr_xgboost_20_1_3_4_0.15      Lrnr_xgboost_20_1_3_5_0.15 
+                      0.2275194                       0.2284641 
+     Lrnr_xgboost_20_1_3_6_0.15 
+                      0.2303776 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.0177987 -0.0238735
+[1] "iter: 2"
+[1] 23
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_12 Lrnr_earth_1_3_backward_0_1_0_0 
+                       3.679945                        3.475078 
+Lrnr_earth_2_3_backward_0_1_0_0       Lrnr_gam_NULL_NULL_GCV.Cp 
+                       3.475078                        3.482180 
+                  Lrnr_glm_TRUE       Lrnr_xgboost_20_1_3_1_0.3 
+                       3.533928                        3.528025 
+      Lrnr_xgboost_20_1_3_2_0.3       Lrnr_xgboost_20_1_3_3_0.3 
+                       3.523184                        3.560431 
+      Lrnr_xgboost_20_1_3_4_0.3       Lrnr_xgboost_20_1_3_5_0.3 
+                       3.623728                        3.709963 
+      Lrnr_xgboost_20_1_3_6_0.3      Lrnr_xgboost_20_1_3_1_0.25 
+                       3.807534                        3.537633 
+     Lrnr_xgboost_20_1_3_2_0.25      Lrnr_xgboost_20_1_3_3_0.25 
+                       3.517201                        3.550839 
+     Lrnr_xgboost_20_1_3_4_0.25      Lrnr_xgboost_20_1_3_5_0.25 
+                       3.615101                        3.687515 
+     Lrnr_xgboost_20_1_3_6_0.25       Lrnr_xgboost_20_1_3_1_0.2 
+                       3.777076                        3.577227 
+      Lrnr_xgboost_20_1_3_2_0.2       Lrnr_xgboost_20_1_3_3_0.2 
+                       3.511706                        3.547431 
+      Lrnr_xgboost_20_1_3_4_0.2       Lrnr_xgboost_20_1_3_5_0.2 
+                       3.599497                        3.666186 
+      Lrnr_xgboost_20_1_3_6_0.2      Lrnr_xgboost_20_1_3_1_0.15 
+                       3.752911                        3.645208 
+     Lrnr_xgboost_20_1_3_2_0.15      Lrnr_xgboost_20_1_3_3_0.15 
+                       3.519215                        3.531882 
+     Lrnr_xgboost_20_1_3_4_0.15      Lrnr_xgboost_20_1_3_5_0.15 
+                       3.567760                        3.637586 
+     Lrnr_xgboost_20_1_3_6_0.15 
+                       3.716307 
+ Lrnr_ranger_500_TRUE_none_1_12 Lrnr_earth_1_3_backward_0_1_0_0 
+                       3.591766                        3.402151 
+Lrnr_earth_2_3_backward_0_1_0_0       Lrnr_gam_NULL_NULL_GCV.Cp 
+                       3.358088                        3.702737 
+                  Lrnr_glm_TRUE       Lrnr_xgboost_20_1_3_1_0.3 
+                       3.719350                        3.642727 
+      Lrnr_xgboost_20_1_3_2_0.3       Lrnr_xgboost_20_1_3_3_0.3 
+                       3.408125                        3.418248 
+      Lrnr_xgboost_20_1_3_4_0.3       Lrnr_xgboost_20_1_3_5_0.3 
+                       3.514059                        3.604765 
+      Lrnr_xgboost_20_1_3_6_0.3      Lrnr_xgboost_20_1_3_1_0.25 
+                       3.704519                        3.768603 
+     Lrnr_xgboost_20_1_3_2_0.25      Lrnr_xgboost_20_1_3_3_0.25 
+                       3.438510                        3.427929 
+     Lrnr_xgboost_20_1_3_4_0.25      Lrnr_xgboost_20_1_3_5_0.25 
+                       3.480686                        3.524134 
+     Lrnr_xgboost_20_1_3_6_0.25       Lrnr_xgboost_20_1_3_1_0.2 
+                       3.682436                        3.931694 
+      Lrnr_xgboost_20_1_3_2_0.2       Lrnr_xgboost_20_1_3_3_0.2 
+                       3.466091                        3.423500 
+      Lrnr_xgboost_20_1_3_4_0.2       Lrnr_xgboost_20_1_3_5_0.2 
+                       3.464126                        3.527446 
+      Lrnr_xgboost_20_1_3_6_0.2      Lrnr_xgboost_20_1_3_1_0.15 
+                       3.641527                        4.217936 
+     Lrnr_xgboost_20_1_3_2_0.15      Lrnr_xgboost_20_1_3_3_0.15 
+                       3.606623                        3.464241 
+     Lrnr_xgboost_20_1_3_4_0.15      Lrnr_xgboost_20_1_3_5_0.15 
+                       3.457583                        3.520263 
+     Lrnr_xgboost_20_1_3_6_0.15 
+                       3.604170 
+ Lrnr_ranger_500_TRUE_none_1_12 Lrnr_earth_1_3_backward_0_1_0_0 
+                      0.2308224                       0.2247933 
+Lrnr_earth_2_3_backward_0_1_0_0       Lrnr_gam_NULL_NULL_GCV.Cp 
+                      0.2256518                       0.2245235 
+                  Lrnr_glm_TRUE       Lrnr_xgboost_20_1_3_1_0.3 
+                      0.2245258                       0.2256296 
+      Lrnr_xgboost_20_1_3_2_0.3       Lrnr_xgboost_20_1_3_3_0.3 
+                      0.2273280                       0.2279784 
+      Lrnr_xgboost_20_1_3_4_0.3       Lrnr_xgboost_20_1_3_5_0.3 
+                      0.2288052                       0.2303475 
+      Lrnr_xgboost_20_1_3_6_0.3      Lrnr_xgboost_20_1_3_1_0.25 
+                      0.2328106                       0.2259695 
+     Lrnr_xgboost_20_1_3_2_0.25      Lrnr_xgboost_20_1_3_3_0.25 
+                      0.2266914                       0.2279571 
+     Lrnr_xgboost_20_1_3_4_0.25      Lrnr_xgboost_20_1_3_5_0.25 
+                      0.2288788                       0.2306463 
+     Lrnr_xgboost_20_1_3_6_0.25       Lrnr_xgboost_20_1_3_1_0.2 
+                      0.2317157                       0.2267040 
+      Lrnr_xgboost_20_1_3_2_0.2       Lrnr_xgboost_20_1_3_3_0.2 
+                      0.2264877                       0.2273958 
+      Lrnr_xgboost_20_1_3_4_0.2       Lrnr_xgboost_20_1_3_5_0.2 
+                      0.2280487                       0.2293345 
+      Lrnr_xgboost_20_1_3_6_0.2      Lrnr_xgboost_20_1_3_1_0.15 
+                      0.2313588                       0.2281512 
+     Lrnr_xgboost_20_1_3_2_0.15      Lrnr_xgboost_20_1_3_3_0.15 
+                      0.2265708                       0.2270872 
+     Lrnr_xgboost_20_1_3_4_0.15      Lrnr_xgboost_20_1_3_5_0.15 
+                      0.2274744                       0.2284629 
+     Lrnr_xgboost_20_1_3_6_0.15 
+                      0.2299199 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.04678562 -0.04641187
+[1] "iter: 3"
+[1] 23
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_12 Lrnr_earth_1_3_backward_0_1_0_0 
+                       3.537390                        3.399786 
+Lrnr_earth_2_3_backward_0_1_0_0       Lrnr_gam_NULL_NULL_GCV.Cp 
+                       3.400153                        3.380296 
+                  Lrnr_glm_TRUE       Lrnr_xgboost_20_1_3_1_0.3 
+                       3.453533                        3.431704 
+      Lrnr_xgboost_20_1_3_2_0.3       Lrnr_xgboost_20_1_3_3_0.3 
+                       3.403756                        3.450248 
+      Lrnr_xgboost_20_1_3_4_0.3       Lrnr_xgboost_20_1_3_5_0.3 
+                       3.481889                        3.553696 
+      Lrnr_xgboost_20_1_3_6_0.3      Lrnr_xgboost_20_1_3_1_0.25 
+                       3.611991                        3.449746 
+     Lrnr_xgboost_20_1_3_2_0.25      Lrnr_xgboost_20_1_3_3_0.25 
+                       3.399923                        3.437340 
+     Lrnr_xgboost_20_1_3_4_0.25      Lrnr_xgboost_20_1_3_5_0.25 
+                       3.480534                        3.514029 
+     Lrnr_xgboost_20_1_3_6_0.25       Lrnr_xgboost_20_1_3_1_0.2 
+                       3.578113                        3.481949 
+      Lrnr_xgboost_20_1_3_2_0.2       Lrnr_xgboost_20_1_3_3_0.2 
+                       3.415276                        3.433694 
+      Lrnr_xgboost_20_1_3_4_0.2       Lrnr_xgboost_20_1_3_5_0.2 
+                       3.460999                        3.509336 
+      Lrnr_xgboost_20_1_3_6_0.2      Lrnr_xgboost_20_1_3_1_0.15 
+                       3.559117                        3.547643 
+     Lrnr_xgboost_20_1_3_2_0.15      Lrnr_xgboost_20_1_3_3_0.15 
+                       3.434535                        3.441795 
+     Lrnr_xgboost_20_1_3_4_0.15      Lrnr_xgboost_20_1_3_5_0.15 
+                       3.443265                        3.488045 
+     Lrnr_xgboost_20_1_3_6_0.15 
+                       3.542458 
+ Lrnr_ranger_500_TRUE_none_1_12 Lrnr_earth_1_3_backward_0_1_0_0 
+                       4.159226                        3.775616 
+Lrnr_earth_2_3_backward_0_1_0_0       Lrnr_gam_NULL_NULL_GCV.Cp 
+                       3.786312                        4.063805 
+                  Lrnr_glm_TRUE       Lrnr_xgboost_20_1_3_1_0.3 
+                       4.068097                        4.016460 
+      Lrnr_xgboost_20_1_3_2_0.3       Lrnr_xgboost_20_1_3_3_0.3 
+                       3.854122                        3.859584 
+      Lrnr_xgboost_20_1_3_4_0.3       Lrnr_xgboost_20_1_3_5_0.3 
+                       3.911261                        3.972858 
+      Lrnr_xgboost_20_1_3_6_0.3      Lrnr_xgboost_20_1_3_1_0.25 
+                       4.093162                        4.134763 
+     Lrnr_xgboost_20_1_3_2_0.25      Lrnr_xgboost_20_1_3_3_0.25 
+                       3.867085                        3.869051 
+     Lrnr_xgboost_20_1_3_4_0.25      Lrnr_xgboost_20_1_3_5_0.25 
+                       3.892819                        3.975206 
+     Lrnr_xgboost_20_1_3_6_0.25       Lrnr_xgboost_20_1_3_1_0.2 
+                       4.080448                        4.323166 
+      Lrnr_xgboost_20_1_3_2_0.2       Lrnr_xgboost_20_1_3_3_0.2 
+                       3.897494                        3.859211 
+      Lrnr_xgboost_20_1_3_4_0.2       Lrnr_xgboost_20_1_3_5_0.2 
+                       3.865366                        3.952888 
+      Lrnr_xgboost_20_1_3_6_0.2      Lrnr_xgboost_20_1_3_1_0.15 
+                       4.027056                        4.625025 
+     Lrnr_xgboost_20_1_3_2_0.15      Lrnr_xgboost_20_1_3_3_0.15 
+                       4.029381                        3.894063 
+     Lrnr_xgboost_20_1_3_4_0.15      Lrnr_xgboost_20_1_3_5_0.15 
+                       3.864865                        3.956748 
+     Lrnr_xgboost_20_1_3_6_0.15 
+                       3.992557 
+ Lrnr_ranger_500_TRUE_none_1_12 Lrnr_earth_1_3_backward_0_1_0_0 
+                      0.2309899                       0.2257830 
+Lrnr_earth_2_3_backward_0_1_0_0       Lrnr_gam_NULL_NULL_GCV.Cp 
+                      0.2259456                       0.2248390 
+                  Lrnr_glm_TRUE       Lrnr_xgboost_20_1_3_1_0.3 
+                      0.2254707                       0.2255764 
+      Lrnr_xgboost_20_1_3_2_0.3       Lrnr_xgboost_20_1_3_3_0.3 
+                      0.2255342                       0.2265767 
+      Lrnr_xgboost_20_1_3_4_0.3       Lrnr_xgboost_20_1_3_5_0.3 
+                      0.2279020                       0.2297462 
+      Lrnr_xgboost_20_1_3_6_0.3      Lrnr_xgboost_20_1_3_1_0.25 
+                      0.2311932                       0.2261134 
+     Lrnr_xgboost_20_1_3_2_0.25      Lrnr_xgboost_20_1_3_3_0.25 
+                      0.2257125                       0.2264098 
+     Lrnr_xgboost_20_1_3_4_0.25      Lrnr_xgboost_20_1_3_5_0.25 
+                      0.2277226                       0.2290189 
+     Lrnr_xgboost_20_1_3_6_0.25       Lrnr_xgboost_20_1_3_1_0.2 
+                      0.2307284                       0.2273603 
+      Lrnr_xgboost_20_1_3_2_0.2       Lrnr_xgboost_20_1_3_3_0.2 
+                      0.2257838                       0.2260511 
+      Lrnr_xgboost_20_1_3_4_0.2       Lrnr_xgboost_20_1_3_5_0.2 
+                      0.2268986                       0.2280912 
+      Lrnr_xgboost_20_1_3_6_0.2      Lrnr_xgboost_20_1_3_1_0.15 
+                      0.2305491                       0.2291213 
+     Lrnr_xgboost_20_1_3_2_0.15      Lrnr_xgboost_20_1_3_3_0.15 
+                      0.2259986                       0.2259721 
+     Lrnr_xgboost_20_1_3_4_0.15      Lrnr_xgboost_20_1_3_5_0.15 
+                      0.2266943                       0.2275853 
+     Lrnr_xgboost_20_1_3_6_0.15 
+                      0.2296066 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.00235753 -0.02097441
+[1] "iter: 4"
+[1] 23
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_12 Lrnr_earth_1_3_backward_0_1_0_0 
+                       3.518129                        3.432517 
+Lrnr_earth_2_3_backward_0_1_0_0       Lrnr_gam_NULL_NULL_GCV.Cp 
+                       3.439915                        3.426492 
+                  Lrnr_glm_TRUE       Lrnr_xgboost_20_1_3_1_0.3 
+                       3.457879                        3.494497 
+      Lrnr_xgboost_20_1_3_2_0.3       Lrnr_xgboost_20_1_3_3_0.3 
+                       3.453100                        3.482531 
+      Lrnr_xgboost_20_1_3_4_0.3       Lrnr_xgboost_20_1_3_5_0.3 
+                       3.526714                        3.544974 
+      Lrnr_xgboost_20_1_3_6_0.3      Lrnr_xgboost_20_1_3_1_0.25 
+                       3.632299                        3.500746 
+     Lrnr_xgboost_20_1_3_2_0.25      Lrnr_xgboost_20_1_3_3_0.25 
+                       3.453207                        3.468060 
+     Lrnr_xgboost_20_1_3_4_0.25      Lrnr_xgboost_20_1_3_5_0.25 
+                       3.506878                        3.548108 
+     Lrnr_xgboost_20_1_3_6_0.25       Lrnr_xgboost_20_1_3_1_0.2 
+                       3.581884                        3.549743 
+      Lrnr_xgboost_20_1_3_2_0.2       Lrnr_xgboost_20_1_3_3_0.2 
+                       3.451231                        3.463806 
+      Lrnr_xgboost_20_1_3_4_0.2       Lrnr_xgboost_20_1_3_5_0.2 
+                       3.501143                        3.524869 
+      Lrnr_xgboost_20_1_3_6_0.2      Lrnr_xgboost_20_1_3_1_0.15 
+                       3.576486                        3.618322 
+     Lrnr_xgboost_20_1_3_2_0.15      Lrnr_xgboost_20_1_3_3_0.15 
+                       3.467923                        3.455882 
+     Lrnr_xgboost_20_1_3_4_0.15      Lrnr_xgboost_20_1_3_5_0.15 
+                       3.483266                        3.499660 
+     Lrnr_xgboost_20_1_3_6_0.15 
+                       3.554252 
+ Lrnr_ranger_500_TRUE_none_1_12 Lrnr_earth_1_3_backward_0_1_0_0 
+                       3.667686                        3.497409 
+Lrnr_earth_2_3_backward_0_1_0_0       Lrnr_gam_NULL_NULL_GCV.Cp 
+                       3.384511                        3.785391 
+                  Lrnr_glm_TRUE       Lrnr_xgboost_20_1_3_1_0.3 
+                       3.816849                        3.735971 
+      Lrnr_xgboost_20_1_3_2_0.3       Lrnr_xgboost_20_1_3_3_0.3 
+                       3.457917                        3.446334 
+      Lrnr_xgboost_20_1_3_4_0.3       Lrnr_xgboost_20_1_3_5_0.3 
+                       3.485402                        3.622792 
+      Lrnr_xgboost_20_1_3_6_0.3      Lrnr_xgboost_20_1_3_1_0.25 
+                       3.692537                        3.869415 
+     Lrnr_xgboost_20_1_3_2_0.25      Lrnr_xgboost_20_1_3_3_0.25 
+                       3.470258                        3.456656 
+     Lrnr_xgboost_20_1_3_4_0.25      Lrnr_xgboost_20_1_3_5_0.25 
+                       3.453366                        3.513777 
+     Lrnr_xgboost_20_1_3_6_0.25       Lrnr_xgboost_20_1_3_1_0.2 
+                       3.644420                        4.048013 
+      Lrnr_xgboost_20_1_3_2_0.2       Lrnr_xgboost_20_1_3_3_0.2 
+                       3.530649                        3.459942 
+      Lrnr_xgboost_20_1_3_4_0.2       Lrnr_xgboost_20_1_3_5_0.2 
+                       3.460595                        3.500798 
+      Lrnr_xgboost_20_1_3_6_0.2      Lrnr_xgboost_20_1_3_1_0.15 
+                       3.606386                        4.326586 
+     Lrnr_xgboost_20_1_3_2_0.15      Lrnr_xgboost_20_1_3_3_0.15 
+                       3.692704                        3.498567 
+     Lrnr_xgboost_20_1_3_4_0.15      Lrnr_xgboost_20_1_3_5_0.15 
+                       3.460189                        3.481070 
+     Lrnr_xgboost_20_1_3_6_0.15 
+                       3.568110 
