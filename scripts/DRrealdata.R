@@ -68,6 +68,7 @@ do_real_data <- function(data_name) {
         f <- fread(paste0("~/DRinference/data/scaling_small/factuals/", id, ".csv"))
         x <- fread(paste0("~/DRinference/data/scaling_small/x.csv"))
         x <- x[match(f$sample_id, x$sample_id)]
+        x$sample_id <- NULL
         ATE <- params$effect_size[params$ufid == id]
         W <- as.matrix(x)
         A <- f$z
