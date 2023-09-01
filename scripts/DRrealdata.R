@@ -13,36 +13,13 @@ do_real_data <- function(data_name) {
 
   stack_all <- Stack$new(
     list(
-      Lrnr_ranger$new(max.depth = 12),
       Lrnr_earth$new(degree=1),
       Lrnr_earth$new(degree=2),
       Lrnr_gam$new(),
       Lrnr_glm$new(),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 1, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 2, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 3, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 4, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 5, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 6, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 1, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 2, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 3, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 4, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 5, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 6, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 1, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 2, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 3, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 4, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 5, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 6, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 1, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 2, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 3, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 4, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 5, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 6, nrounds = 20, eta = 0.15 )
-    )
+      Lrnr_bayesglm$new(),
+      Lrnr_dbarts$new()
+      )
   )
 
   if(length(grep("acic2017", data_name)) > 0 ) {
@@ -159,7 +136,7 @@ do_real_data <- function(data_name) {
   })
   sim_results <- data.table::rbindlist(sim_results)
   key <- data_name
-  try({fwrite(sim_results, paste0("~/DRinference/simResultsDR/sim_results_", key, "_final.csv"))})
+  try({fwrite(sim_results, paste0("~/DRinference/simResultsDR/sim_results_", key, "_parametric.csv"))})
   return(sim_results)
 }
 
