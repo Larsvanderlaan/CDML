@@ -15,10 +15,11 @@ do_real_data <- function(data_name) {
     list(
       Lrnr_earth$new(degree=1),
       Lrnr_earth$new(degree=2),
+      Lrnr_earth$new(degree=3),
       Lrnr_gam$new(),
       Lrnr_glm$new(),
       Lrnr_bayesglm$new(),
-      Lrnr_dbarts$new()
+      make_learner(Pipeline, Lrnr_screener_correlation$new(num_screen = 20), Lrnr_glmnet$new(formula = ~ .^2))
       )
   )
 
