@@ -40,6 +40,17 @@ do_real_data <- function(data_name) {
     )
   )
 
+  # stack_all <- Stack$new(
+  #   list(
+  #     Lrnr_cvxgboost$new(min_child_weight = 3, max_depth = 1, nrounds = 100, eta = 0.2 ),
+  #     Lrnr_cvxgboost$new(min_child_weight = 3, max_depth = 2, nrounds = 100, eta = 0.15 ),
+  #     Lrnr_cvxgboost$new(min_child_weight = 3, max_depth = 3, nrounds = 100, eta = 0.15 ),
+  #     Lrnr_cvxgboost$new(min_child_weight = 3, max_depth = 4, nrounds = 100, eta = 0.1 ),
+  #     Lrnr_cvxgboost$new(min_child_weight = 3, max_depth = 5, nrounds = 100, eta = 0.1 ),
+  #     Lrnr_cvxgboost$new(min_child_weight = 3, max_depth = 6, nrounds = 100, eta = 0.1 )
+  #
+  #   )
+  # )
   if(length(grep("acic2017", data_name)) > 0 ) {
     stack_all <- make_learner(Pipeline, Lrnr_screener_coefs$new( Lrnr_glmnet$new()) , stack_all)
   } else {
