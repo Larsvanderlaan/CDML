@@ -2,6 +2,7 @@ library(data.table)
 library(sl3)
 library(xgboost)
 set.seed(98103)
+#source("~/DRinference/scripts/Lrnr_cvxgboost.R")
 
 
 
@@ -13,30 +14,24 @@ do_real_data <- function(data_name) {
 
   stack_all <- Stack$new(
     list(
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 1, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 2, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 3, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 4, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 5, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 6, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 1, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 2, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 3, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 4, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 5, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 6, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 1, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 2, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 3, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 4, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 5, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 6, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 1, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 2, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 3, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 4, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 5, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 3, max_depth = 6, nrounds = 20, eta = 0.15 )
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 1, nrounds = 50, eta = 0.3 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 50, eta = 0.3 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 50, eta = 0.3 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 50, eta = 0.3 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 5, nrounds = 50, eta = 0.3 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 50, eta = 0.3 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 1, nrounds = 50, eta = 0.2 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 50, eta = 0.2 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 50, eta = 0.2 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 50, eta = 0.2 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 5, nrounds = 50, eta = 0.2 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 50, eta = 0.2 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 1, nrounds = 50, eta = 0.1 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 50, eta = 0.1 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 50, eta = 0.1 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 50, eta = 0.1 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 5, nrounds = 50, eta = 0.1 ),
+      Lrnr_cvxgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 50, eta = 0.1 )
     )
   )
 
@@ -62,7 +57,7 @@ do_real_data <- function(data_name) {
 # acic2018_1000 acic2018_2500 acic2018_5000 acic2018_10000
   if(length(grep("acic2018", data_name)) > 0 ) {
     nsize <- as.numeric(gsub("acic2018_", "", data_name))
-    params <- fread("data/scaling_small/params.csv")
+    params <- fread("~/DRinference/data/scaling_small/params.csv")
     ids <- params$ufid[params$size == nsize]
     iters <- seq_along(ids)
   }
@@ -73,7 +68,7 @@ do_real_data <- function(data_name) {
     try({
       print(paste0("iter: ", i))
       if(data_name == "ihdp") {
-        data <- fread(paste0("./data/ihdp/ihdp_npci_", i, ".csv"))
+        data <- fread(paste0("~/DRinference/data/ihdp/ihdp_npci_", i, ".csv"))
 
         #data <- fread(paste0("~/DRinference/data/ihdp/ihdp_npci_", i, ".csv"))
         covariates <- setdiff(names(data), c( "t", "y", "ate"))
@@ -83,8 +78,8 @@ do_real_data <- function(data_name) {
         ATE <- mean(data$ate)
       } else if(length(grep("acic2018", data_name)) > 0 ) {
          id <- ids[i]
-        f <- fread(paste0("data/scaling_small/factuals/", id, ".csv"))
-        x <- fread(paste0("data/scaling_small/x.csv"))
+        f <- fread(paste0("~/DRinference/data/scaling_small/factuals/", id, ".csv"))
+        x <- fread(paste0("~/DRinference/data/scaling_small/x.csv"))
         x <- x[match(f$sample_id, x$sample_id)]
         ATE <- params$effect_size[params$ufid == id]
         W <- as.matrix(x)
