@@ -15,20 +15,21 @@ do_sims <- function(n, nsims) {
     return(out)
   }
 
-  stack_parametric <- Stack$new(
+  cols <- paste0("W", 1:3)
+  stack_parametric <-
     list(
       Lrnr_earth$new(degree=1),
       Lrnr_earth$new(degree=2),
-      Lrnr_gam$new(),
-      Lrnr_glm$new(),
-      Lrnr_glmnet$new(formula = ~ .^2)
+      Lrnr_gam$new(  formula_A_quad <- paste0("A~", paste0("s(", cols, ", k = 25, bs='bs',m=c(1,1))", collapse = " + "))),
+      Lrnr_gam$new(  formula_A_quad <- paste0("Y~", paste0("s(", cols, ", k = 25, bs='bs',m=c(1,1))", collapse = " + "))),
+      Lrnr_glm$new()
     )
-  )
 
 
-  stack_rf <-  Lrnr_ranger$new(max.depth = 12)
 
-  stack_xg <- Stack$new(
+  stack_rf <-   Lrnr_ranger$new(max.depth = 12)
+
+  stack_xg <- #Stack$new(
     list(
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.3 ),
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.3 ),
@@ -43,16 +44,16 @@ do_sims <- function(n, nsims) {
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.15 ),
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.15 )
     )
-  )
+ # )
 
 
 
 
 
-
-  lrnr_parametric <-  Pipeline$new(Lrnr_cv$new(stack_parametric), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_rf <-   Pipeline$new(Lrnr_cv$new(stack_rf), Lrnr_cv_selector$new(loss_squared_error))
-  lrnr_xg <-  Pipeline$new(Lrnr_cv$new(stack_xg), Lrnr_cv_selector$new(loss_squared_error))
+  metalearner <-  Lrnr_cv_selector$new(loss_squared_error)
+  lrnr_parametric <-  Pipeline$new(Lrnr_cv$new(stack_parametric), metalearner)
+  lrnr_rf <-   Pipeline$new(Lrnr_cv$new(stack_rf),Lrnr_cv_selector$new(loss_squared_error))
+  lrnr_xg <-  Pipeline$new(Lrnr_cv$new(stack_xg), metalearner)
 
 
   sim_results <- lapply(1:nsims, function(i){
@@ -295,11 +296,11 @@ compute_initial <- function(W,A,Y, lrnr_mu, lrnr_pi, folds,   invert = FALSE) {
   taskY0 <- sl3_Task$new(data, covariates = colnames(W), outcome  = "Y", outcome_type = "binomial", folds = folds)
   folds <- taskY0$folds
   fit0 <- lrnr_mu$train(taskY0[A==0])
-  mu0 <- fit0$predict(taskY0)
+  mu0 <- as.vector(fit0$predict(taskY0))
   data$mu0 <- qlogis(mu0)
   taskY1 <- sl3_Task$new(data, covariates = c(colnames(W)), outcome  = "Y", outcome_type = "binomial", folds = folds)
   fit1 <- lrnr_mu$train(taskY1[A==1])
-  mu1 <-  fit1$predict(taskY1)
+  mu1 <-  as.vector(fit1$predict(taskY1))
   print(fit0$fit_object$learner_fits$Lrnr_cv_selector_NULL$fit_object$cv_risk)
   print(fit1$fit_object$learner_fits$Lrnr_cv_selector_NULL$fit_object$cv_risk)
 
@@ -307,7 +308,7 @@ compute_initial <- function(W,A,Y, lrnr_mu, lrnr_pi, folds,   invert = FALSE) {
   taskA <- sl3_Task$new(data, covariates = colnames(W), outcome  = "A", folds = folds, outcome_type = "binomial")
 
   fit1 <- lrnr_pi$train(taskA)
-  pi1 <- fit1$predict(taskA)
+  pi1 <- as.vector(fit1$predict(taskA))
   pi0 <- 1- pi1
 
 

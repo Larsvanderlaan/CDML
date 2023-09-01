@@ -9,4 +9,4 @@
 echo "LOADING R"
 module load R
 echo "R LOADED"
-Rscript -e 'source("~/DRinference/scripts/R_setup.R"); source("~/DRinference/scripts/DR2.R"); n = as.numeric(Sys.getenv("n")); pos_const = as.numeric(Sys.getenv("const")); do_sims(n, 5000)'
+Rscript -e 'source("~/DRinference/scripts/R_setup.R"); source("~/DRinference/scripts/DRshafer.R"); n = as.numeric(Sys.getenv("n")); pos_const = as.numeric(Sys.getenv("const")); do_sims(n, 5000)'
