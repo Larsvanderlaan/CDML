@@ -42,7 +42,13 @@ do_real_data <- function(data_name) {
   if(data_name %in% c("ihdp") ){
     iters <- 1:100
   }
+  if(data_name == "acic2018"){
+    params <- fread("data/scaling_small/params.csv")
+    ids <- params$ufid[params$size <= 10000]
+    iters <- seq_along(ids)
 
+
+  }
   print(iters)
 
   sim_results <- lapply(iters, function(i){
@@ -57,6 +63,15 @@ do_real_data <- function(data_name) {
         A <- data[, "t", with = FALSE][[1]]
         Y <- data[, "y", with = FALSE][[1]]
         ATE <- mean(data$ate)
+      } else if(data_name == "acic2018"){
+        id <- ids[i]
+         f <- fread(paste0("data/scaling_small/factuals/", id, ".csv"))
+        x <- fread(paste0("data/scaling_small/x.csv"))
+        x <- x[match(f$sample_id, x$sample_id)]
+        ATE <- params$effect_size[params$ufid == id]
+        W <- as.matrix(x)
+        A <- f$z
+        Y <- f$y
       } else if(length(grep("acic2017", data_name)) > 0 ) {
         sim_id <- as.numeric(gsub("acic2017_", "", data_name))
         print(sim_id)
