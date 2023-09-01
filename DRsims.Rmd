@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(data.table)
-out <- sim_results_DR_iter_2000_n_1000_pos_2
+out <- sim_results_DR_iter_2000_n_1500_pos_2
 results <- as.data.table(out)
  ATE <- mean(results$ATE)
 results$ATE <-ATE
