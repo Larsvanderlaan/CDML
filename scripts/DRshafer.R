@@ -1,31 +1,23 @@
 library(data.table)
 library(sl3)
 library(xgboost)
-d <- 4
+d <- 3
 seed_start <- 98103
 set.seed(seed_start)
 
 do_sims <- function(n, nsims) {
   pos_const <- 2 #not used
-  loss_inv <- function (pred, observed) {
-    A <- observed
-    pred <- truncate_pscore_adaptive(A, pred)
-    out <- A/pred^2 - 2 * 1/pred + (1-A)/(1-pred)^2 - 2 * 1/(1-pred)
-    attributes(out)$name <- "MSE"
-    return(out)
-  }
 
   cols <- paste0("W", 1:d)
-  stack_parametric <-
-    list(
-      Lrnr_earth$new(degree=1),
-      Lrnr_earth$new(degree=2),
-      Lrnr_earth$new(degree=3),
-      Lrnr_gam$new(  formula_A_quad <- paste0("A~", paste0("s(", cols, ", k = 25, bs='bs',m=c(1,1))", collapse = " + "))),
-      Lrnr_gam$new(  formula_A_quad <- paste0("Y~", paste0("s(", cols, ", k = 25, bs='bs',m=c(1,1))", collapse = " + "))),
-      Lrnr_glm$new(),
-      Lrnr_glmnet$new(formula = ~.^2)
-    )
+  stack_parametric <- Lrnr_earth$new(degree=2, nk = 100, pmethod = "cv", nfold = 3)
+    # list(
+    #   Lrnr_earth$new(degree=1, nk = 100, pmethod = "cv", nfold = 3),
+    #   Lrnr_earth$new(degree=2, nk = 100, pmethod = "cv", nfold = 3),
+    #   Lrnr_earth$new(degree=3, nk = 100, pmethod = "cv", nfold = 3),
+    #   Lrnr_gam$new(),
+    #   Lrnr_glm$new(),
+    #   Lrnr_glmnet$new(formula = ~.^2)
+    # )
 
 
 
@@ -50,9 +42,9 @@ do_sims <- function(n, nsims) {
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 20, eta = 0.2 ),
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.15 ),
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 5, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 20, eta = 0.15 )
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.1 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 5, nrounds = 20, eta = 0.1 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 20, eta = 0.1 )
     )
  # )
 
@@ -134,51 +126,45 @@ do_sims <- function(n, nsims) {
 
 get_data <- function(n, pos_const) {
   # setting of Kang and Shafer (2008): https://projecteuclid.org/journals/statistical-science/volume-22/issue-4/Demystifying-Double-Robustness--A-Comparison-of-Alternative-Strategies-for/10.1214/07-STS227.full
-  Z <- replicate(d, rnorm(n))
-  mu <- 210 + 27.4 * Z[,1] + 13.7 * Z[,2] +13.7 * Z[,3] +13.7 * Z[,4]
-  Y <- mu + rnorm(n)
-  pi = plogis(-Z[,1] + 0.5*Z[,2] - 0.25*Z[,3] - 0.1*Z[,4])
-  A <- rbinom(n, 1, pi)
-  W <- cbind(exp(Z[,1]/2),
-             10 + Z[,2] / (1 + exp(Z[,1])),
-             (Z[,1] * Z[,3]/25 + 0.6)^3,
-             (Z[,2] + Z[,4] + 20)^2
-  )
+  # Z <- replicate(d, rnorm(n))
+  # m <- 5 + 5 * Z[,1] + 2 * Z[,2] + 2 * Z[,3] + 2 * Z[,4]
+  # tau <- 1 - 2 * Z[,1] + Z[,2] + Z[,3] - Z[,4]
+  # pi = plogis(-Z[,1] + 0.5*Z[,2] - 0.25*Z[,3] - 0.1*Z[,4])
+  # A <- rbinom(n, 1, pi)
+  # mu0 <- m + (0 - pi) * tau
+  # mu1 <- m + (1 - pi) * tau
+  # Y <- A * mu1 + (1-A) * mu0 + rnorm(n, 0, 2)
+
+  W <- replicate(d, runif(n, -1, 1))
   colnames(W) <- paste0("W", 1:d)
-  out <- list(W = W, A = A, Y = Y,  pi = pi, mu0 = mu, mu1 = mu, ATE = 0)
+  link <- (sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3]) - 0.5)
+  pi <- plogis(1.5 * link)
+  A <- rbinom(n, 1, pi)
+  mu0 <-  plogis(-1 + cos(3.14*W[,1]) + W[,2]* sin(W[,2]) + sign(W[,3]) * sqrt(abs(W[,3])))
+  mu1 <- plogis(qlogis(mu0) + 1 +  (sign(W[,1]) * sqrt(abs(W[,1])) + sin(3.14*W[,2]) + W[,3]*sin(W[,3])))
+  mu <- ifelse(A==1, mu1, mu0)
+  Y <- rbinom(n, 1, mu)
+
+
+  W <- cbind(exp(W[,1]),
+             W[,1] * W[,2],
+             W[,1] * W[,3]
+  )
+
+
+
+  # W <- cbind(exp(Z[,1]/2),
+  #           1 + Z[,2] / (1 + exp(Z[,1])),
+  #            Z[,1] * Z[,3],
+  #            (Z[,2] + Z[,4] + 1)^2
+  # )
+
+
+  colnames(W) <- paste0("W", 1:d)
+  out <- list(W = W, A = A, Y = Y,  pi = pi, mu0 = mu0, mu1 = mu1, ATE = 0.2462516)
   return(out)
 }
 
-
-#
-# get_data <- function(n, pos_const) {
-#
-#   W <- replicate(d, runif(n, -1, 1))
-#   colnames(W) <- paste0("W", 1:d)
-#
-#   beta_1 <- (rnorm(d, 0, 1))
-#   beta_1 <- beta_1 / sum(abs(beta_1))
-#   beta_2 <- (rnorm(d, 0, 1))
-#   beta_2 <- beta_2 / sum(abs(beta_2))
-#   pi0 <- plogis(pos_const * (W%*%beta_1 + sin(3.14*W)%*%beta_2) )
-#   A <- rbinom(n, 1, pi0)
-#   beta_3 <- abs(rnorm(d, 0, 1)) * sign(beta_1)
-#   beta_3 <- beta_3 / sum(abs(beta_3))
-#   mu0 <-  plogis(qlogis(pi0) - 0.5)
-#   mu1 <- plogis(qlogis(mu0) + (1 + 2*cos(3.14*W)%*%beta_3))
-#   mu <- ifelse(A==1, mu1, mu0)
-#   Y <- rbinom(n, 1, mu)
-#
-#   Wbig <- replicate(d, runif(1000000, -1, 1))
-#   pi0big <- plogis(pos_const * (Wbig%*%beta_1 + sin(3.14*Wbig)%*%beta_2) )
-#   mu0big <-  plogis(qlogis(pi0big) - 0.5)
-#   mu1big <- plogis(qlogis(mu0big) + (1 + 2*cos(3.14*Wbig)%*%beta_3))
-#   ATE <- mean(mu1big - mu0big)
-#   print(ATE)
-#
-#
-#   return(list(W=W, A = A, Y = Y, ATE = ATE, pi = pi0, mu0 = mu0, mu1 = mu1))
-# }
 
 
 
@@ -264,20 +250,6 @@ calibrate_nuisances <- function(A, Y,mu1, mu0, pi1, pi0) {
   return(list(mu1_star= mu1_star, mu0_star=mu0_star, pi1_star = pi1_star, pi0_star = pi0_star))
 }
 
-# calibrate_nuisances <- function(A, Y,mu1, mu0, pi1, pi0) {
-#   calibrator_mu1 <- as.stepfun(isoreg(mu1[A==1], Y[A==1]))
-#   mu1_star <- calibrator_mu1(mu1)
-#   calibrator_mu0 <- as.stepfun(isoreg(mu0[A==0], Y[A==0]))
-#   mu0_star <- calibrator_mu0(mu0)
-#
-#
-#   calibrator_pi1 <- as.stepfun(isoreg(pi1, A))
-#   pi1_star <- calibrator_pi1(pi1)
-#   calibrator_pi0 <- as.stepfun(isoreg(pi0, 1-A))
-#   pi0_star <- calibrator_pi0(pi0)
-#   return(list(mu1_star= mu1_star, mu0_star=mu0_star, pi1_star = pi1_star, pi0_star = pi0_star))
-# }
-
 
 
 
@@ -305,21 +277,6 @@ compute_initial <- function(W,A,Y, lrnr_mu, lrnr_pi, folds,   invert = FALSE) {
 
   print("done")
   return(list(mu1 = mu1, mu0 = mu0, pi1 = pi1, pi0 = pi0, folds = folds))
-}
-
-truncate_pscore_adaptive <- function(A, pi, min_trunc_level = 1e-8) {
-  risk_function <- function(cutoff, level) {
-    pi <- pmax(pi, cutoff)
-    pi <- pmin(pi, 1 - cutoff)
-    alpha <- A/pi - (1-A)/(1-pi) #Riesz-representor
-    alpha1 <- 1/pi
-    alpha0 <- - 1/(1-pi)
-    mean(alpha^2 - 2*(alpha1 - alpha0))
-  }
-  cutoff <- optim(1e-5, fn = risk_function, method = "Brent", lower = min_trunc_level, upper = 0.5, level = 1)$par
-  pi <- pmin(pi, 1 - cutoff)
-  pi <- pmax(pi, cutoff)
-  pi
 }
 
 

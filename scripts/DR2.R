@@ -18,8 +18,12 @@ do_sims <- function(n, nsims) {
   cols <- paste0("W", 1:3)
   stack_parametric <-
     list(
-      Lrnr_earth$new(degree=1),
-      Lrnr_earth$new(degree=2),
+      Lrnr_earth$new(degree=1, nk = 10),
+      Lrnr_earth$new(degree=1, nk = 15),
+      Lrnr_earth$new(degree=1, nk = 20),
+      Lrnr_earth$new(degree=1, nk = 25),
+      Lrnr_earth$new(degree=1, nk = 30),
+      Lrnr_earth$new(degree=1, nk = 40),
       Lrnr_gam$new(  formula_A_quad <- paste0("A~", paste0("s(", cols, ", k = 25, bs='bs',m=c(1,1))", collapse = " + "))),
       Lrnr_gam$new(  formula_A_quad <- paste0("Y~", paste0("s(", cols, ", k = 25, bs='bs',m=c(1,1))", collapse = " + "))),
       Lrnr_glm$new()
@@ -27,21 +31,21 @@ do_sims <- function(n, nsims) {
 
 
 
-  stack_rf <-   Lrnr_ranger$new(max.depth = 12)
+  stack_rf <-   Lrnr_ranger$new(max.depth = 8)
 
   stack_xg <- #Stack$new(
     list(
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.4 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.4 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.3 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.35 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.35 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.25 ),
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.3 ),
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.3 ),
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.25 ),
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.2 ),
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.2 ),
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.2 ),
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.15 ),
-      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.15 ),
       Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.15 )
     )
  # )
