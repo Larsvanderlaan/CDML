@@ -1,0 +1,6 @@
+Failed on Lrnr_screener_coefs_0_NULL_2
+Error in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs,  : 
+  one multinomial or binomial class has 1 or 0 observations; not allowed
+In addition: Warning message:
+In strata_folds(fold_fun, cluster_ids, strata_ids, ...) :
+  The number of observations in the most rare strata is 6, and V is 10, so using leave-one-out CV, i.e. setting V = n

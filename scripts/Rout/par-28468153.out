@@ -1,0 +1,5544 @@
+LOADING R
+R LOADED
+[1] "/home/lvanderl/Rlibs2"                         
+[2] "/app/software/R/4.3.1-gfbf-2022b/lib/R/library"
+[1] "/home/lvanderl/sieveSims"
+[1] "acic2017_18"
+  [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+ [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+ [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+ [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+ [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+ [91]  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107 108
+[109] 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126
+[127] 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144
+[145] 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162
+[163] 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180
+[181] 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198
+[199] 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216
+[217] 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234
+[235] 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250
+[1] "iter: 1"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                      0.145084                       0.143642 
+Lrnr_ranger_500_TRUE_none_1_12 
+                      0.143818 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2642231                      0.2340731 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2194424 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08621784                     0.08632056 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08633792 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1715408 -0.3908313
+[1] "iter: 2"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1614155                      0.1588044 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1595940 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2629317                      0.2429695 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2343580 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09762063                     0.09523328 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09455087 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2248931 -0.4486325
+[1] "iter: 3"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2613032                      0.2603052 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2590239 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3709491                      0.3610875 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3589243 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09746050                     0.09647704 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09595819 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3915593 -0.5979299
+[1] "iter: 4"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2993106                      0.2849570 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2928221 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3284242                      0.3220923 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3237293 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09335811                     0.09264079 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09226705 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4118164 -0.6390005
+[1] "iter: 5"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1751182                      0.1721071 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1725836 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2267473                      0.2122899 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2095404 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09237671                     0.09243535 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09240905 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1502425 -0.3493798
+[1] "iter: 6"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1543578                      0.1530465 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1529914 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2520109                      0.2210402 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2081374 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09383266                     0.09360698 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09382151 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.06425332 -0.30479406
+[1] "iter: 7"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1524011                      0.1512686 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1507690 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2476468                      0.2171350 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2049763 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09125777                     0.09108871 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09171539 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1047253 -0.3325568
+[1] "iter: 8"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1520342                      0.1486555 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1501982 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2550313                      0.2243006 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2093954 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09584489                     0.09504617 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09516681 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1057185 -0.3509529
+[1] "iter: 9"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1512239                      0.1500515 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1496035 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2495381                      0.2213014 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2031685 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09141321                     0.09070158 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09039566 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1162388 -0.3619905
+[1] "iter: 10"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2040603                      0.1971914 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1951117 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2768049                      0.2562597 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2467121 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09549942                     0.09607163 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09739696 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1472534 -0.3849165
+[1] "iter: 11"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1563183                      0.1547859 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1545706 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2483180                      0.2196572 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2078351 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09186169                     0.09157519 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09171346 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1241378 -0.3652780
+[1] "iter: 12"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1537936                      0.1517077 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1525944 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2518664                      0.2250128 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2116226 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09561755                     0.09361538 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09329502 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1437154 -0.3769725
+[1] "iter: 13"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4292857                      0.4306613 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4322670 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4020237                      0.4025419 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4027941 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09443127                     0.09490159 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09530096 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7666117 -0.9659269
+[1] "iter: 14"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2730362                      0.2707086 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2702052 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3637494                      0.3548746 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3484089 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09361496                     0.09349927 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09328791 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4518405 -0.6371143
+[1] "iter: 15"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1471782                      0.1463107 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1464749 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2636095                      0.2322017 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2185410 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09344269                     0.09370921 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09441608 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.09641375 -0.33528570
+[1] "iter: 16"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1505974                      0.1488783 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1492420 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2355188                      0.2097795 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1968807 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09003357                     0.09022518 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09045076 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1135480 -0.3707398
+[1] "iter: 17"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1782449                      0.1772531 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1772713 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2407029                      0.2231074 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2182901 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10124839                     0.09975634 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09883945 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1574688 -0.3526165
+[1] "iter: 18"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1470273                      0.1461818 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1458475 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2469840                      0.2174824 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2040204 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10498934                     0.10116317 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09923552 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.08493562 -0.32846500
+[1] "iter: 19"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2354719                      0.2318601 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2326602 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3535249                      0.3355328 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3265414 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09420923                     0.09395616 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09407417 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3632380 -0.5729596
+[1] "iter: 20"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1495143                      0.1465832 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1469768 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2575615                      0.2243847 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2114298 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08828417                     0.08805304 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08799302 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1516474 -0.3796043
+[1] "iter: 21"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4545875                      0.4558298 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4626921 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.5687282                      0.5463777 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.5359831 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1011567                      0.1005462 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1007414 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.847047 -1.119501
+[1] "iter: 22"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1943012                      0.1918549 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1912374 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2384922                      0.2282271 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2267120 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10087822                     0.09716423 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09559212 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1634743 -0.3334250
+[1] "iter: 23"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1582282                      0.1565972 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1571800 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2211042                      0.2145933 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2154867 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09907389                     0.09631494 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09487701 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1366799 -0.2921932
+[1] "iter: 24"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2106472                      0.2066602 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2059564 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2740650                      0.2607538 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2538036 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09519814                     0.09546593 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09560340 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1885995 -0.3913271
+[1] "iter: 25"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1539930                      0.1533272 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1528957 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2385354                      0.2114131 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1999728 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09043710                     0.08987404 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09003471 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1656047 -0.3874294
+[1] "iter: 26"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3246338                      0.3233850 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3247663 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3536829                      0.3493928 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3482791 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10125434                     0.09823338 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09682425 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.5524138 -0.6923566
+[1] "iter: 27"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3586164                      0.3574540 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3578682 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3627403                      0.3582268 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3572917 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09934108                     0.09733585 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09675870 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.5602437 -0.7036911
+[1] "iter: 28"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1669041                      0.1653760 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1624968 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2717511                      0.2500164 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2411296 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09545951                     0.09531646 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09511305 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2240175 -0.4362383
+[1] "iter: 29"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1518389                      0.1478679 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1484443 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2603081                      0.2297663 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2154535 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10636868                     0.10174884 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09964661 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1072685 -0.3415542
+[1] "iter: 30"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1522169                      0.1510218 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1512417 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2488881                      0.2207830 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2080635 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09355886                     0.09395928 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09446448 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.07023049 -0.33703873
+[1] "iter: 31"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1457055                      0.1446609 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1449115 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2409463                      0.2137943 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2014243 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09276638                     0.09315190 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09348210 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1281409 -0.3860793
+[1] "iter: 32"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3107565                      0.3121766 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3137607 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3255448                      0.3222972 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3235518 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09328644                     0.09278736 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09299427 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4009318 -0.5076049
+[1] "iter: 33"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1535766                      0.1515243 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1519889 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2521368                      0.2236653 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2077345 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09436085                     0.09323609 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09311361 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1373761 -0.3451677
+[1] "iter: 34"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1576658                      0.1574889 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1570322 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2578675                      0.2302365 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2172207 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09188851                     0.09287911 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09400275 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1673578 -0.3825164
+[1] "iter: 35"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2701219                      0.2677554 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2663153 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3487633                      0.3425214 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3391539 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09151891                     0.09081397 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09081488 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4397606 -0.6167256
+[1] "iter: 36"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2318060                      0.2279066 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2278269 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3285997                      0.3249069 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3245974 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.11050654                     0.10361367 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09968303 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3265189 -0.4871596
+[1] "iter: 37"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1462057                      0.1445301 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1448117 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2724696                      0.2412875 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2268966 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09935621                     0.09680713 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09592670 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1876460 -0.4387187
+[1] "iter: 38"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4125519                      0.4095369 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4066248 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4227814                      0.4185336 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4192121 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09916728                     0.09905211 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09896754 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7378117 -0.8896740
+[1] "iter: 39"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1523931                      0.1502759 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1508180 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2510931                      0.2205721 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2078831 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09088130                     0.09050094 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09072076 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1160810 -0.3362449
+[1] "iter: 40"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1792533                      0.1770400 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1769122 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2199889                      0.2089273 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2067596 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08982401                     0.09029541 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09124122 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1519254 -0.3101892
+[1] "iter: 41"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1506432                      0.1488928 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1483717 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2410845                      0.2141568 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2045120 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1092678                      0.1028305 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1005593 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1247213 -0.3588129
+[1] "iter: 42"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2322615                      0.2291911 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2286683 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3023465                      0.2958619 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2932423 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09958145                     0.09661745 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09594229 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3638158 -0.5122463
+[1] "iter: 43"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1509724                      0.1493213 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1487692 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2459942                      0.2166983 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2050520 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10190873                     0.09802579 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09662522 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.09773505 -0.35871176
+[1] "iter: 44"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1527791                      0.1504117 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1507724 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2487715                      0.2187817 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2040529 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09047295                     0.09114718 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09222541 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.09846769 -0.32330575
+[1] "iter: 45"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2539006                      0.2526846 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2507358 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4009769                      0.3851194 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3789217 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08733247                     0.08750822 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08745657 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4326427 -0.6886031
+[1] "iter: 46"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1526027                      0.1511994 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1518610 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2369569                      0.2125789 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2000334 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09609839                     0.09226124 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09095208 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1457368 -0.3722327
+[1] "iter: 47"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1501593                      0.1498277 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1500241 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2658624                      0.2394406 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2230612 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09850651                     0.09385759 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09167386 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1690052 -0.4258933
+[1] "iter: 48"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3012880                      0.3018067 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3025340 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3309865                      0.3181090 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3118329 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09204843                     0.09238253 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09299314 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4844277 -0.6062869
+[1] "iter: 49"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1809176                      0.1783115 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1787043 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3330078                      0.3036063 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2876289 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09177173                     0.09177695 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09192389 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2652698 -0.5126768
+[1] "iter: 50"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4525863                      0.4535718 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4535022 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4285043                      0.4226054 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4210641 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09533921                     0.09418587 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09344126 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7129889 -0.9038502
+[1] "iter: 51"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1553089                      0.1545278 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1538485 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2447057                      0.2162328 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2044827 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08900096                     0.08916291 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08940557 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.08990628 -0.33370035
+[1] "iter: 52"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2236236                      0.2194273 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2202859 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3116538                      0.3001063 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2965214 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09837239                     0.09726233 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09693666 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3496695 -0.5069478
+[1] "iter: 53"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1779909                      0.1773707 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1771289 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2525857                      0.2425152 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2409456 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09066219                     0.09088204 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09049596 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1152941 -0.3108772
+[1] "iter: 54"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1470148                      0.1460172 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1456338 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2491030                      0.2195038 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2072936 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1042530                      0.1014728 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1009360 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1099367 -0.3543017
+[1] "iter: 55"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1473667                      0.1460178 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1458817 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2241393                      0.1992508 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1891929 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08944591                     0.08964340 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08978632 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1326053 -0.3524850
+[1] "iter: 56"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4046820                      0.4036358 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4048772 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4395295                      0.4294734 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4231578 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09732785                     0.09899860 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.10035497 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.6576960 -0.8601795
+[1] "iter: 57"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3030514                      0.3042528 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3039979 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3516883                      0.3445820 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3423225 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09382862                     0.09403116 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09408731 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.5166996 -0.6328994
+[1] "iter: 58"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1521528                      0.1512445 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1513498 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2422553                      0.2113483 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1990994 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08812194                     0.08772475 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08771275 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1365677 -0.3716617
+[1] "iter: 59"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2872676                      0.2877541 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2886781 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3329735                      0.3240181 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3209530 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09551464                     0.09507626 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09455414 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3853970 -0.5158103
+[1] "iter: 60"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1467228                      0.1444386 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1448646 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2285881                      0.2049571 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1940781 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09362571                     0.09335489 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09314392 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.08422604 -0.32509346
+[1] "iter: 61"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1540080                      0.1511935 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1510022 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3019915                      0.2708801 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2536963 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09761702                     0.09580331 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09507186 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2360021 -0.5090431
+[1] "iter: 62"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2824555                      0.2826195 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2830522 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3656020                      0.3546782 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3518855 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09940782                     0.09782859 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09730199 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4281106 -0.5769521
+[1] "iter: 63"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2410220                      0.2395481 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2413317 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2131990                      0.1993167 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1945459 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09706993                     0.09466486 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09374361 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1994005 -0.3683832
+[1] "iter: 64"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3735379                      0.3768646 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3782184 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4420571                      0.4424911 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4395357 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09390397                     0.09404435 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09445280 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.6838832 -0.8309157
+[1] "iter: 65"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2613541                      0.2607328 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2618640 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3037990                      0.3006440 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2998963 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08831465                     0.08843537 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08960397 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4000559 -0.4763843
+[1] "iter: 66"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3751714                      0.3738996 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3708183 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4275166                      0.4276830 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4248478 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10012798                     0.09895210 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09805416 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.5391013 -0.8249908
+[1] "iter: 67"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1503350                      0.1488823 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1496137 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2484705                      0.2198692 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2053571 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09166340                     0.09014627 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08980088 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1979478 -0.4225012
+[1] "iter: 68"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4370643                      0.4379159 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4387844 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4085351                      0.4069107 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4073875 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1078587                      0.1032946 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1010908 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7808055 -0.9722185
+[1] "iter: 69"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1516230                      0.1500109 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1506863 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2552118                      0.2237669 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2096340 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08899149                     0.08889274 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08921135 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1882681 -0.4320307
+[1] "iter: 70"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3739446                      0.3735534 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3704309 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4241389                      0.4129060 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4083165 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09534902                     0.09457718 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09437610 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.6603118 -0.9137506
+[1] "iter: 71"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1448288                      0.1431264 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1436377 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2515222                      0.2197932 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2067066 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10101548                     0.09625587 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09464979 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.09633817 -0.38531408
+[1] "iter: 72"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4548742                      0.4547151 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4544931 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4822766                      0.4773847 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4728178 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09141979                     0.09172793 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09197572 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.9093571 -1.1115731
+[1] "iter: 73"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4392803                      0.4373168 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4386706 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4647431                      0.4543412 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4529931 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1080267                      0.1031516 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1011545 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7348598 -0.9382449
+[1] "iter: 74"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1495034                      0.1483402 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1484805 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2361571                      0.2094444 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1981593 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09788013                     0.09531541 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09430677 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.08414647 -0.32203272
+[1] "iter: 75"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2759951                      0.2772474 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2776805 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3327915                      0.3239479 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3207236 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1086676                      0.1036799 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1014669 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4082881 -0.6048812
+[1] "iter: 76"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1486278                      0.1468446 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1467364 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2471306                      0.2178344 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2067801 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08772239                     0.08867278 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08998969 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1508483 -0.3870896
+[1] "iter: 77"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1510965                      0.1492542 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1490606 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2677589                      0.2335572 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2158641 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10013027                     0.09732948 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09537039 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1498752 -0.4008699
+[1] "iter: 78"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4010026                      0.4023022 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4011243 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3907110                      0.3840874 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3831107 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09634268                     0.09591753 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09635597 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7011736 -0.8350928
+[1] "iter: 79"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2738954                      0.2688291 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2716905 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3849298                      0.3670137 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3605947 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09501409                     0.09514951 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09592176 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4528052 -0.6741689
+[1] "iter: 80"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1855169                      0.1798443 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1792949 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3032341                      0.2918381 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2866400 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09361277                     0.09342007 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09358337 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2604857 -0.4856128
+[1] "iter: 81"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3668510                      0.3538971 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3419914 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4227281                      0.4213194 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4198201 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09464910                     0.09461359 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09524652 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.6171140 -0.9096159
+[1] "iter: 82"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1804190                      0.1832190 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1782818 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2534500                      0.2329973 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2259452 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09405831                     0.09436276 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09494465 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1786270 -0.4253815
+[1] "iter: 83"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1517056                      0.1499716 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1504822 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2503079                      0.2200735 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2073745 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10026240                     0.09693747 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09524888 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1735499 -0.4096769
+[1] "iter: 84"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1700785                      0.1679628 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1692904 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                      0.299378                       0.267284 
+Lrnr_ranger_500_TRUE_none_1_12 
+                      0.248973 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09529174                     0.09423383 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09347544 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1948262 -0.4549638
+[1] "iter: 85"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1479280                      0.1462550 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1462188 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2588149                      0.2258026 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2089446 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09148228                     0.09055692 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09056072 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.05259444 -0.31652281
+[1] "iter: 86"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1495700                      0.1487740 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1486568 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2569726                      0.2245216 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2115561 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10712286                     0.10187033 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09899179 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.07064125 -0.33338494
+[1] "iter: 87"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1498166                      0.1485372 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1483799 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2519951                      0.2223145 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2062301 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08943982                     0.08932413 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09016545 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.07040767 -0.30785885
+[1] "iter: 88"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1641538                      0.1615539 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1627583 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3658651                      0.3314170 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3152761 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09602143                     0.09670234 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09729285 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2605315 -0.5381311
+[1] "iter: 89"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3689292                      0.3708595 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3709664 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4105880                      0.4116727 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4097722 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09918581                     0.09853801 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09844707 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.6927393 -0.8377767
+[1] "iter: 90"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1469807                      0.1440935 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1443741 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2508683                      0.2245264 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2130504 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09228958                     0.09260678 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09378455 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1325769 -0.3738637
+[1] "iter: 91"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1945534                      0.1949897 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1921131 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2757965                      0.2552340 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2487800 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10206360                     0.09926061 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09898160 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1281801 -0.3461079
+[1] "iter: 92"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2573427                      0.2529549 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2534929 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3990649                      0.3848234 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3757384 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1012497                      0.1017067 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1027144 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3818920 -0.6183278
+[1] "iter: 93"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1483313                      0.1473302 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1475199 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2484236                      0.2175039 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2059926 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09495387                     0.09423875 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09402763 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1603123 -0.3814561
+[1] "iter: 94"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1790214                      0.1779008 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1788364 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2618518                      0.2444280 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2365997 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1116541                      0.1063126 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1031920 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1712130 -0.3713697
+[1] "iter: 95"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1484311                      0.1464839 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1472062 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2468697                      0.2212326 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2066123 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10158281                     0.09798093 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09622436 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1153659 -0.3645986
+[1] "iter: 96"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3946970                      0.3962168 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3982729 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4713552                      0.4638792 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4599460 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09697171                     0.09658607 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09726057 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7038887 -0.8932503
+[1] "iter: 97"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1674310                      0.1588722 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1565330 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3129102                      0.2827903 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2664285 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09060953                     0.09098786 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09167263 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2210736 -0.5105424
+[1] "iter: 98"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2095390                      0.2077879 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2058745 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2699732                      0.2614071 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2587270 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09693446                     0.09678368 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09723017 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1541304 -0.3533645
+[1] "iter: 99"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3945869                      0.3928466 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3932717 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4619145                      0.4546539 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4500685 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09859476                     0.09708359 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09717291 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.6440703 -0.8812988
+[1] "iter: 100"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1693930                      0.1657630 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1660613 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2827478                      0.2577555 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2474157 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09841203                     0.09896706 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09965431 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1545015 -0.4072335
+[1] "iter: 101"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3722455                      0.3714226 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3730637 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3862851                      0.3851907 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3858288 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09981907                     0.09889922 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09806216 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7157711 -0.7554627
+[1] "iter: 102"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2196581                      0.2175672 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2182489 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3215469                      0.3011795 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2898374 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09687483                     0.09458317 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09382087 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3622850 -0.5780063
+[1] "iter: 103"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1488247                      0.1467366 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1466065 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2591470                      0.2282347 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2147081 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09124490                     0.09177681 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09221121 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1574161 -0.3796087
+[1] "iter: 104"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1538148                      0.1525100 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1528645 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2379063                      0.2100811 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1977967 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09769341                     0.09557611 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09435410 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1505926 -0.3705497
+[1] "iter: 105"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4563467                      0.4556253 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4578623 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4571792                      0.4476134 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4429627 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09273885                     0.09277596 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09274946 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7391276 -0.9707594
+[1] "iter: 106"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2250298                      0.2154167 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2114124 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3282387                      0.3166738 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3140316 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1104991                      0.1058333 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1030219 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3134764 -0.5074251
+[1] "iter: 107"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1465812                      0.1448421 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1454169 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2539418                      0.2237308 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2099065 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1069251                      0.1025302 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1005768 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1270498 -0.3585448
+[1] "iter: 108"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1745032                      0.1726154 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1721649 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2911717                      0.2590452 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2451437 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09465591                     0.09332598 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09264708 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2085499 -0.4475760
+[1] "iter: 109"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1944217                      0.1870609 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1859420 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2627851                      0.2449368 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2385169 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09093458                     0.09111785 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09111893 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1374290 -0.3888894
+[1] "iter: 110"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1460415                      0.1444703 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1448140 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2454613                      0.2186849 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2075694 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09014204                     0.09065244 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09142214 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.08609916 -0.33155096
+[1] "iter: 111"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1692558                      0.1663607 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1667119 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2927178                      0.2636137 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2459451 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09238967                     0.09251187 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09284308 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2255339 -0.4868524
+[1] "iter: 112"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1485242                      0.1460807 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1462130 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2592066                      0.2285541 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2127557 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09935736                     0.09560905 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09380512 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.0968006 -0.3583211
+[1] "iter: 113"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1795212                      0.1791002 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1801238 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2692459                      0.2491292 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2427207 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08605388                     0.08585408 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08629025 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2292285 -0.4170807
+[1] "iter: 114"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1483920                      0.1464774 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1457511 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2633473                      0.2301974 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2144123 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09405223                     0.09386258 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09386220 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2160918 -0.4411124
+[1] "iter: 115"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1516481                      0.1505378 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1516834 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2400352                      0.2148556 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2022229 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09439354                     0.09356830 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09332421 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1517329 -0.3593081
+[1] "iter: 116"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1645686                      0.1633098 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1628468 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2478011                      0.2196069 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2058451 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08833193                     0.08942359 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09068759 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1150511 -0.3707684
+[1] "iter: 117"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1522116                      0.1507740 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1504986 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2501697                      0.2189391 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2055055 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09311831                     0.09475037 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09561967 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1515738 -0.3668008
+[1] "iter: 118"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1671900                      0.1657282 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1650515 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2423106                      0.2291145 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2236957 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09042044                     0.09083595 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09137557 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1563190 -0.3934572
+[1] "iter: 119"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1529375                      0.1513504 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1514878 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2422039                      0.2147377 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2013408 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10081248                     0.09717069 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09627531 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1298198 -0.3655840
+[1] "iter: 120"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1640979                      0.1609979 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1594047 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2263669                      0.2173969 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2144002 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09669310                     0.09635269 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09650210 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.09532882 -0.28731584
+[1] "iter: 121"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1478784                      0.1463853 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1469504 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2439870                      0.2144587 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2041708 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08760165                     0.08748744 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08850677 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1378329 -0.3790462
+[1] "iter: 122"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3998813                      0.3993723 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4006897 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3921886                      0.3869906 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3851402 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09758789                     0.09635046 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09606565 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7393214 -0.7876902
+[1] "iter: 123"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1572834                      0.1556736 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1556328 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2438514                      0.2160211 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2048188 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09819011                     0.09708355 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09673433 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1272071 -0.3759690
+[1] "iter: 124"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3755970                      0.3761439 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3746002 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4291737                      0.4197928 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4143324 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09487955                     0.09609362 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09705557 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.6687977 -0.8892801
+[1] "iter: 125"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1447265                      0.1437055 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1441223 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2561724                      0.2259096 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2140292 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08706712                     0.08741118 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08776283 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.08539457 -0.33308956
+[1] "iter: 126"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1498276                      0.1466470 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1470382 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2721467                      0.2388975 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2283369 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08968443                     0.08996470 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09015565 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1450939 -0.4160573
+[1] "iter: 127"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4296712                      0.4307031 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4314727 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4683240                      0.4620269 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4594425 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09287903                     0.09295985 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09319586 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7325383 -0.9830197
+[1] "iter: 128"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1627317                      0.1614128 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1611969 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2634053                      0.2338559 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2186593 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1111279                      0.1043634 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1016729 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1363087 -0.3745396
+[1] "iter: 129"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1543346                      0.1515823 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1514663 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2565776                      0.2255977 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2108697 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09365440                     0.09427838 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09463799 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.03522595 -0.30988275
+[1] "iter: 130"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1506444                      0.1477782 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1477286 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2404812                      0.2114139 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1976797 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09691444                     0.09329857 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09218117 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1400964 -0.3716402
+[1] "iter: 131"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1484288                      0.1475719 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1478446 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2596325                      0.2274359 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2124720 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09316010                     0.09404300 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09523206 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.08963869 -0.34160441
+[1] "iter: 132"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2749308                      0.2708938 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2719995 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3098823                      0.3070580 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3073422 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1119502                      0.1056946 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1032207 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4146779 -0.5229803
+[1] "iter: 133"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1486822                      0.1482447 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1479715 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2347365                      0.2080319 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1974684 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08956882                     0.08908493 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08886661 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1673602 -0.4111384
+[1] "iter: 134"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1997494                      0.1986359 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1994100 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2276128                      0.2174405 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2141212 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08871718                     0.08915900 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09060402 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1558726 -0.2983809
+[1] "iter: 135"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1517976                      0.1507878 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1510769 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2636287                      0.2314388 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2171372 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09476688                     0.09321818 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09331205 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1473079 -0.3906686
+[1] "iter: 136"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1607429                      0.1592060 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1590672 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2516965                      0.2213724 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2072951 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1095668                      0.1067580 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1055120 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.08651379 -0.32642773
+[1] "iter: 137"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1594485                      0.1584656 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1593763 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2370382                      0.2088185 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1972658 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09665527                     0.09332221 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09265320 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1553714 -0.3836061
+[1] "iter: 138"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1488598                      0.1476480 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1474882 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2360451                      0.2126757 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1999037 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1090176                      0.1033949 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1007524 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1173862 -0.3487788
+[1] "iter: 139"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1804660                      0.1761104 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1785285 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2289875                      0.2110270 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2020753 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09804250                     0.09717792 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09628651 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1469390 -0.3730139
+[1] "iter: 140"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2799553                      0.2786482 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2774212 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3912744                      0.3836802 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3808197 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09236207                     0.09251221 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09326425 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.5728569 -0.7336601
+[1] "iter: 141"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1463189                      0.1450843 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1447465 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2399832                      0.2112194 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1966322 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09413730                     0.09416785 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09422974 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.06072239 -0.31946571
+[1] "iter: 142"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1544091                      0.1525739 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1525494 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2391561                      0.2118801 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2003741 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1104054                      0.1048491 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1025922 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1150187 -0.3477118
+[1] "iter: 143"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1555864                      0.1537586 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1543243 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2570775                      0.2262853 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2137349 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09111135                     0.09151854 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09124775 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1263989 -0.3667791
+[1] "iter: 144"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1397497                      0.1376982 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1381386 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2570051                      0.2259610 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2141211 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08909226                     0.08900247 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08974983 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1593403 -0.3937896
+[1] "iter: 145"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2908820                      0.2885363 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2886061 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3369130                      0.3248396 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3226802 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09126987                     0.09180660 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09208554 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4014768 -0.5455369
+[1] "iter: 146"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1530507                      0.1520350 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1521528 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2410355                      0.2168359 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2053876 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09382737                     0.09309016 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09322680 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1376495 -0.3566748
+[1] "iter: 147"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1813735                      0.1805362 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1798806 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2667522                      0.2461433 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2365601 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08871624                     0.08881436 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08977852 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2736980 -0.4705176
+[1] "iter: 148"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1557745                      0.1548877 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1547939 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2642059                      0.2342751 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2195703 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09478736                     0.09504238 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09504006 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1644174 -0.3953368
+[1] "iter: 149"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1551054                      0.1542897 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1543123 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2457405                      0.2157489 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2034312 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09023376                     0.08935265 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08894563 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.09281128 -0.32080103
+[1] "iter: 150"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1546084                      0.1526784 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1526082 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2660460                      0.2342579 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2197018 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09459781                     0.09485657 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09497026 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1651740 -0.4005092
+[1] "iter: 151"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4159728                      0.4116553 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4126536 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4018632                      0.3942436 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3912784 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09705949                     0.09741422 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09811131 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7542567 -0.8892469
+[1] "iter: 152"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1672172                      0.1618020 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1617554 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2763868                      0.2505051 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2389033 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08704905                     0.08777140 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08796010 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2169798 -0.4628040
+[1] "iter: 153"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4922555                      0.4923836 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4887152 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.5131702                      0.5061354 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.5070704 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09736910                     0.09808610 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09885394 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.8490256 -1.1159631
+[1] "iter: 154"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2691701                      0.2678441 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2686257 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2640500                      0.2518970 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2494665 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08963883                     0.08970949 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08977280 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2953717 -0.4923355
+[1] "iter: 155"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2348341                      0.2360372 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2350414 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3102751                      0.3012328 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2962506 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09771204                     0.09678224 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09681887 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2859595 -0.4820794
+[1] "iter: 156"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1476602                      0.1464326 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1460334 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2678364                      0.2375538 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2223670 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09426309                     0.09362485 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09358418 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2398197 -0.4657084
+[1] "iter: 157"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1450020                      0.1441981 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1442932 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2543963                      0.2267572 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2136483 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10282527                     0.09886353 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09674603 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1091864 -0.3615886
+[1] "iter: 158"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1534356                      0.1515173 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1516898 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2321899                      0.2062834 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1944075 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08884562                     0.08804562 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08757657 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.06668663 -0.34941523
+[1] "iter: 159"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1660705                      0.1586264 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1567753 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2511588                      0.2276295 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2203527 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10369709                     0.10012482 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09864841 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1566296 -0.4056716
+[1] "iter: 160"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1503648                      0.1478633 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1482799 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2430487                      0.2168004 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2036781 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09833695                     0.09440275 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09288085 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1422388 -0.3824612
+[1] "iter: 161"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1393059                      0.1372391 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1377224 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2311852                      0.2064703 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1968595 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09053992                     0.08987123 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08965689 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1362731 -0.3755843
+[1] "iter: 162"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3974653                      0.3997247 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3959478 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3970998                      0.3920232 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3921780 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09292750                     0.09338048 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09433860 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.6500864 -0.8430424
+[1] "iter: 163"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2220481                      0.2212219 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2216593 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2776961                      0.2681541 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2638993 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09496367                     0.09653698 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09828416 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2547602 -0.4209469
+[1] "iter: 164"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1487432                      0.1473192 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1475920 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2380771                      0.2105054 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1985552 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08976762                     0.08946915 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08981609 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.09212734 -0.34640024
+[1] "iter: 165"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2292295                      0.2260171 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2267241 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3255190                      0.3234571 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3244165 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09515420                     0.09403466 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09343653 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3790225 -0.4891652
+[1] "iter: 166"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1565044                      0.1548465 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1538573 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2494425                      0.2206946 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2061748 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09730747                     0.09558772 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09471725 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.08117233 -0.32543475
+[1] "iter: 167"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3638438                      0.3622181 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3626144 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4572646                      0.4532324 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4504398 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1060370                      0.1031765 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1018470 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.6140223 -0.8400350
+[1] "iter: 168"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1737444                      0.1721531 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1710783 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3128017                      0.2802003 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2606807 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09590329                     0.09565775 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09637698 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1751559 -0.4367549
+[1] "iter: 169"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1468226                      0.1450561 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1447932 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2454739                      0.2162643 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2020445 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09217692                     0.09187665 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09164793 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1832664 -0.4051444
+[1] "iter: 170"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1511389                      0.1498722 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1493128 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2655616                      0.2335366 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2180122 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10297335                     0.09883862 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09693588 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1890182 -0.4336334
+[1] "iter: 171"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1750049                      0.1649079 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1620775 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2477708                      0.2396176 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2361791 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08776092                     0.08764504 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08777955 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2394914 -0.4808845
+[1] "iter: 172"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1595792                      0.1585100 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1580163 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2264092                      0.2141594 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2104748 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09950036                     0.09726716 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09722234 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1255019 -0.3340264
+[1] "iter: 173"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2575385                      0.2551472 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2546185 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3435987                      0.3372247 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3346837 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09512053                     0.09373075 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09285482 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4222727 -0.5495254
+[1] "iter: 174"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1917795                      0.1890338 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1905184 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3187231                      0.3020994 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2952916 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09847549                     0.09732459 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09750179 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2638337 -0.4851939
+[1] "iter: 175"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3671942                      0.3637876 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3607352 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4238052                      0.4093993 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4045057 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09121524                     0.09118675 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09127570 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.6562177 -0.8511717
+[1] "iter: 176"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1399368                      0.1387440 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1391689 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2327616                      0.2139060 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2067041 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1115768                      0.1040462 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1003226 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1856200 -0.3933752
+[1] "iter: 177"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1516823                      0.1486877 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1479100 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2833231                      0.2471906 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2330068 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1094381                      0.1048598 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1025274 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1444696 -0.3925710
+[1] "iter: 178"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1423776                      0.1408392 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1403132 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2483310                      0.2217728 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2093377 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09810445                     0.09549215 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09497201 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1034770 -0.3429606
+[1] "iter: 179"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1864917                      0.1822968 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1814351 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2741950                      0.2688510 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2671209 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09929011                     0.09648487 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09546676 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2179412 -0.4345568
+[1] "iter: 180"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1444747                      0.1423696 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1428858 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2541327                      0.2229516 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2087304 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09593485                     0.09585041 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09533743 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.06949939 -0.33881882
+[1] "iter: 181"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1503740                      0.1486794 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1486053 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2622327                      0.2316661 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2186380 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08676536                     0.08669922 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08778945 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1467131 -0.4264038
+[1] "iter: 182"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2645531                      0.2662861 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2591274 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3486015                      0.3389860 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3333447 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09558385                     0.09550656 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09604587 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4564919 -0.6681644
+[1] "iter: 183"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1553447                      0.1529080 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1526009 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2466273                      0.2157004 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2014561 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08620926                     0.08536401 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08620123 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1122839 -0.3602916
+[1] "iter: 184"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3257089                      0.3250081 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3286155 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3663988                      0.3635743 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3626962 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09496175                     0.09699687 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09904630 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.5189289 -0.6346408
+[1] "iter: 185"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1439590                      0.1412161 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1415521 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2728993                      0.2377413 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2244332 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10668032                     0.10285016 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09962732 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1007655 -0.3773188
+[1] "iter: 186"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1495020                      0.1481547 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1491288 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2443825                      0.2189385 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2059477 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09317789                     0.09307196 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09373199 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.0945602 -0.3348917
+[1] "iter: 187"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1776520                      0.1758455 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1751691 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2533930                      0.2391168 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2323491 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09638338                     0.09430027 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09366294 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1414316 -0.3543845
+[1] "iter: 188"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1640168                      0.1619741 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1631253 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3073550                      0.2728123 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2536106 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08916131                     0.08969184 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08988987 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2045117 -0.4503488
+[1] "iter: 189"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2449659                      0.2412710 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2402763 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3847381                      0.3741025 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3686748 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09177929                     0.09127264 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09111080 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4090288 -0.6350449
+[1] "iter: 190"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1682936                      0.1664112 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1649464 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2267118                      0.2131738 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2089871 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09926808                     0.09757783 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09771223 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.09899967 -0.27511950
+[1] "iter: 191"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1565987                      0.1544536 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1545035 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2527273                      0.2205272 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2090281 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09228396                     0.09226603 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09253879 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.09455818 -0.34592005
+[1] "iter: 192"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1543692                      0.1521203 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1520119 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2452452                      0.2177065 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2069422 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09396748                     0.09292427 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09299086 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.0696458 -0.3168733
+[1] "iter: 193"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2781572                      0.2762076 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2742690 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3655165                      0.3570579 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3541493 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1088199                      0.1037169 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1011000 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4985874 -0.6648481
+[1] "iter: 194"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1505299                      0.1485421 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1483264 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2498307                      0.2222689 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2077739 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09551832                     0.09512928 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09555162 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1046997 -0.3669715
+[1] "iter: 195"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1501901                      0.1481683 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1479978 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2574051                      0.2257958 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2126206 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09856328                     0.09763084 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09730283 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.06137882 -0.32343739
+[1] "iter: 196"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2848356                      0.2790734 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2795039 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3971237                      0.3825489 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3795648 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09044428                     0.09069097 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09099807 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4827763 -0.7091534
+[1] "iter: 197"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1530402                      0.1516724 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1513592 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2360424                      0.2074950 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1949299 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10160702                     0.09819191 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09699651 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.02383143 -0.29191992
+[1] "iter: 198"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3654245                      0.3663273 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3669397 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4250484                      0.4129926 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4084150 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09413897                     0.09450966 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09529057 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7119545 -0.8429659
+[1] "iter: 199"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1575339                      0.1518543 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1508262 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3258055                      0.2811232 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2608804 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09326390                     0.09360325 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09442606 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1983873 -0.4570406
+[1] "iter: 200"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3392584                      0.3398246 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3370261 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3612636                      0.3586352 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3590494 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09166319                     0.09175497 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09214411 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.5291879 -0.7283516
+[1] "iter: 201"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1487996                      0.1474813 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1481406 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2635562                      0.2288406 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2164275 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09716517                     0.09642936 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09608393 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1280814 -0.3663084
+[1] "iter: 202"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1575577                      0.1540141 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1534114 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2680113                      0.2377419 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2240004 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09911253                     0.09609112 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09506185 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1408512 -0.4060438
+[1] "iter: 203"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2006907                      0.1974621 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1962719 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2451345                      0.2371962 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2336304 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1024235                      0.1013705 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1006197 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1313810 -0.3091013
+[1] "iter: 204"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1470351                      0.1455030 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1454851 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2506612                      0.2220146 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2092482 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08898636                     0.08871000 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08869106 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.07371436 -0.33600802
+[1] "iter: 205"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2538505                      0.2520360 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2529380 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2888847                      0.2834355 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2841462 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09344287                     0.09447800 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09590299 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3278765 -0.4429069
+[1] "iter: 206"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1751044                      0.1719131 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1720687 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2424379                      0.2276745 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2229935 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09328966                     0.09331272 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09353232 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1192134 -0.3310881
+[1] "iter: 207"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1815965                      0.1801984 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1802916 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2253562                      0.2199482 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2203569 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09575466                     0.09423785 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09368321 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.123511 -0.304724
+[1] "iter: 208"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1822487                      0.1801168 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1803032 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2302860                      0.2229664 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2212458 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09256911                     0.09213097 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09268699 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1113979 -0.3120795
+[1] "iter: 209"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2463072                      0.2453303 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2465131 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3401749                      0.3281208 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3228322 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09423591                     0.09425556 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09425635 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4082021 -0.5714101
+[1] "iter: 210"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1525132                      0.1517850 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1518520 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2217273                      0.2041801 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1992366 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08776317                     0.08791596 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08816906 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2380603 -0.4285108
+[1] "iter: 211"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1856902                      0.1811730 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1822345 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2467683                      0.2292021 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2225898 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09316599                     0.09315037 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09328749 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.08741752 -0.31303923
+[1] "iter: 212"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4217368                      0.4261656 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4258643 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4419656                      0.4407384 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4396873 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09778387                     0.09804827 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09786504 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.8267323 -0.9512734
+[1] "iter: 213"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1571933                      0.1563428 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1562920 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2455157                      0.2158564 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2026046 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09036755                     0.09071755 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09061524 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1020700 -0.3392289
+[1] "iter: 214"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4556337                      0.4525121 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4550961 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4097470                      0.4071844 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4074421 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09579416                     0.09609363 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09661530 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.7315165 -0.9120310
+[1] "iter: 215"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1937159                      0.1907012 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1900136 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2919495                      0.2882371 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2863754 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09131707                     0.09137654 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09145323 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2007919 -0.3912611
+[1] "iter: 216"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1525300                      0.1521615 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1521278 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2470825                      0.2168534 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2044217 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09254093                     0.09290788 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09396246 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1286072 -0.3533028
+[1] "iter: 217"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1418154                      0.1399456 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1396344 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2376599                      0.2115155 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1990990 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10054973                     0.09945156 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09900150 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.0873428 -0.3469417
+[1] "iter: 218"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2157870                      0.2162873 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2175536 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2316636                      0.2203129 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2170362 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09787643                     0.09581238 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09480035 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2340164 -0.3912209
+[1] "iter: 219"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1639189                      0.1626387 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1630151 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2757948                      0.2402170 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2288545 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09343371                     0.09344075 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09343579 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1634505 -0.3765283
+[1] "iter: 220"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2078384                      0.2054557 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2051684 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2454343                      0.2327043 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2273386 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09617972                     0.09557787 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09525464 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1690731 -0.3826812
+[1] "iter: 221"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2775859                      0.2797881 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2789950 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3694261                      0.3614828 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3621630 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1038087                      0.1013250 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1005061 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4795126 -0.6676609
+[1] "iter: 222"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2052719                      0.1994666 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1996125 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2349792                      0.2213401 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2193160 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09149855                     0.09119153 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09085574 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1025205 -0.2949963
+[1] "iter: 223"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4458150                      0.4453642 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4497993 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3995736                      0.3890851 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3854817 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09241660                     0.09237426 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09257272 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.8157193 -1.0278988
+[1] "iter: 224"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1543414                      0.1521312 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1520731 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2754057                      0.2427419 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2264782 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08669832                     0.08641789 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08608573 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2047562 -0.4713734
+[1] "iter: 225"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2801405                      0.2787945 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2773131 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3931777                      0.3830405 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3783635 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09307559                     0.09377891 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09447335 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.4724820 -0.6225942
+[1] "iter: 226"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1484203                      0.1462635 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1469866 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2476676                      0.2188793 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2041718 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09605458                     0.09566792 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09534729 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.05781997 -0.30703836
+[1] "iter: 227"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1884980                      0.1856557 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1862355 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2684630                      0.2501228 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2404688 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09574196                     0.09491808 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09538278 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1682214 -0.3802087
+[1] "iter: 228"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1985591                      0.1962050 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1963246 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2450540                      0.2265847 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2176777 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09417035                     0.09413041 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09432772 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1521913 -0.3618054
+[1] "iter: 229"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1563768                      0.1531074 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1538671 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3218235                      0.2963665 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2783072 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09615000                     0.09578578 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09591398 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2305900 -0.4965639
+[1] "iter: 230"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1499789                      0.1484379 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1487018 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2559516                      0.2204620 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2079810 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09714685                     0.09466697 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09383932 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.0206237 -0.3184507
+[1] "iter: 231"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2789697                      0.2797501 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2794573 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3145870                      0.3091682 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3064272 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1095646                      0.1041337 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1012787 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3929057 -0.5095277
+[1] "iter: 232"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1585627                      0.1556082 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1557086 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3041947                      0.2679284 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2480689 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09509408                     0.09408795 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09431104 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2073777 -0.4528111
+[1] "iter: 233"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1797066                      0.1783660 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1786898 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3213289                      0.2878853 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2724951 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08957051                     0.08959502 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08960751 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3002674 -0.5325816
+[1] "iter: 234"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2131108                      0.2107130 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2119452 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2699576                      0.2616566 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2605148 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09941282                     0.09806194 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09742835 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2569186 -0.3981458
+[1] "iter: 235"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1717943                      0.1706498 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1711881 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2523264                      0.2369841 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2310510 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08984766                     0.09015639 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09016964 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2167578 -0.4148714
+[1] "iter: 236"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2016275                      0.1996996 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2001696 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2206465                      0.2022316 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1958235 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10062534                     0.09892878 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09800016 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1584318 -0.3360286
+[1] "iter: 237"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1549992                      0.1533362 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1536429 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2397292                      0.2147012 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2031193 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10248343                     0.09969293 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09757672 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1027194 -0.3638032
+[1] "iter: 238"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1609769                      0.1591432 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1588351 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2578612                      0.2264249 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2105448 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08948173                     0.08986353 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09064180 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1175131 -0.3644919
+[1] "iter: 239"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1498116                      0.1471076 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1470021 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2575932                      0.2241093 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2071597 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08919491                     0.09002031 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09087804 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1003091 -0.3476865
+[1] "iter: 240"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1493377                      0.1473940 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1476557 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2506580                      0.2216203 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2087946 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08926914                     0.08976955 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08990961 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.06505961 -0.31482300
+[1] "iter: 241"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2273614                      0.2267381 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2260226 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2779417                      0.2644497 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2590766 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09155905                     0.09246833 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09396458 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3219048 -0.4908399
+[1] "iter: 242"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1762586                      0.1724601 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1706518 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3066292                      0.2769156 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2627071 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09193842                     0.09260438 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09370665 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.2073773 -0.4526541
+[1] "iter: 243"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1805880                      0.1782662 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1789231 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2783669                      0.2681988 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2667293 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09476809                     0.09479603 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09473604 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1085449 -0.3129225
+[1] "iter: 244"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1464833                      0.1459237 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1464092 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2477488                      0.2205579 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2071395 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09297919                     0.09118315 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09011705 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1249821 -0.3864186
+[1] "iter: 245"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1479361                      0.1466637 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1466907 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2400120                      0.2177595 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2094320 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.08772323                     0.08819480 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08818589 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1948162 -0.4090158
+[1] "iter: 246"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1560904                      0.1547896 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1552567 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2562058                      0.2251585 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2097247 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10017900                     0.09773414 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09740057 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1037331 -0.3521785
+[1] "iter: 247"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2075844                      0.2024748 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2017069 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2147425                      0.2054798 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2009642 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09064377                     0.08928910 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.08968483 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1077489 -0.3117807
+[1] "iter: 248"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.1438378                      0.1413166 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.1420146 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2410970                      0.2142671 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2033843 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.10935959                     0.10291630 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09924029 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.1814462 -0.4034132
+[1] "iter: 249"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.2268331                      0.2263330 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.2243537 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3384359                      0.3315849 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3277445 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09900618                     0.09706067 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09602616 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.3060454 -0.5334026
+[1] "iter: 250"
+[1] 18
+[1] 4302   58
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.3895635                      0.3876429 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.3889282 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                     0.4147748                      0.4070173 
+Lrnr_ranger_500_TRUE_none_1_12 
+                     0.4049186 
+ Lrnr_ranger_500_TRUE_none_1_8 Lrnr_ranger_500_TRUE_none_1_10 
+                    0.09579382                     0.09635109 
+Lrnr_ranger_500_TRUE_none_1_12 
+                    0.09728355 
+[1] "done"
+NULL
+NULL
+NULL
+[1] "done"
+[1] "all"
+[1] -0.6909727 -0.8881203
+         estimate     CI_left     CI_right misp estimator lrnr    n       ATE
+   1:  0.12753757  0.06551660  0.175925931    1     auDRI  all 4302 0.1256005
+   2: -0.08268245 -0.12579577 -0.039569142    1      AIPW  all 4302 0.1256005
+   3: -0.41924807 -0.59799501 -0.286878582    2     auDRI  all 4302 0.1256005
+   4: -0.98998573 -1.12677733 -0.853194126    2      AIPW  all 4302 0.1256005
+   5: -0.04594032 -0.09337733  0.001174685    3     auDRI  all 4302 0.1256005
+  ---                                                                        
+1496: -0.33054029 -0.40830763 -0.252772951    1      AIPW  all 4302 0.1256005
+1497: -0.19886510 -0.44550703 -0.057699761    2     auDRI  all 4302 0.1256005
+1498: -0.94670419 -1.09142647 -0.801981905    2      AIPW  all 4302 0.1256005
+1499: -0.56537216 -0.61452274 -0.511489907    3     auDRI  all 4302 0.1256005
+1500: -0.76251981 -0.80134206 -0.723697561    3      AIPW  all 4302 0.1256005
+      iter
+   1:    1
+   2:    1
+   3:    1
+   4:    1
+   5:    1
+  ---     
+1496:  250
+1497:  250
+1498:  250
+1499:  250
+1500:  250
