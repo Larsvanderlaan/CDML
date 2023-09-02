@@ -13,9 +13,30 @@ do_real_data <- function(data_name) {
 
   stack_all <- Stack$new(
     list(
-      Lrnr_ranger$new(max.depth = 8),
-      Lrnr_ranger$new(max.depth = 10),
-      Lrnr_ranger$new(max.depth = 12)
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 1, nrounds = 20, eta = 0.3 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.3 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.3 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.3 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 5, nrounds = 20, eta = 0.3 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 20, eta = 0.3 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 1, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 5, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 20, eta = 0.25 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 1, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 5, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 20, eta = 0.2 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 1, nrounds = 20, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 2, nrounds = 20, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 3, nrounds = 20, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 4, nrounds = 20, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 5, nrounds = 20, eta = 0.15 ),
+      Lrnr_xgboost$new(min_child_weight = 5, max_depth = 6, nrounds = 20, eta = 0.15 )
     )
   )
 
@@ -161,7 +182,7 @@ do_real_data <- function(data_name) {
   })
   sim_results <- data.table::rbindlist(sim_results)
   key <- data_name
-  try({fwrite(sim_results, paste0("~/DRinference/simResultsDR/sim_results_", key, "_ranger.csv"))})
+  try({fwrite(sim_results, paste0("~/DRinference/simResultsDR/sim_results_", key, "_xgboost.csv"))})
   return(sim_results)
 }
 
