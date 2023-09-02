@@ -2,7 +2,7 @@
 
 #SBATCH --array=1
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=3
+#SBATCH --cpus-per-task=1
 #SBATCH --output=Rout/par-%J.out
 #SBATCH --error=Rout/par-%J.err
 #SBATCH --time=14-00:00:00
