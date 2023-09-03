@@ -19,27 +19,27 @@ results
 ```
 
 ```{r}
-
-out <- out
+library(ggplot2)
+out <-  sim_results_acic2018_10000_xgboost
 results <- as.data.table(out)
-ATE <- mean(results$ATE)
-results$ATE <-ATE
+keep <- !rep(abs(results$estimate[out$estimator == "auDRI"]) >= 10 * max(abs(results$ATE)) | abs(results$estimate[results$estimator == "AIPW"]) >= 10 * max(abs(results$ATE)), each = 2)
+results <- results[which(keep),]
+ 
+# results$ATE <-ATE
 results[, coverage := CI_left <= ATE & CI_right >= ATE]
-
-
-results <- unique(results[, .( se = sd(estimate-ATE), bias = abs(mean(estimate - ATE)), coverage = mean(coverage)), by = c( "misp",   "estimator", "lrnr")])
-results[, rmse := sqrt(bias^2 + se^2)]
-
-if(ATE > 0) {
-results$rmse <- results$rmse /abs(ATE)
-results$se <- results$se /abs(ATE)
-results$bias <- results$bias /abs(ATE)
-}
+ 
+ 
+results <- unique(results[,
+                         .( bias = abs(mean((estimate - ATE) )), 
+                           rmse  = sqrt(mean((estimate - ATE)^2)),
+                          coverage = mean(coverage)), by = c( "misp",   "estimator", "lrnr")])
+ 
+ 
 results <- results[results$misp !=4, ]
 results
-results[results$lrnr=="all"]
+ 
 
-
+ 
 ```
 
 
