@@ -1,0 +1,26 @@
+Using default correlation screening type, rank.
+Failed on Lrnr_glmnet_NULL_deviance_10_1_100_TRUE
+Error : from glmnet C++ code (error code 7777); All used predictors have zero variance
+In addition: There were 31 warnings (use warnings() to see them)
+Failed on Lrnr_glmnet_NULL_deviance_10_1_100_TRUE
+Error : from glmnet C++ code (error code 7777); All used predictors have zero variance
+In addition: Warning messages:
+1: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in gam.fit3(x = X, y = y, sp = L %*% lsp3 + lsp0, Eb = Eb, UrS = UrS, : inner loop 3; can't correct step size
+. It will be removed from the stack
+2: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in gam.fit3(x = X, y = y, sp = L %*% lsp1 + lsp0, Eb = Eb, UrS = UrS, : inner loop 3; can't correct step size
+. It will be removed from the stack
+3: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in gam.fit3(x = X, y = y, sp = L %*% lsp1 + lsp0, Eb = Eb, UrS = UrS, : inner loop 3; can't correct step size
+. It will be removed from the stack
+4: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in gam.fit3(x = X, y = y, sp = L %*% lsp3 + lsp0, Eb = Eb, UrS = UrS, : inner loop 3; can't correct step size
+. It will be removed from the stack
+5: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in gam.fit3(x = X, y = y, sp = L %*% lsp1 + lsp0, Eb = Eb, UrS = UrS, : inner loop 3; can't correct step size
+. It will be removed from the stack
+6: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in initial.sp(w * x, S, off): S[[7]] matrix is not +ve definite.
+. It will be removed from the stack
+There were 36 warnings (use warnings() to see them)
