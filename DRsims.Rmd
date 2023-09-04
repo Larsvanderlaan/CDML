@@ -18,28 +18,129 @@ results <- rbindlist(lapply(c(500, 1000, 1500, 2000, 2500), function(n) {
 results
 ```
 
+
+"\begin{tabular}{cc|cccc|ccc|ccc}
+\toprule
+\multirow{2}{*}{Dataset} & \multicolumn{5}{c|}{Bias} & \multicolumn{3}{c|}{RMSE} & \multicolumn{3}{c}{Coverage} \\
+\cmidrule{2-12}
+& & & auDRI & AIPW & & auDRI & AIPW & & auDRI & AIPW & \\
+
+
+```{r}
+datasets <- c("acic2018_1000", "acic2018_2500", "acic2018_5000", "acic2018_10000", "ihdp", "lalonde_cps", "lalonde_psid", "twins", "acic2017_17", "acic2017_18", "acic2017_19", "acic2017_20", "acic2017_21", "acic2017_22", "acic2017_23", "acic2017_24")
+
+results_list <- lapply(datasets, function(data_name) {
+  data <- fread(paste0("simResultsDR/sim_results_", data_name, "_xgboost.csv"))
+  scale_bias <- scale_rmse <- mean(abs(data$ATE))
+  data[, coverage := CI_left <= ATE & CI_right >= ATE]
+  if(length(grep("acic2018", data_name)) > 0) {
+    keep <- abs(data$estimate) <= 100 * max(abs(data$ATE) )
+    max_range <- quantile((abs(data$estimate - data$ATE)/abs(data$ATE))[data$estimator == "AIPW"], c(0.95))
+    keep <- findInterval((abs(data$estimate - data$ATE)/abs(data$ATE))[data$estimator == "AIPW"] , c(-1, max_range)) == 1
+    keep <- rep(keep, each = 2)
+    data <- data[which(keep),]
+  }
+ 
+  
+  
+  results <- unique(data[,
+                         .( bias = abs(mean((estimate - ATE) )), 
+                            rmse  = sqrt(mean((estimate/ATE - 1)^2)),
+                            #bias = abs(weighted.mean(estimate - ATE, 1/stableATE )), 
+                            #rmse  = sqrt(weighted.mean((estimate - ATE)^2, 1/stableATE^2)),
+                            coverage = mean(coverage)), by = c( "misp",   "estimator", "lrnr")])
+  results$bias <- results$bias  / scale_bias
+  results$rmse <- results$rmse #/ scale_rmse
+  results$bias <- format(signif(results$bias,3), scientific = FALSE)
+  results$rmse <- format(signif(results$rmse,3), scientific = FALSE)
+  results$coverage <-  format(signif(results$coverage,3), scientific = FALSE)
+  results$data_name <- data_name
+  # Scale for comparsion
+  results_AIPW <- results[results$estimator == "AIPW", - c("estimator", "lrnr")]
+  results_auDRI <- results[results$estimator == "auDRI",  - c("estimator", "lrnr")]
+  col_names <-  c("bias", "rmse", "coverage")
+  setnames(results_AIPW, col_names, paste0(col_names, "_AIPW"))
+  setnames(results_auDRI, col_names, paste0(col_names, "_auDRI"))
+  out <- cbind(results_AIPW, results_auDRI)
+  out <- out[, !duplicated(colnames(out)), with = FALSE]
+  setcolorder(out, c("misp", "data_name", 
+                     "bias_auDRI", "bias_AIPW",
+                     "rmse_auDRI", "rmse_AIPW",
+                     "coverage_auDRI", "coverage_AIPW"))
+  return(out)
+})
+results <- rbindlist(results_list, use.names = TRUE)
+
+results_acic2018_1000 <- results[results$data_name == "acic2018_1000"]
+results_acic2018_2500 <- results[results$data_name == "acic2018_2500"]
+results_acic2018_5000 <- results[results$data_name == "acic2018_5000"]
+results_acic2018_10000 <- results[results$data_name == "acic2018_10000"]
+results_acic2018_aggregate <- copy(results_acic2018_1000)
+results_acic2018_aggregate$data_name <- "acic2018_aggr"
+for(colname in c("bias_auDRI", "bias_AIPW", "coverage_auDRI", "coverage_AIPW")) {
+results_acic2018_aggregate[[colname]] <- (as.numeric(results_acic2018_1000[[colname]]) * sqrt(1000) + 
+  as.numeric(results_acic2018_2500[[colname]]) * sqrt(2500) +
+  as.numeric(results_acic2018_5000[[colname]]) * sqrt(5000) +
+  as.numeric(results_acic2018_10000[[colname]] )* sqrt(10000) ) / sum(c(sqrt(1000), sqrt(2500), sqrt(5000) , sqrt(10000)  ))
+results_acic2018_aggregate[[colname]] <- format(signif(results_acic2018_aggregate[[colname]] ,3), scientific = FALSE)
+}
+for(colname in c("rmse_auDRI", "rmse_AIPW")) {
+results_acic2018_aggregate[[colname]] <- sqrt((as.numeric(results_acic2018_1000[[colname]])^2 * (1000) + 
+  as.numeric(results_acic2018_2500[[colname]])^2 * (2500) +
+  as.numeric(results_acic2018_5000[[colname]])^2 * (5000) +
+  as.numeric(results_acic2018_10000[[colname]] )^2 * (10000) ) / sum(c((1000), (2500), (5000) , (10000)  )))
+results_acic2018_aggregate[[colname]] <- format(signif(results_acic2018_aggregate[[colname]] ,3), scientific = FALSE)
+}
+ 
+  
+results <- rbind(results,results_acic2018_aggregate )
+
+
+setkeyv(results, c("misp", "data_name"))
+results
+results_1 <- copy(results[results$misp == 1])
+results_1$misp <- NULL
+library(kableExtra)
+latex_code1 <- kable(results_1, "latex")
+
+results_1 <- copy(results[results$misp == 2])
+results_1$misp <- NULL
+library(kableExtra)
+latex_code2 <- kable(results_1, "latex")
+cat(latex_code2)
+cat(latex_code3)
+
+results_1 <- copy(results)
+library(kableExtra)
+latex_code3 <- kable(results_1, "latex")
+
+cat(latex_code3)
+ 
+```
+
+
 ```{r}
 library(ggplot2)
-out <-  sim_results_acic2018_10000_xgboost
+out <-  sim_results_ihdp_parametric
 results <- as.data.table(out)
-keep <- !rep(abs(results$estimate[out$estimator == "auDRI"]) >= 10 * max(abs(results$ATE)) | abs(results$estimate[results$estimator == "AIPW"]) >= 10 * max(abs(results$ATE)), each = 2)
-results <- results[which(keep),]
- 
+#keep <- !rep(abs(results$estimate[out$estimator == "auDRI"]) >= 100 * max(abs(results$ATE)) | abs(results$estimate[results$estimator == "AIPW"]) >= 100 * max(abs(results$ATE)), each = 2)
+#results <- results[which(keep),]
+
 # results$ATE <-ATE
 results[, coverage := CI_left <= ATE & CI_right >= ATE]
- 
- 
+
+
 results <- unique(results[,
-                         .( bias = abs(mean((estimate - ATE) )), 
-                           rmse  = sqrt(mean((estimate - ATE)^2)),
-                          coverage = mean(coverage)), by = c( "misp",   "estimator", "lrnr")])
- 
- 
+                          .( bias = abs(mean((estimate - ATE) )), 
+                             rmse  = sqrt(mean((estimate - ATE)^2)),
+                             coverage = mean(coverage)), by = c( "misp",   "estimator", "lrnr")])
+results$bias <- results$bias / mean(abs(out$ATE))
+results$rmse <- results$rmse / mean(abs(out$ATE))
 results <- results[results$misp !=4, ]
 results
- 
 
- 
+
+
 ```
 
 
@@ -113,10 +214,10 @@ relative_results <- unique(copy(results)[,-c("estimator"), with = FALSE])
 keep_index <- which(results$estimator == "auDRI")
 relative_results <- data.table(bias = results$bias[results$estimator == "auDRI"] / results$bias[results$estimator == "AIPW"], rmse = results$rmse[results$estimator == "auDRI"] / results$rmse[results$estimator == "AIPW"] )
 relative_results <- cbind(results[keep_index, c("misp", "lrnr", "n")], relative_results)
-  
+
 relative_results
 
-  library(ggplot2)
+library(ggplot2)
 w <- 7
 h <- 5
 results$misp <- c("Both", "Treatment", "Outcome" )[match(results$misp, c("1", "2", "3" ))]
@@ -129,8 +230,8 @@ for(lrnr in c("all")) {
     relative_results_sub <- as.data.frame(relative_results)
     results_sub <- results_sub[  results_sub$misp == misp,]
     relative_results_sub <- relative_results_sub[  relative_results_sub$misp == misp,]
-
-  
+    
+    
     p <-  ggplot(relative_results_sub, aes(x= n, y = bias, color = lrnr, shape= lrnr)) + geom_point(size = 4) + geom_line( color="grey", linetype = "dashed")   + theme_bw() +     theme(  text = element_text(size=18), axis.text.x = element_text(size = 14 , hjust = 1, vjust = 0.5), legend.position = "bottom",   legend.box = "horizontal" 
     )  + labs(x = "Sample Size (n)", y = "Bias", color = "Estimator", group = "Estimator", shape= "Estimator") 
     
@@ -138,7 +239,7 @@ for(lrnr in c("all")) {
     
     
     
-      p <-  ggplot(relative_results_sub, aes(x= n, y = rmse, color = lrnr, shape= lrnr)) + geom_point(size = 4) + geom_line( color="grey", linetype = "dashed")   + theme_bw() +     theme(  text = element_text(size=18), axis.text.x = element_text(size = 14 , hjust = 1, vjust = 0.5), legend.position = "bottom",   legend.box = "horizontal" 
+    p <-  ggplot(relative_results_sub, aes(x= n, y = rmse, color = lrnr, shape= lrnr)) + geom_point(size = 4) + geom_line( color="grey", linetype = "dashed")   + theme_bw() +     theme(  text = element_text(size=18), axis.text.x = element_text(size = 14 , hjust = 1, vjust = 0.5), legend.position = "bottom",   legend.box = "horizontal" 
     )  + labs(x = "Sample Size (n)", y = "RMSE", color = "Estimator", group = "Estimator", shape= "Estimator") 
     ggsave(filename = paste0("DR=", pos_const,lrnr,misp, "MSE.pdf"), width = w, height = h)
     
@@ -149,7 +250,7 @@ for(lrnr in c("all")) {
     ggsave(filename = paste0("DR=", pos_const,lrnr,misp, "CI.pdf"), width = w, height = h)
   }
 }
- 
+
 
 ```
 
