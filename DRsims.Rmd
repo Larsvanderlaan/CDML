@@ -30,7 +30,8 @@ results
 datasets <- c("acic2018_1000", "acic2018_2500", "acic2018_5000", "acic2018_10000", "ihdp", "lalonde_cps", "lalonde_psid", "twins", "acic2017_17", "acic2017_18", "acic2017_19", "acic2017_20", "acic2017_21", "acic2017_22", "acic2017_23", "acic2017_24")
 
 results_list <- lapply(datasets, function(data_name) {
-  data <- fread(paste0("simResultsDR/sim_results_", data_name, "_xgboost.csv"))
+  try({
+  data <- fread(paste0("simResultsDR/sim_results_", data_name, "_parametric.csv"))
   scale_bias <- scale_rmse <- mean(abs(data$ATE))
   data[, coverage := CI_left <= ATE & CI_right >= ATE]
   if(length(grep("acic2018", data_name)) > 0) {
@@ -68,9 +69,12 @@ results_list <- lapply(datasets, function(data_name) {
                      "rmse_auDRI", "rmse_AIPW",
                      "coverage_auDRI", "coverage_AIPW"))
   return(out)
+  })
+  return(data.table())
 })
 results <- rbindlist(results_list, use.names = TRUE)
 
+try({
 results_acic2018_1000 <- results[results$data_name == "acic2018_1000"]
 results_acic2018_2500 <- results[results$data_name == "acic2018_2500"]
 results_acic2018_5000 <- results[results$data_name == "acic2018_5000"]
@@ -91,10 +95,11 @@ results_acic2018_aggregate[[colname]] <- sqrt((as.numeric(results_acic2018_1000[
   as.numeric(results_acic2018_10000[[colname]] )^2 * (10000) ) / sum(c((1000), (2500), (5000) , (10000)  )))
 results_acic2018_aggregate[[colname]] <- format(signif(results_acic2018_aggregate[[colname]] ,3), scientific = FALSE)
 }
+
  
   
 results <- rbind(results,results_acic2018_aggregate )
-
+})
 
 setkeyv(results, c("misp", "data_name"))
 results
