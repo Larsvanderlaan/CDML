@@ -1,1 +1,36 @@
 Using default correlation screening type, rank.
+Failed on Lrnr_glmnet_NULL_deviance_10_1_100_TRUE
+Error in terms.formula(object, data = data) : 
+  '.' in formula and no 'data' argument
+In addition: Warning messages:
+1: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in gam.fit3(x = X, y = y, sp = L %*% lsp3 + lsp0, Eb = Eb, UrS = UrS, : inner loop 3; can't correct step size
+. It will be removed from the stack
+2: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in gam.fit3(x = X, y = y, sp = L %*% lsp1 + lsp0, Eb = Eb, UrS = UrS, : inner loop 3; can't correct step size
+. It will be removed from the stack
+3: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in gam.fit3(x = X, y = y, sp = L %*% lsp1 + lsp0, Eb = Eb, UrS = UrS, : inner loop 3; can't correct step size
+. It will be removed from the stack
+4: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in gam.fit3(x = X, y = y, sp = L %*% lsp1 + lsp0, Eb = Eb, UrS = UrS, : inner loop 3; can't correct step size
+. It will be removed from the stack
+Failed on Lrnr_screener_coefs_0_NULL_2
+Error in lognet(xd, is.sparse, ix, jx, y, weights, offset, alpha, nobs,  : 
+  one multinomial or binomial class has 1 or 0 observations; not allowed
+In addition: Warning messages:
+1: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in gam.fit3(x = X, y = y, sp = L %*% lsp1 + lsp0, Eb = Eb, UrS = UrS, : inner loop 3; can't correct step size
+. It will be removed from the stack
+2: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in gam.fit3(x = X, y = y, sp = L %*% lsp1 + lsp0, Eb = Eb, UrS = UrS, : inner loop 3; can't correct step size
+. It will be removed from the stack
+3: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in gam.fit3(x = X, y = y, sp = L %*% lsp1 + lsp0, Eb = Eb, UrS = UrS, : inner loop 3; can't correct step size
+. It will be removed from the stack
+4: In private$.train(processed_task, trained_sublearners) :
+  Lrnr_gam_NULL_NULL_GCV.Cp failed with message: Error in gam.fit3(x = X, y = y, sp = L %*% lsp1 + lsp0, Eb = Eb, UrS = UrS, : inner loop 3; can't correct step size
+. It will be removed from the stack
+5: In strata_folds(fold_fun, cluster_ids, strata_ids, ...) :
+  The number of observations in the most rare strata is 6, and V is 10, so using leave-one-out CV, i.e. setting V = n
+slurmstepd-gizmok104: error: *** JOB 28480964 ON gizmok104 CANCELLED AT 2023-09-07T04:53:38 DUE TO TIME LIMIT ***
