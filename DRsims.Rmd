@@ -190,16 +190,16 @@ results[results$lrnr=="xgboost",]
 
 ```{r}
 library(data.table)
-
-n_list <- c(  1000, 1500, 2000, 2500)
+pos_const <- 2
+n_list <- c(  1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000)
 
 results <-
   rbindlist(lapply(n_list, function(n){
     try({
-      key <- paste0("DR_iter=", "1000", "_n=", n, "_pos=2")
+      key <- paste0("DR_iter=", "5000", "_n=", n, "_pos=2")
       data <- fread(paste0("./simResultsDR/sim_results_", key, ".csv"))
-      key <- paste0("DR_iter=", "2000", "_n=", n, "_pos=2")
-      try({ data <- fread(paste0("./simResultsDR/sim_results_", key, ".csv"))})
+     # key <- paste0("DR_iter=", "5000", "_n=", n, "_pos=2")
+      #try({ data <- fread(paste0("./simResultsDR/sim_results_", key, ".csv"))})
       return(data)
     })
     return(data.table())
@@ -238,14 +238,14 @@ for(lrnr in c("all")) {
     
     
     p <-  ggplot(relative_results_sub, aes(x= n, y = bias, color = lrnr, shape= lrnr)) + geom_point(size = 4) + geom_line( color="grey", linetype = "dashed")   + theme_bw() +     theme(  text = element_text(size=18), axis.text.x = element_text(size = 14 , hjust = 1, vjust = 0.5), legend.position = "bottom",   legend.box = "horizontal" 
-    )  + labs(x = "Sample Size (n)", y = "Bias", color = "Estimator", group = "Estimator", shape= "Estimator") 
+    )  + labs(x = "Sample Size (n)", y = "Relative Bias", color = "Estimator", group = "Estimator", shape= "Estimator")  + geom_hline(yintercept = 1, color = "black")
     
     ggsave(   filename = paste0("DR=", pos_const,lrnr,misp, "Bias.pdf") , width = w, height = h)
     
     
     
     p <-  ggplot(relative_results_sub, aes(x= n, y = rmse, color = lrnr, shape= lrnr)) + geom_point(size = 4) + geom_line( color="grey", linetype = "dashed")   + theme_bw() +     theme(  text = element_text(size=18), axis.text.x = element_text(size = 14 , hjust = 1, vjust = 0.5), legend.position = "bottom",   legend.box = "horizontal" 
-    )  + labs(x = "Sample Size (n)", y = "RMSE", color = "Estimator", group = "Estimator", shape= "Estimator") 
+    )  + labs(x = "Sample Size (n)", y = "Relative RMSE", color = "Estimator", group = "Estimator", shape= "Estimator") + geom_hline(yintercept = 1, color = "black")
     ggsave(filename = paste0("DR=", pos_const,lrnr,misp, "MSE.pdf"), width = w, height = h)
     
     p <- ggplot(results_sub, aes(x= n, y = coverage, color = lrnr, shape= lrnr)) + geom_point(size = 4) + geom_line( color="grey", linetype = "dashed")  + facet_wrap(~estimator, ncol =2)+ scale_y_continuous(limits = c(min(results_sub$coverage), 0.97)) + geom_hline(yintercept = 0.95, color = "grey") + theme_bw() +     theme(  text = element_text(size=18), axis.text.x = element_text(size = 14 , hjust = 1, vjust = 0.5), legend.position = "bottom",   legend.box = "horizontal" 

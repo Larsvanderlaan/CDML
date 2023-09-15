@@ -1,0 +1,27 @@
+---
+title: "Untitled"
+output: html_document
+date: '2023-09-15'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+n <- 1000
+W1 <- runif(n, -2 , 2)
+W2 <- rbinom(n, 1, 0.5)
+
+A <- rbinom(n, 1, plogis(-W1 + 2 * W1 * W2))
+Y <- rbinom(n, 1, plogis(0.2*A - W1 + 2*W1*W2))
+ATE <- 0.03803004
+library(sl3)
+library(drtmle)
+ 
+lrnr_kernel <- Lrnr_pkg_SuperLearner_method$new("SL.npreg")
+
+
+
+
+```
