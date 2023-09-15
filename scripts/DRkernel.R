@@ -1,8 +1,10 @@
 library(data.table)
 library(SuperLearner)
 library(sl3)
-if(!require(drtmle)) {
+if(!require(np)) {
   devtools::install_cran("np")
+}
+if(!require(drtmle)) {
   devtools::install_github("benkeser/drtmle")
 }
 library(xgboost)
@@ -65,13 +67,10 @@ do_sims <- function(n, nsims) {
       Y <- data_list$Y
       ATE <- data_list$ATE
       n <- length(A)
-      nfolds <- 10
+      nfolds <- 5
       initial_estimators_kernel <- compute_initial(W,A,Y, lrnr_mu = lrnr_kernel, lrnr_pi = lrnr_kernel, folds = nfolds, stratify_trt = TRUE)
       folds <- initial_estimators_kernel$folds
       initial_estimators_misp <- compute_initial(W,A,Y, lrnr_mu =  Lrnr_cv$new(Lrnr_glm$new()), lrnr_pi =  Lrnr_cv$new(Lrnr_glm$new()), folds = folds, stratify_trt = FALSE)
-
-      mean(initial_estimators_kernel$mu1 - initial_estimators_kernel$mu0)
-      mean((A - initial_estimators_kernel$pi1)/ (initial_estimators_kernel$pi1 * (1-initial_estimators_kernel$pi1)) * Y)
 
       out_list <- list()
 
@@ -189,8 +188,6 @@ compute_AuDRIE <- function(A,Y, mu1, mu0, pi1, pi0) {
 }
 
 compute_drtmle <- function(W, A,Y, mu1, mu0, pi1, pi0, ...) {
-  #Qn = cbind(mu0, mu1), gn = cbind(pi0, pi1)
-  # appears to be a bug if user supplied
   out <- drtmle(W = W, A = A, Y = Y, , a_0 = c(0,1),
                 Qn = list(A0 = mu0, A1 = mu1), gn = list(A0 = pi0, A1= pi1),
                 SL_gr = "SL.kernelcustom",
