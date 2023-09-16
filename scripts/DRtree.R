@@ -8,44 +8,39 @@ if(!require(drtmle)) {
   devtools::install_github("benkeser/drtmle")
 }
 library(xgboost)
-library(FKSUM)
+
 d <- 2
 seed_start <- 98103
 set.seed(seed_start)
 
-SL.kernelcustom <- function (Y, X, newX, family = gaussian(), obsWeights = rep(1,
-                                                                               length(Y)), rangeThresh = 1e-07, ...)
-{
 
-  X <- as.matrix(X)
-  newX <- as.matrix(newX)
-  if(ncol(X) > 1) {
-    stop("Univariate X kernel smooths only.")
-  }
-  fit <- FKSUM::fk_regression(X, Y, type = 'NW')
-  pred <- predict(fit, xtest = newX)
-
-  fit <- list(object = fit)
-  class(fit) <- "SL.kernelcustom"
-  out <- list(pred = pred, fit = fit)
-  return(out)
-}
-
-predict.SL.kernelcustom <- function (object, newdata, ...)
-{
-
-  pred <- predict(object, xtest = as.matrix(newdata))
-
-  return(pred)
-}
 
 
 do_sims <- function(n, nsims) {
 
 
+  node_size <- ceiling(n^(2/3))/4
 
-  lrnr_kernel <-   Lrnr_pkg_SuperLearner$new("SL.kernelcustom")
-  lrnr_kernel <- Lrnr_cv$new(lrnr_kernel)
+  lrnr_trees_node_size <- lapply(node_size * c(0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2), function(node_size) {
+    Lrnr_xgboost$new(
+      max_depth = 12,
+      min_child_weight = node_size,
+      eta = 1, gamma = 0,
+      lambda = 0, nrounds = 1
+    )
+  })
+  lrnr_trees_depth <- lapply(c(3,4, 5, 6, 6, 8), function(depth) {
+    Lrnr_xgboost$new(
+      max_depth = 12,
+      min_child_weight = 0.25*node_size,
+      eta = 1, gamma = 0,
+      lambda = 0, nrounds = 1
+    )
+  })
+  lrnr_trees <- Stack$new(c(lrnr_trees_node_size, lrnr_trees_depth))
+
+
+  lrnr_trees <- Pipeline$new(Lrnr_cv$new(lrnr_trees), Lrnr_cv_selector$new(loss_squared_error))
 
 
   sim_results <- lapply(1:nsims, function(i){
@@ -59,7 +54,7 @@ do_sims <- function(n, nsims) {
       ATE <- data_list$ATE
       n <- length(A)
       nfolds <- 5
-      initial_estimators_kernel <- compute_initial_kernel(W,A,Y, folds = nfolds)
+      initial_estimators_kernel <- compute_initial(W,A,Y, lrnr_mu = lrnr_trees, lrnr_pi = lrnr_trees, folds = nfolds, stratify_trt = TRUE)
       folds <- initial_estimators_kernel$folds
       initial_estimators_misp <- compute_initial(W,A,Y, lrnr_mu =  Lrnr_cv$new(Lrnr_glm$new()), lrnr_pi =  Lrnr_cv$new(Lrnr_glm$new()), folds = folds, stratify_trt = FALSE)
 
@@ -179,7 +174,7 @@ compute_AuDRIE <- function(A,Y, mu1, mu0, pi1, pi0) {
 }
 
 compute_drtmle <- function(W, A,Y, mu1, mu0, pi1, pi0, ...) {
-  out <- drtmle(W = W, A = A, Y = Y, , a_0 = c(0,1),
+  out <- drtmle(W = W, A = A, Y = Y, a_0 = c(0,1),
                 Qn = list(A0 = mu0, A1 = mu1), gn = list(A0 = pi0, A1= pi1),
                 SL_gr = "SL.kernelcustom",
                 SL_Qr = "SL.kernelcustom")$drtmle
@@ -233,70 +228,6 @@ calibrate_nuisances <- function(A, Y,mu1, mu0, pi1, pi0) {
   return(list(mu1_star= mu1_star, mu0_star=mu0_star, pi1_star = pi1_star, pi0_star = pi0_star))
 }
 
-
-compute_initial_kernel <- function(W,A,Y, folds) {
-  library(origami)
-  library(FKSUM)
-  if(is.numeric(folds)) {
-    folds <- origami::folds_vfold(length(A), folds)
-  }
-
-  W1 <- W[,1] # continuous
-  W2 <- W[,2] # binary
-
-  grid_range <- range(W1)
-  cv_fun <- function(fold, ...) {
-    train_index <- training(fold = fold)
-    val_index <- validation(fold = fold)
-
-    W1_train <- W1[train_index]
-    W2_train <- W2[train_index]
-    A_train <- A[train_index]
-    Y_train <- Y[train_index]
-    mu_fit_11 <- FKSUM::fk_regression(W1_train[A_train==1 & W2_train == 1], Y_train[A_train==1 & W2_train == 1],
-                                      type = 'NW', h = "cv",
-                                      from = grid_range[1], to = grid_range[2])
-    mu_fit_10 <- FKSUM::fk_regression(W1_train[A_train==1 & W2_train == 0], Y_train[A_train==1 & W2_train == 0], type = 'NW', h = "cv",
-                                      from = grid_range[1], to = grid_range[2])
-    mu_fit_01 <- FKSUM::fk_regression(W1_train[A_train==0 & W2_train == 1], Y_train[A_train==0 & W2_train == 1], type = 'NW', h = "cv",
-                                      from = grid_range[1], to = grid_range[2])
-    mu_fit_00 <- FKSUM::fk_regression(W1_train[A_train==0 & W2_train == 0], Y_train[A_train==0 & W2_train == 0], type = 'NW', h = "cv",
-                                      from = grid_range[1], to = grid_range[2])
-
-    pi_fit_1 <- FKSUM::fk_regression(W1_train[W2_train == 1], A_train[W2_train == 1], type = 'NW', h = "cv",
-                                     from = grid_range[1], to = grid_range[2])
-    pi_fit_0 <- FKSUM::fk_regression(W1_train[W2_train == 0], A_train[W2_train == 0], type = 'NW', h = "cv",
-                                     from = grid_range[1], to = grid_range[2])
-
-    W1_val <- W1[val_index]
-    W2_val <- W2[val_index]
-    A_val <- A[val_index]
-    Y_val <- Y[val_index]
-    mu11 <- predict(mu_fit_11, xtest = W1_val)
-    mu10 <- predict(mu_fit_10, xtest = W1_val)
-    mu00 <- predict(mu_fit_00, xtest = W1_val)
-    mu01 <- predict(mu_fit_01, xtest = W1_val)
-    mu1 <- ifelse(W2_val == 1,mu11, mu10)
-    mu0 <- ifelse(W2_val == 1,mu01, mu00)
-    pi1_1 <- predict(pi_fit_1,  xtest = W1_val)
-    pi1_0 <- predict(pi_fit_0,  xtest = W1_val)
-    pi1 <- ifelse(W2_val == 1, pi1_1, pi1_0)
-    return(list(index = val_index, mu1 = mu1, mu0 = mu0, pi1 = pi1, pi0 = 1 - pi1))
-  }
-
-  out_list <- origami::cross_validate(cv_fun, folds = folds)
-  index_order <- order(out_list$index)
-
-  out <- list(mu1 = out_list$mu1[index_order],
-              mu0 = out_list$mu0[index_order],
-              pi1 = out_list$pi1[index_order],
-              pi0 = out_list$pi0[index_order],
-              folds = folds)
-
-
-  print("done")
-  return(out)
-}
 
 compute_initial <- function(W,A,Y, lrnr_mu, lrnr_pi, folds, stratify_trt = TRUE,   invert = FALSE) {
   data <- data.table(W,A,Y)
@@ -354,5 +285,33 @@ truncate_pscore_adaptive <- function(A, pi, min_trunc_level = 1e-8) {
 }
 
 
+SL.kernelcustom <- function (Y, X, newX, family = gaussian(), obsWeights = rep(1,
+                                                                               length(Y)), rangeThresh = 1e-07, ...)
+{
+  options(np.messages = TRUE)
 
+
+
+  bw <- np::npregbw(xdat = X, ydat = Y  )
+
+  print("hi")
+  print(bw$bw)
+  thisMod <- np::npreg(bw, txdat = X, tydat = Y, exdat = newX)
+
+  fit <- list(object = thisMod, txdat = X, tydat = Y, bw = bw)
+  class(fit) <- "SL.kernelcustom"
+  out <- list(pred = thisMod$mean, fit = fit)
+  return(out)
+}
+
+predict.SL.kernelcustom <- function (object, newdata, ...)
+{
+
+  if (is.matrix(newdata)) {
+    newdata = as.data.frame(newdata)
+  }
+  pred <- np::npreg(object$bw, txdat = object$txdat,  tydat= object$tydat,  exdat = newdata)$mean
+
+  return(pred)
+}
 
