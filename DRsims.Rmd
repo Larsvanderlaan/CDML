@@ -126,7 +126,7 @@ cat(latex_code3)
 
 ```{r}
 library(ggplot2)
-out <-  sim_results_ihdp_parametric
+out <-  out
 results <- as.data.table(out)
 #keep <- !rep(abs(results$estimate[out$estimator == "auDRI"]) >= 100 * max(abs(results$ATE)) | abs(results$estimate[results$estimator == "AIPW"]) >= 100 * max(abs(results$ATE)), each = 2)
 #results <- results[which(keep),]
@@ -139,8 +139,8 @@ results <- unique(results[,
                           .( bias = abs(mean((estimate - ATE) )), 
                              rmse  = sqrt(mean((estimate - ATE)^2)),
                              coverage = mean(coverage)), by = c( "misp",   "estimator", "lrnr")])
-results$bias <- results$bias / mean(abs(out$ATE))
-results$rmse <- results$rmse / mean(abs(out$ATE))
+results$bias <- results$bias #/ mean(abs(out$ATE))
+results$rmse <- results$rmse #/ mean(abs(out$ATE))
 results <- results[results$misp !=4, ]
 results
 

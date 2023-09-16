@@ -123,7 +123,7 @@ get_data <- function(n, ...) {
   W2 <- rbinom(n, 1, 0.5)
   W <- cbind(W1, W2)
   colnames(W) <- c("W1", "W2")
-  pi0 <- plogis(-W1 + 2 * W1 * W2)
+  pi0 <- plogis(- W1 + 2 * W1 * W2)
   A <- rbinom(n, 1, pi0)
   mu1 <- plogis(0.2*1 - W1 + 2*W1*W2)
   mu0 <- plogis(0.2*0 - W1 + 2*W1*W2)
