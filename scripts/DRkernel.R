@@ -182,7 +182,7 @@ compute_drtmle <- function(W, A,Y, mu1, mu0, pi1, pi0, ...) {
   out <- drtmle(W = W, A = A, Y = Y, , a_0 = c(0,1),
                 Qn = list(A0 = mu0, A1 = mu1), gn = list(A0 = pi0, A1= pi1),
                 SL_gr = "SL.kernelcustom",
-                SL_Qr = "SL.kernelcustom")$drtmle
+                SL_Qr = "SL.kernelcustom", maxIter = 10)$drtmle
   tau_n <- out$est[2] -  out$est[1]
   se <-  sqrt(as.vector(c(1, -1) %*% out$cov %*% c(1, -1)))
   CI <- tau_n + c(-1,1) * qnorm(1-0.025) * se
