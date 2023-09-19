@@ -87,7 +87,7 @@ do_sims <- function(n, nsims) {
 
           print(mean(mu1 - mu0))
           out_AIPW <- compute_AIPW(A,Y, mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0)
-          out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 1000, folds = folds, alpha = 0.05)
+          out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 2500, folds = folds, alpha = 0.05)
           out_drtmle <- compute_drtmle(W, A,Y, mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, folds = nfolds)
 
 
