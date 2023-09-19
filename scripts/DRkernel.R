@@ -58,7 +58,7 @@ do_sims <- function(n, nsims) {
       Y <- data_list$Y
       ATE <- data_list$ATE
       n <- length(A)
-      nfolds <- 5
+      nfolds <- 10
       initial_estimators_kernel <- compute_initial_kernel(W,A,Y, folds = nfolds)
       folds <- initial_estimators_kernel$folds
       initial_estimators_misp <- compute_initial(W,A,Y, lrnr_mu =  Lrnr_cv$new(Lrnr_glm$new()), lrnr_pi =  Lrnr_cv$new(Lrnr_glm$new()), folds = folds, stratify_trt = FALSE)
@@ -87,7 +87,7 @@ do_sims <- function(n, nsims) {
 
           print(mean(mu1 - mu0))
           out_AIPW <- compute_AIPW(A,Y, mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0)
-          out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 500, folds = folds, alpha = 0.05)
+          out_AuDRIE <- compute_AuDRIE_boot(A,Y,  mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, nboot = 1000, folds = folds, alpha = 0.05)
           out_drtmle <- compute_drtmle(W, A,Y, mu1=mu1, mu0 =mu0, pi1 = pi1, pi0 = pi0, folds = nfolds)
 
 
