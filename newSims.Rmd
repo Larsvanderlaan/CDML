@@ -8,6 +8,75 @@ date: '2023-09-15'
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+```{r}
+library(data.table)
+pos_const <- 2
+n_list <- c(100, 250, 500, 750, 1000, 2000, 3000, 4000, 5000, 7500, 9000)
+
+results <-
+  rbindlist(lapply(n_list, function(n){
+    try({
+      key <- paste0("DR_iter=", "5000", "_n=", n, "_pos=2")
+      data <- fread(paste0("./simResultsDR/sim_results_", key, ".csv"))
+     # key <- paste0("DR_iter=", "5000", "_n=", n, "_pos=2")
+      #try({ data <- fread(paste0("./simResultsDR/sim_results_", key, ".csv"))})
+      return(data)
+    })
+    return(data.table())
+  }))
+
+
+
+ATE <- mean(results$ATE)
+results$ATE <-ATE
+results[, coverage := CI_left <= ATE & CI_right >= ATE]
+results[, sd := abs(CI_left -CI_right)/1.96/2]
+
+
+results <- unique(results[, .(sd = mean(sd), se = sd(estimate-ATE), bias = abs(mean(estimate - ATE)), coverage = mean(coverage)), by = c( "misp",   "estimator", "lrnr", "n", "pos_const")])
+results[, rmse := sqrt(bias^2 + se^2)]
+
+
+library(ggplot2)
+w <- 7
+h <- 5
+results$misp <- c("Both", "Treatment", "Outcome" )[match(results$misp, c("1", "2", "3" ))]
+relative_results$misp <- c("Both", "Treatment", "Outcome" )[match(relative_results$misp, c("1", "2", "3" ))]
+
+for(lrnr in c("all")) {
+  for(misp in c("Both", "Treatment", "Outcome" )) {
+    #relative_results_sub$lrnr == lrnr &
+    results_sub <- as.data.frame(results)
+    relative_results_sub <- as.data.frame(relative_results)
+    results_sub <- results_sub[  results_sub$misp == misp,]
+    relative_results_sub <- relative_results_sub[  relative_results_sub$misp == misp,]
+    
+    
+    p <-  ggplot(relative_results_sub, aes(x= n, y = bias, color = lrnr, shape= lrnr)) + geom_point(size = 4) + geom_line( color="grey", linetype = "dashed")   + theme_bw() +     theme(  text = element_text(size=18), axis.text.x = element_text(size = 14 , hjust = 1, vjust = 0.5), legend.position = "bottom",   legend.box = "horizontal" 
+    )  + labs(x = "Sample Size (n)", y = "Relative Bias", color = "Estimator", group = "Estimator", shape= "Estimator")  + geom_hline(yintercept = 1, color = "black")
+    
+    ggsave(   filename = paste0("DR=", pos_const,lrnr,misp, "Bias.pdf") , width = w, height = h)
+    
+    
+    
+    p <-  ggplot(relative_results_sub, aes(x= n, y = rmse, color = lrnr, shape= lrnr)) + geom_point(size = 4) + geom_line( color="grey", linetype = "dashed")   + theme_bw() +     theme(  text = element_text(size=18), axis.text.x = element_text(size = 14 , hjust = 1, vjust = 0.5), legend.position = "bottom",   legend.box = "horizontal" 
+    )  + labs(x = "Sample Size (n)", y = "Relative RMSE", color = "Estimator", group = "Estimator", shape= "Estimator") + geom_hline(yintercept = 1, color = "black")
+    ggsave(filename = paste0("DR=", pos_const,lrnr,misp, "MSE.pdf"), width = w, height = h)
+    
+    p <- ggplot(results_sub, aes(x= n, y = coverage, color = lrnr, shape= lrnr)) + geom_point(size = 4) + geom_line( color="grey", linetype = "dashed")  + facet_wrap(~estimator, ncol =2)+ scale_y_continuous(limits = c(min(results_sub$coverage), 0.97)) + geom_hline(yintercept = 0.95, color = "grey") + theme_bw() +     theme(  text = element_text(size=18), axis.text.x = element_text(size = 14 , hjust = 1, vjust = 0.5), legend.position = "bottom",   legend.box = "horizontal" 
+    )  + labs(x = "Sample Size (n)", y = "CI Coverage", color = "Estimator", group = "Estimator", shape= "Estimator")  
+    
+    
+    ggsave(filename = paste0("DR=", pos_const,lrnr,misp, "CI.pdf"), width = w, height = h)
+  }
+}
+
+
+```
+
+
+
 ```{r}
 n <- 1000
 W1 <- runif(n, -2 , 2)

@@ -1,8 +1,8 @@
 library(data.table)
 library(SuperLearner)
 library(sl3)
-if(!require(np)) {
-  devtools::install_cran("np")
+if(!require(FKSUM)) {
+  devtools::install_cran("FKSUM")
 }
 if(!require(drtmle)) {
   devtools::install_github("benkeser/drtmle")
