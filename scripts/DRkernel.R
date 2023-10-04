@@ -22,7 +22,7 @@ SL.kernelcustom <- function (Y, X, newX, family = gaussian(), obsWeights = rep(1
   if(ncol(X) > 1) {
     stop("Univariate X kernel smooths only.")
   }
-  fit <- FKSUM::fk_regression(X, Y, type = 'NW')
+  fit <- FKSUM::fk_regression(X, Y, type = 'NW' , beta = 1/c(1, 1, 2, 6, 24))
   pred <- predict(fit, xtest = newX)
 
   fit <- list(object = fit)
@@ -111,7 +111,7 @@ do_sims <- function(n, nsims) {
     return(data.table())
   })
   sim_results <- data.table::rbindlist(sim_results)
-  key <- paste0("DR_iter=", nsims, "_n=", n )
+  key <- paste0("DR_iter=", nsims, "_n=", n, "_kerneltype=4" )
   try({fwrite(sim_results, paste0("~/DRinference/simResultsDR/sim_results_", key, ".csv"))})
   return(sim_results)
 }

@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(data.table)
 pos_const <- 2
-n_list <- c(250, 500, 750, 1000, 2000, 3000, 4000, 5000)#, 7500, 9000)
+n_list <- c(250, 500, 750, 1000, 2000, 3000, 4000, 5000, 7500, 9000)
 
 results <-
   rbindlist(lapply(n_list, function(n){
