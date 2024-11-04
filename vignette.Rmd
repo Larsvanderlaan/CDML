@@ -156,5 +156,8 @@ head(alpha0_star)
 head(mu1_star)
 head(mu0_star)
 
+plot(1/pi1_true, alpha1_star)
+
+plot(mu1_true, mu1_star)
 ```
  
