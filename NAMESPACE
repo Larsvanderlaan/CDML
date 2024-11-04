@@ -3,4 +3,5 @@
 export(calibrate_inverse_weights)
 export(calibrate_outcome_regression)
 export(estimate_IC_DML)
+export(estimate_IC_DML_bootstrap)
 export(isoreg_with_xgboost)
