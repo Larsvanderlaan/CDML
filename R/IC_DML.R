@@ -64,11 +64,11 @@ calibrate_inverse_weights <- function(A, pi1, pi0) {
 #' @export
 calibrate_outcome_regression <- function(Y, mu1, mu0, A) {
   # Calibrate mu1 using monotonic XGBoost for treated group
-  calibrator_mu1 <- isoreg_with_xgboost(mu1, A)
+  calibrator_mu1 <- isoreg_with_xgboost(mu1[A==1], Y[A==1])
   mu1_star <- calibrator_mu1(mu1)
 
   # Calibrate mu0 using monotonic XGBoost for control group
-  calibrator_mu0 <- isoreg_with_xgboost(mu0, 1 - A)
+  calibrator_mu0 <- isoreg_with_xgboost(mu0[A==0], Y[A==0])
   mu0_star <- calibrator_mu0(mu0)
 
   # Return calibrated values for both groups
@@ -152,8 +152,8 @@ estimate_IC_DML_bootstrap <- function(A, Y, mu1, mu0, pi1, pi0, nboot = 1000, fo
       # Subset data based on bootstrap indices
       data_boot <- data[bootstrap_indices,]
       tau_boot <- estimate_IC_DML(data_boot$A, data_boot$Y,
-                                mu1 = data_boot$mu1, mu0 = data_boot$mu0,
-                                pi1 = data_boot$pi1, pi0 = data_boot$pi0)
+                                  mu1 = data_boot$mu1, mu0 = data_boot$mu0,
+                                  pi1 = data_boot$pi1, pi0 = data_boot$pi0)
       return(tau_boot)
     }, error = function(e) NA) # Return NA if an error occurs
   })

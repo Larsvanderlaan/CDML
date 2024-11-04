@@ -34,23 +34,25 @@ def calibrate_inverse_weights(A, pi1, pi0):
 def calibrate_outcome_regression(Y, mu1, mu0, A):
     """
     Calibrates outcome regression predictions using isotonic regression with XGBoost.
-
+    
     Args:
         Y (np.array): Observed outcomes.
-        mu1 (np.array): Predicted outcome for treated group.
-        mu0 (np.array): Predicted outcome for control group.
-        A (np.array): Binary indicator variable.
+        mu1 (np.array): Predicted outcome for the treated group (A = 1).
+        mu0 (np.array): Predicted outcome for the control group (A = 0).
+        A (np.array): Binary treatment indicator (1 for treatment, 0 for control).
     
     Returns:
-        dict: Contains calibrated predictions:
-              - mu1_star: Calibrated predictions for A = 1.
-              - mu0_star: Calibrated predictions for A = 0.
+        dict: Calibrated predictions for each group:
+              - 'mu1_star': Calibrated predictions for A = 1.
+              - 'mu0_star': Calibrated predictions for A = 0.
     """
-    calibrator_mu1 = isoreg_with_xgboost(mu1, A)
-    mu1_star = calibrator_mu1(mu1)
+    # Calibrate mu1 using treated group data (A = 1)
+    calibrator_mu1 = isoreg_with_xgboost(mu1[A == 1], Y[A == 1])
+    mu1_star = calibrator_mu1(mu1)  # Apply calibrator to all mu1 values
 
-    calibrator_mu0 = isoreg_with_xgboost(mu0, 1 - A)
-    mu0_star = calibrator_mu0(mu0)
+    # Calibrate mu0 using control group data (A = 0)
+    calibrator_mu0 = isoreg_with_xgboost(mu0[A == 0], Y[A == 0])
+    mu0_star = calibrator_mu0(mu0)  # Apply calibrator to all mu0 values
 
     return {'mu1_star': mu1_star, 'mu0_star': mu0_star}
 

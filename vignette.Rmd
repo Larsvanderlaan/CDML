@@ -23,17 +23,18 @@ X <- matrix(rnorm(n * 5), n, 5)
 colnames(X) <- paste0("X", 1:5)
 
 # Generate binary treatment indicator A based on a logistic model of X
-logit_probs <- plogis(X %*% rep(0.3, 5))  # Linear predictor for logistic model
-A <- rbinom(n, 1, logit_probs)
+pi1_true <- plogis(X %*% rep(0.3, 5))  # Linear predictor for logistic model
+A <- rbinom(n, 1, pi1_true)
 
 # True outcome model
 Y <- as.vector(2 * A + X %*% rep(0.5, 5) + rnorm(n))
 
 # Predicted outcome regressions (for demonstration, using true model)
-mu1 <- 2 + X %*% rep(0.5, 5)  # Expected outcome if A = 1
-mu0 <- X %*% rep(0.5, 5)       # Expected outcome if A = 0
+mu1_true <- 2 + X %*% rep(0.5, 5)  # Expected outcome if A = 1
+mu0_true <- X %*% rep(0.5, 5)       # Expected outcome if A = 0
 
 
+print(mean(mu1_true - mu0_true))
 ```
 
 
@@ -54,6 +55,7 @@ task_Y <- sl3::make_sl3_Task(data = data.table(X, Y = Y, A = A), covariates = c(
 
 # Define learners for propensity score and outcome regression
 # Stack includes XGBoost and GAM learners
+# lrnr_cv performs cross-fitting
 lrnr_stack <- Stack$new(list(Lrnr_xgboost$new(max_depth = 4), Lrnr_gam$new()))
 lrnr_cv <- Lrnr_cv$new(lrnr_stack)
 lrnr_selector <- make_learner(Pipeline, lrnr_cv, Lrnr_cv_selector$new(loss_squared_error))
@@ -85,7 +87,8 @@ head(mu0)
 ```
 
 
-## CDML
+## CDML for ATE and bootstrap CIs
+
 ```{r}
 ## CDML Example
 
