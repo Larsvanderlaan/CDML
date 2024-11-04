@@ -128,6 +128,52 @@ estimate_IC_DML <- function(A, Y, mu1, mu0, pi1, pi0) {
 }
 
 
+#' Bootstrap Calibrated Debiased Machine Learning Estimate (ICDML)
+#'
+#' Computes a bootstrap-assisted version of the ICDML estimator to obtain a confidence interval
+#' for the causal effect, \eqn{\tau_n}, leveraging calibrated debiased machine learning.
+#'
+#' @param A A binary indicator variable (1 for treatment, 0 for control).
+#' @param Y Observed outcomes.
+#' @param mu1 Predicted outcome for the treated group.
+#' @param mu0 Predicted outcome for the control group.
+#' @param pi1 Estimated propensity score for the treatment group (\code{A = 1}).
+#' @param pi0 Estimated propensity score for the control group (\code{A = 0}).
+#' @param nboot Integer. Number of bootstrap samples (default is 1000).
+#' @param folds List or \code{NULL}. A list of cross-validation folds, where each fold contains a validation set of indices. If \code{NULL}, a simple random sampling is used for each bootstrap iteration.
+#' @param alpha Significance level for the confidence interval (default is 0.05).
+#'
+#' @return A list with the following elements:
+#' \describe{
+#'   \item{tau_n}{Estimated causal effect using ICDML.}
+#'   \item{CI}{Bootstrap confidence interval for \code{tau_n}.}
+#' }
+#'
+#' @details
+#' This function estimates the causal effect using the ICDML estimator and computes a bootstrap confidence
+#' interval by resampling within cross-validation folds. If \code{folds} is \code{NULL}, a simple random sample is drawn for each bootstrap iteration. Cross-fitting with bootstrapping allows for doubly robust inference, even when some nuisance function estimates are inconsistent or slow.
+#'
+#' The confidence interval is constructed by calculating the empirical quantiles of the bootstrap distribution
+#' of \code{tau_n}. The interval reflects the uncertainty of the ICDML estimate.
+#'
+#' @seealso \code{\link{estimate_IC_DML}}, \code{\link{calibrate_outcome_regression}}, \code{\link{calibrate_inverse_weights}}
+#'
+#' @examples
+#' \dontrun{
+#' # Example usage
+#' set.seed(123)
+#' A <- rbinom(100, 1, 0.5)
+#' Y <- rnorm(100, mean = A)
+#' mu1 <- rep(1, 100)
+#' mu0 <- rep(0, 100)
+#' pi1 <- rep(0.5, 100)
+#' pi0 <- rep(0.5, 100)
+#' result <- estimate_IC_DML_bootstrap(A, Y, mu1, mu0, pi1, pi0, nboot = 500, alpha = 0.05)
+#' print(result$tau_n)
+#' print(result$CI)
+#' }
+#'
+#' @export
 estimate_IC_DML_bootstrap <- function(A, Y, mu1, mu0, pi1, pi0, nboot = 1000, folds = NULL, alpha = 0.05) {
   # Load data
   data <- data.table::data.table(A, Y, mu1, mu0, pi1, pi0)
