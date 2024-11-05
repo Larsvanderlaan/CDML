@@ -9,9 +9,9 @@ calibrate_inverse_weights(A, pi1, pi0)
 \arguments{
 \item{A}{A binary indicator variable.}
 
-\item{pi1}{Estimated propensity score for the treatment group (\code{A = 1}).}
+\item{pi1}{Cross-fitted propensity score estimates for the treatment group (\code{A = 1}).}
 
-\item{pi0}{Estimated propensity score for the control group (\code{A = 0}).}
+\item{pi0}{Cross-fitted propensity score estimates for the control group (\code{A = 0}).}
 }
 \value{
 A list containing calibrated inverse weights for each group:

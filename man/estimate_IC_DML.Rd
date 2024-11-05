@@ -11,13 +11,13 @@ estimate_IC_DML(A, Y, mu1, mu0, pi1, pi0)
 
 \item{Y}{Observed outcomes.}
 
-\item{mu1}{Predicted outcome for the treated group.}
+\item{mu1}{Cross-fitted outcome regression estimates for the treated group.}
 
-\item{mu0}{Predicted outcome for the control group.}
+\item{mu0}{Cross-fitted outcome regression estimates for the control group.}
 
-\item{pi1}{Estimated propensity score for the treatment group (\code{A = 1}).}
+\item{pi1}{Cross-fitted propensity score estimates for the treatment group (\code{A = 1}).}
 
-\item{pi0}{Estimated propensity score for the control group (\code{A = 0}).}
+\item{pi0}{Cross-fitted propensity score estimates for the control group (\code{A = 0}).}
 }
 \value{
 A numeric value representing the estimated causal effect, \eqn{\tau_n}, using the ICDML estimator.

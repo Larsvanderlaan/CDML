@@ -3,8 +3,8 @@
 #' Calibrates inverse weights using isotonic regression with XGBoost for two propensity scores.
 #'
 #' @param A A binary indicator variable.
-#' @param pi1 Estimated propensity score for the treatment group (\code{A = 1}).
-#' @param pi0 Estimated propensity score for the control group (\code{A = 0}).
+#' @param pi1 Cross-fitted propensity score estimates for the treatment group (\code{A = 1}).
+#' @param pi0 Cross-fitted propensity score estimates for the control group (\code{A = 0}).
 #'
 #' @return A list containing calibrated inverse weights for each group:
 #' \describe{
@@ -47,8 +47,8 @@ calibrate_inverse_weights <- function(A, pi1, pi0) {
 #' Calibrates outcome regression predictions using isotonic regression with XGBoost.
 #'
 #' @param Y Observed outcomes.
-#' @param mu1 Predicted outcome for the treated group.
-#' @param mu0 Predicted outcome for the control group.
+#' @param mu1 Cross-fitted predicted outcome for the treated group.
+#' @param mu0 Cross-fitted predicted outcome for the control group.
 #' @param A A binary indicator variable.
 #'
 #' @return A list containing calibrated predictions for each group:
@@ -84,10 +84,10 @@ calibrate_outcome_regression <- function(Y, mu1, mu0, A) {
 #'
 #' @param A A binary indicator variable (1 for treatment, 0 for control).
 #' @param Y Observed outcomes.
-#' @param mu1 Predicted outcome for the treated group.
-#' @param mu0 Predicted outcome for the control group.
-#' @param pi1 Estimated propensity score for the treatment group (\code{A = 1}).
-#' @param pi0 Estimated propensity score for the control group (\code{A = 0}).
+#' @param mu1 Cross-fitted outcome regression estimates for the treated group.
+#' @param mu0 Cross-fitted outcome regression estimates for the control group.
+#' @param pi1 Cross-fitted propensity score estimates for the treatment group (\code{A = 1}).
+#' @param pi0 Cross-fitted propensity score estimates for the control group (\code{A = 0}).
 #'
 #' @return A numeric value representing the estimated causal effect, \eqn{\tau_n}, using the ICDML estimator.
 #'

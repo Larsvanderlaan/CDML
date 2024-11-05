@@ -9,9 +9,9 @@ calibrate_outcome_regression(Y, mu1, mu0, A)
 \arguments{
 \item{Y}{Observed outcomes.}
 
-\item{mu1}{Predicted outcome for the treated group.}
+\item{mu1}{Cross-fitted predicted outcome for the treated group.}
 
-\item{mu0}{Predicted outcome for the control group.}
+\item{mu0}{Cross-fitted predicted outcome for the control group.}
 
 \item{A}{A binary indicator variable.}
 }
