@@ -16,7 +16,14 @@ library(xgboost)
 This vignette demonstrates the process of estimating the Average Treatment Effect (ATE) using Calibrated Debiased Machine Learning (C-DML). We'll start by generating synthetic data, fitting nuisance models using machine learning algorithms, and finally applying the C-DML estimation procedure with ensemble learning.
 
 
+```{r}
+# Check if CDML package is installed; if not, install it from GitHub
+if(!require(CDML)) {
+  devtools::install_github("Larsvanderlaan/CDML")
+  library(CDML)
+}
 
+```
 
 # Generate data
 
@@ -159,11 +166,6 @@ print(output)
 ```{r}
 ## CDML Example
 
-# Check if CDML package is installed; if not, install it from GitHub
-if(!require(CDML)) {
-  devtools::install_github("Larsvanderlaan/CDML")
-  library(CDML)
-}
 
 # Estimate the Average Treatment Effect (ATE) using ICDML estimator
 # Inputs: 
