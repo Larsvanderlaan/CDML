@@ -6,6 +6,7 @@
 #' @param y A vector of response variables.
 #' @param max_depth Integer. Maximum depth of the trees in XGBoost (default is 15).
 #' @param min_child_weight Numeric. Minimum sum of instance weights (Hessian) needed in a child node (default is 20).
+#' @param weights A vector of weights to apply to each instance during training (default is NULL, meaning equal weights).
 #'
 #' @return A function that takes a new predictor variable \code{x} and returns the model's predicted values.
 #'
@@ -29,9 +30,12 @@
 #' }
 #'
 #' @export
-isoreg_with_xgboost <- function(x, y, max_depth = 15, min_child_weight = 20) {
-  # Create an XGBoost DMatrix object from the data
-  data <- xgboost::xgb.DMatrix(data = as.matrix(x), label = as.vector(y))
+isoreg_with_xgboost <- function(x, y, max_depth = 15, min_child_weight = 20, weights = NULL) {
+  if(is.null(weights)) {
+    weights <- rep(1, length(y))
+  }
+  # Create an XGBoost DMatrix object from the data, including weights
+  data <- xgboost::xgb.DMatrix(data = as.matrix(x), label = as.vector(y), weight = weights)
 
   # Set parameters for the monotonic XGBoost model
   params <- list(
