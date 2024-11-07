@@ -1,11 +1,36 @@
+#' @title Lrnr_xgboost_early_stopping
+#' @description This learner class implements an XGBoost learner with early stopping using cross-validation.
+#' @inheritParams Lrnr_base
+#' @param nrounds The maximum number of boosting iterations (default = 1000).
+#' @param max_depth Maximum depth of a tree (default = 5).
+#' @param learning_rate Step size shrinkage used to prevent overfitting (default = 0.1).
+#' @param min_child_weight Minimum sum of instance weight (hessian) needed in a child (default = 10).
+#' @param early_stopping_rounds Number of rounds with no improvement before stopping (default = 10).
+#' @param p_cv Proportion of data used for cross-validation (default = 0.2).
+#' @param nthread Number of threads to use (default = 1).
+#' @param ... Additional arguments passed to `xgboost::xgb.train`.
+#' @export
 Lrnr_xgboost_early_stopping <- R6Class(
   classname = "Lrnr_xgboost_early_stopping", inherit = Lrnr_base,
   portable = TRUE, class = TRUE,
   public = list(
+    #' @description Initialize the learner.
+    #' @param nrounds Maximum number of boosting iterations (default = 1000).
+    #' @param max_depth Maximum depth of a tree (default = 5).
+    #' @param learning_rate Learning rate (default = 0.1).
+    #' @param min_child_weight Minimum sum of instance weights (default = 10).
+    #' @param early_stopping_rounds Number of rounds for early stopping (default = 10).
+    #' @param p_cv Proportion of data for cross-validation (default = 0.2).
+    #' @param nthread Number of threads to use (default = 1).
+    #' @param ... Additional parameters for the learner.
     initialize = function(nrounds = 1000, max_depth = 5, learning_rate = 0.1, min_child_weight = 10, early_stopping_rounds = 10, p_cv = 0.2, nthread = 1, ...) {
       params <- sl3:::args_to_list()
       super$initialize(params = params, ...)
     },
+
+    #' @description Extracts feature importance from the trained model.
+    #' @param ... Additional arguments for the feature importance function.
+    #' @return A data frame containing the feature importance scores.
     importance = function(...) {
       self$assert_trained()
 
@@ -22,6 +47,9 @@ Lrnr_xgboost_early_stopping <- R6Class(
       "continuous", "binomial", "categorical", "weights",
       "offset", "importance"
     ),
+    #' @description Train the learner on the provided task.
+    #' @param task The training task.
+    #' @return The trained model object.
     .train = function(task) {
       args <- self$params
       p_cv <- args$p_cv # Extract cross-validation proportion
@@ -79,6 +107,9 @@ Lrnr_xgboost_early_stopping <- R6Class(
 
       return(fit_object)
     },
+    #' @description Make predictions based on a fitted model and input task.
+    #' @param task The task to predict.
+    #' @return A vector of predictions.
     .predict = function(task = NULL) {
       fit_object <- private$.fit_object
 

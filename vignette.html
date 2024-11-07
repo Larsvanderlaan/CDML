@@ -354,8 +354,26 @@ ICDML and Bootstrap Confidence Intervals</h1>
 </div>
 
 
-<div id="generate-data" class="section level2">
-<h2>Generate data</h2>
+<p>This vignette demonstrates the process of estimating the Average
+Treatment Effect (ATE) using Calibrated Debiased Machine Learning
+(C-DML). We’ll start by generating synthetic data, fitting nuisance
+models using machine learning algorithms, and finally applying the C-DML
+estimation procedure with ensemble learning.</p>
+<pre class="r"><code># Check if CDML package is installed; if not, install it from GitHub
+if(!require(CDML)) {
+  devtools::install_github(&quot;Larsvanderlaan/CDML&quot;)
+  library(CDML)
+}</code></pre>
+<pre><code>## Loading required package: CDML</code></pre>
+<pre><code>## Loading required package: R6</code></pre>
+<div id="generate-data" class="section level1">
+<h1>Generate data</h1>
+<p>To start, we generate synthetic data for a causal inference problem.
+Our data consists of covariates <span class="math inline">\(X\)</span>,
+a binary treatment indicator <span class="math inline">\(A\)</span>, and
+an outcome <span class="math inline">\(Y\)</span> influenced by both
+<span class="math inline">\(X\)</span> and <span class="math inline">\(A\)</span>. This setup allows us to simulate a
+scenario where we estimate the causal effect of <span class="math inline">\(A\)</span> on <span class="math inline">\(Y\)</span>.</p>
 <pre class="r"><code>set.seed(123)
 
 # Sample size
@@ -379,9 +397,13 @@ mu0_true &lt;- X %*% rep(0.5, 5)       # Expected outcome if A = 0
 
 print(mean(mu1_true - mu0_true))</code></pre>
 <pre><code>## [1] 2</code></pre>
-</div>
 <div id="fit-initial-nuisance-models" class="section level2">
 <h2>Fit initial nuisance models</h2>
+<p>Next, we fit initial models for nuisance parameters, which include
+the propensity score (probability of receiving treatment) and outcome
+regression models (predicted outcomes under treatment and control). We
+use the package for flexible machine learning modeling with
+cross-fitting to reduce bias.</p>
 <pre class="r"><code>if(!require(sl3)) {
   devtools::install_github(&quot;tlverse/sl3&quot;, ref=&quot;devel&quot;)
   library(sl3)
@@ -401,7 +423,7 @@ lrnr_selector &lt;- make_learner(Pipeline, lrnr_cv, Lrnr_cv_selector$new(loss_sq
 
 # Fit propensity score model (predicting A based on X)
 propensity_fit &lt;- lrnr_selector$train(task_A)
-pi1 &lt;- propensity_fit$predict()  # Predictions for propensity scores
+pi1 &lt;- propensity_fit$predict(task_A)  # Predictions for propensity scores
 pi0 = 1 - pi1
 
 # Define two outcome regression tasks: one with A set to 1, one with A set to 0
@@ -425,40 +447,452 @@ head(pi1)</code></pre>
 <pre class="r"><code>head(mu0)</code></pre>
 <pre><code>## [1] -1.0574262 -0.3919463  0.2351477 -0.5034634 -1.2043496  2.2262271</code></pre>
 </div>
-<div id="cdml-for-ate-and-bootstrap-cis" class="section level2">
-<h2>CDML for ATE and bootstrap CIs</h2>
+<div id="cdml-with-specified-nuisance-estimates" class="section level2">
+<h2>CDML with specified nuisance estimates</h2>
+<p>With the predicted nuisance estimates (propensity scores and outcome
+regressions), we now apply the CDML estimation procedure to estimate the
+causal effect of treatment on the outcome.</p>
+<pre class="r"><code>output &lt;- cdml(W=X,A,Y, pi_mat = cbind(pi1, pi0), mu_mat = cbind(mu1, mu0))
+print(output)</code></pre>
+<pre><code>##     estimand   estimate standard_error lower_bound upper_bound significance
+## ATE      ATE 1.95736720     0.07250487   1.8187747   2.1050596         0.95
+## Y1        Y1 1.97890720     0.06629884   1.8564685   2.1116513         0.95
+## Y0        Y0 0.02154001     0.06413606  -0.1038757   0.1494197         0.95
+## ATT      ATT 1.97065720     0.11066196   1.7490600   2.1941812         0.95</code></pre>
+</div>
+</div>
+<div id="cdml-with-ensemble-learning" class="section level1">
+<h1>CDML with ensemble learning</h1>
+<p>The <code>cdml</code> function provides a user-friendly interface
+that integrates machine learning with the <code>sl3</code> ensemble
+learning framework. <code>sl3</code> is part of the
+<strong><code>tlverse</code></strong> ecosystem, providing a flexible
+framework for <strong>Super Learner ensembles</strong>—a method that
+optimally combines multiple algorithms to create robust predictive
+models. Leveraging cross-validation to evaluate and ensemble diverse
+learners, <code>sl3</code> is particularly suited for <strong>Causal
+Doubly Robust Machine Learning (CDML)</strong> applications. Its
+extensible architecture supports both built-in and custom learners,
+making it powerful for causal inference and predictive modeling. For
+more, see <a href="https://tlverse.org/sl3/">tlverse.org/sl3</a>.</p>
+<pre class="r"><code># default learners
+output &lt;- cdml(X,A,Y)</code></pre>
+<pre><code>## [13:58:53] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:53] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:53] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:54] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:54] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:54] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:54] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:54] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:55] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:55] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:55] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:55] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:56] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:56] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:56] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:57] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:57] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:57] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:58] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:58] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:58] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:58] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:58] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:58] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:59] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:59] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:58:59] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:00] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:00] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:00] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:01] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:01] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:01] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:02] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:02] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:02] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:02] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:02] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:02] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:03] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:03] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:03] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:03] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:03] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:03] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:04] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:04] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:04] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:04] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:04] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:04] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:05] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:05] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:05] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:05] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:05] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:05] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:06] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:06] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:06] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.</code></pre>
+<pre class="r"><code>print(output)</code></pre>
+<pre><code>##     estimand   estimate standard_error lower_bound upper_bound significance
+## ATE      ATE 1.95073788     0.07179985  1.80880761    2.094434         0.95
+## Y1        Y1 1.97244751     0.06560789  1.85200887    2.108801         0.95
+## Y0        Y0 0.02170963     0.06312900 -0.09781316    0.152775         0.95
+## ATT      ATT 1.97516869     0.10968752  1.75750940    2.207993         0.95</code></pre>
+<pre class="r"><code># custom learners
+library(sl3)
+learners = list(
+  Lrnr_glmnet$new(),
+  Lrnr_earth$new(degree = 2),
+  Lrnr_gam$new(),
+  Lrnr_ranger$new(max.depth = 8),
+  Lrnr_xgboost_early_stopping$new(max_depth = 3),
+  Lrnr_xgboost_early_stopping$new(max_depth = 4),
+  Lrnr_xgboost_early_stopping$new(max_depth = 5)
+)
+
+output &lt;- cdml(W=X,A,Y, learners_treatment = learners, learners_outcome = learners)</code></pre>
+<pre><code>## [13:59:12] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:12] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:12] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:12] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:12] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:12] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:13] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:13] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:13] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:14] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:14] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:14] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:15] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:15] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:15] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:16] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:16] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:16] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:16] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:16] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:16] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:17] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:17] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:17] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:18] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:18] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:18] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:19] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:19] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:19] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:20] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:20] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:20] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:20] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:20] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:20] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:21] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:21] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:21] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:21] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:21] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:21] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:22] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:22] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:22] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:22] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:22] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:22] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:22] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:23] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:23] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:23] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:23] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:23] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:23] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:23] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:23] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:24] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:24] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.
+## 
+## [13:59:24] WARNING: src/learner.cc:767: 
+## Parameters: { &quot;p_cv&quot; } are not used.</code></pre>
+<pre class="r"><code>print(output)</code></pre>
+<pre><code>##     estimand   estimate standard_error lower_bound upper_bound significance
+## ATE      ATE 1.95905767     0.07068399   1.8215020   2.0977228         0.95
+## Y1        Y1 1.97509118     0.06448345   1.8554235   2.1124872         0.95
+## Y0        Y0 0.01603351     0.06253772  -0.1014183   0.1382168         0.95
+## ATT      ATT 1.98270421     0.10819030   1.7722767   2.2107525         0.95</code></pre>
+</div>
+<div id="cdml-with-internal-functions" class="section level1">
+<h1>CDML with internal functions</h1>
+<div id="c-dml-for-ate-and-bootstrap-cis" class="section level2">
+<h2>C-DML for ATE and bootstrap CIs</h2>
 <pre class="r"><code>## CDML Example
 
-# Check if CDML package is installed; if not, install it from GitHub
-if(!require(CDML)) {
-  devtools::install_github(&quot;Larsvanderlaan/CDML&quot;)
-  library(CDML)
-}</code></pre>
-<pre><code>## Loading required package: CDML</code></pre>
-<pre><code>## Loading required package: R6</code></pre>
-<pre class="r"><code># Estimate the Average Treatment Effect (ATE) using ICDML estimator
+
+# Estimate the Average Treatment Effect (ATE) using ICDML estimator
 # Inputs: 
 # - A: binary treatment indicator
 # - Y: observed outcomes
 # - mu1, mu0: predicted outcomes for treatment (A = 1) and control (A = 0)
 # - pi1, pi0: propensity scores for treatment and control groups, respectively
-estimate &lt;- estimate_IC_DML(A, Y, mu1, mu0, pi1, pi0)
+estimate &lt;- estimate_cdml_ate(A, Y, mu1, mu0, pi1, pi0, weights = NULL) 
+
 
 # Print the estimated causal effect
 print(estimate)</code></pre>
-<pre><code>## [1] 1.916902</code></pre>
+<pre><code>##        ATE         Y1         Y0        ATT 
+## 1.95736720 1.97890720 0.02154001 1.97065720</code></pre>
 <pre class="r"><code># Estimate the ATE with a bootstrap confidence interval using ICDML
 # The function provides both the point estimate and a confidence interval
-bootstrap_result &lt;- estimate_IC_DML_bootstrap(A, Y, mu1, mu0, pi1, pi0)
+bootstrap_result &lt;- bootstrap_cdml_ate(A, Y, mu1, mu0, pi1, pi0, weights = NULL) 
 
 # Print the bootstrap results: includes ATE estimate and confidence interval
 print(bootstrap_result)</code></pre>
-<pre><code>## $tau_n
-## [1] 1.916902
-## 
-## $CI
-##     2.5%    97.5% 
-## 1.778869 2.071500</code></pre>
+<pre><code>##     estimand   estimate standard_error lower_bound upper_bound significance
+## ATE      ATE 1.95736720     0.07122006  1.81793290   2.0961481         0.95
+## Y1        Y1 1.97890720     0.06574949  1.85967205   2.1116936         0.95
+## Y0        Y0 0.02154001     0.06272696 -0.09742667   0.1475462         0.95
+## ATT      ATT 1.97065720     0.10753327  1.74922925   2.1663255         0.95</code></pre>
+</div>
 </div>
 <div id="isotonic-calibration-of-nuisance-functions-for-c-dml" class="section level1">
 <h1>Isotonic calibration of nuisance functions for C-DML</h1>

@@ -19,6 +19,9 @@
 #' @export
 calibrate_inverse_weights <- function(A, pi1, pi0, weights) {
 
+  if(missing(weights)){
+    weights <- rep(1,length(A))
+  }
   # Calibrate pi1 using monotonic XGBoost
   calibrator_pi1 <- isoreg_with_xgboost(pi1, A, weights = weights)
   pi1_star <- calibrator_pi1(pi1)
@@ -64,6 +67,9 @@ calibrate_inverse_weights <- function(A, pi1, pi0, weights) {
 #'
 #' @export
 calibrate_outcome_regression <- function(Y, mu1, mu0, A, weights) {
+  if(missing(weights)){
+    weights <- rep(1,length(A))
+  }
   # Calibrate mu1 using monotonic XGBoost for treated group
   calibrator_mu1 <- isoreg_with_xgboost(mu1[A==1], Y[A==1], weights = weights[A==1])
   mu1_star <- calibrator_mu1(mu1)
