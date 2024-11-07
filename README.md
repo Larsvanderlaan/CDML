@@ -1,4 +1,4 @@
-# CDML Package
+# Calibrated Debiased Machine Learning (CDML)
 
 ## Overview
 
