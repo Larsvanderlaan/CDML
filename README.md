@@ -14,5 +14,6 @@ To install the CDML package in R, run the following command. For an example of u
 
 ```r
 devtools::install_github("Larsvanderlaan/cdml")
+```
 
 To run the Python code, download the code files in the 'Python' folder and refer to the 'vignette.ipynb' file for usage instructions.
