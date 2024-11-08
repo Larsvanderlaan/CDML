@@ -6,7 +6,7 @@ from scipy.stats import norm
 
 def estimate_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, treatment_levels=None, alpha = 0.05):
     """
-    Computes the ICDML (Integrated Cross-Validated Debiased Machine Learning) estimator
+    Computes the ICDML (Isotonic Calibrated Debiased Machine Learning) estimator
     for causal inference, estimating the average treatment effect (ATE) as a linear functional
     of the outcome regression.
 
