@@ -1,9 +1,10 @@
 from calibrate_nuisances import *
 import pandas as pd
 import numpy as np
+from scipy.stats import norm
 
 
-def estimate_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, treatment_levels=None):
+def estimate_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, treatment_levels=None, alpha = 0.05):
     """
     Computes the ICDML (Integrated Cross-Validated Debiased Machine Learning) estimator
     for causal inference, estimating the average treatment effect (ATE) as a linear functional
@@ -39,8 +40,10 @@ def estimate_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, treat
     mu_reference = mu_star_mat[:, control_level] if control_level is not None else np.zeros_like(Y)
     pi_reference = pi_star_mat[:, control_level] if control_level is not None else np.ones_like(Y)
 
-    # Calculate estimates for each treatment level
+        # Calculate estimates for each treatment level
     estimates = {}
+    lower_bounds = []
+    upper_bounds = []
     for level in treatment_levels:
         pi_trt = pi_star_mat[:, level]
         mu_trt = mu_star_mat[:, level]
@@ -48,9 +51,16 @@ def estimate_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, treat
         # Calculate alpha_star and tau_star for the current treatment level
         alpha_star = (A == level) / pi_trt - (A == control_level) / pi_reference
         tau_star = np.mean(mu_trt - mu_reference + alpha_star * (Y - mu_star_mat[:, A]))
-
+        se = np.std(mu_trt - mu_reference + alpha_star * (Y - mu_star_mat[:, A])) / np.sqrt(len(Y))
+        
+        # Wald-type confidence intervals
+        z_alpha = norm.ppf(1 - alpha / 2)
+        lower_bound = tau_star - z_alpha * se
+        upper_bound = tau_star + z_alpha * se
+        
         estimates[level] = tau_star
-
+        lower_bounds.append(lower_bound)
+        upper_bounds.append(upper_bound)
 
     estimates = np.array(list(estimates.values()))
     # Set row names
@@ -61,15 +71,17 @@ def estimate_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, treat
         else:
             estimands.append(f"E[Y({level})]")
 
-
     results = pd.DataFrame({
         'estimand': estimands,
-        'estimate': estimates })
+        'estimate': estimates,
+        'lower_bound': lower_bounds,
+        'upper_bound': upper_bounds
+    })
 
     return results
 
 
-def bootstrap_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, treatment_levels=None, nboot=500, alpha=0.05):
+def bootstrap_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, treatment_levels=None, nboot=1000, alpha=0.05):
     """
     Computes a bootstrap-assisted version of the ICDML estimator to obtain a confidence interval
     for the causal effect, leveraging calibrated debiased machine learning.
@@ -119,8 +131,10 @@ def bootstrap_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, trea
     bootstrap_estimates = np.array(bootstrap_estimates)
 
     # Compute confidence intervals for each treatment level
-    lower_bounds = np.quantile(bootstrap_estimates, alpha / 2, axis=0)
-    upper_bounds = np.quantile(bootstrap_estimates, 1 - alpha / 2, axis=0)
+    bootstrap_differences = bootstrap_estimates - estimates
+    lower_bounds = estimates + np.quantile(bootstrap_differences, alpha / 2, axis=0)
+    upper_bounds = estimates + np.quantile(bootstrap_differences, 1 - alpha / 2, axis=0)
+
 
     # Create DataFrame with results
     results = pd.DataFrame({
