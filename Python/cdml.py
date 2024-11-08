@@ -29,10 +29,11 @@ def estimate_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, treat
     if treatment_levels is None:
         treatment_levels = [i for i in range(pi_mat.shape[1]) if i != control_level]
 
+    levels_to_calibrate = [control_level] + treatment_levels if control_level is not None else treatment_levels
     # Calibrate outcome regression and propensity score matrices
-    mu_star_mat = calibrate_outcome_regression(Y, mu_mat, A, weights=weights, treatment_levels=treatment_levels)[
+    mu_star_mat = calibrate_outcome_regression(Y, mu_mat, A, weights=weights, treatment_levels=levels_to_calibrate)[
         'mu_star']
-    pi_star_mat = calibrate_inverse_probability_weights(A, pi_mat, weights=weights, treatment_levels=treatment_levels)['pi_star']
+    pi_star_mat = calibrate_inverse_probability_weights(A, pi_mat, weights=weights, treatment_levels=levels_to_calibrate)['pi_star']
 
     # Reference values for the control level
     mu_reference = mu_star_mat[:, control_level] if control_level is not None else np.zeros_like(Y)
@@ -63,12 +64,12 @@ def estimate_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, treat
 
     results = pd.DataFrame({
         'estimand': estimands,
-        'estimates': estimates })
+        'estimate': estimates })
 
     return results
 
 
-def bootstrap_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, treatment_levels=None, nboot=1000, alpha=0.05):
+def bootstrap_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, treatment_levels=None, nboot=500, alpha=0.05):
     """
     Computes a bootstrap-assisted version of the ICDML estimator to obtain a confidence interval
     for the causal effect, leveraging calibrated debiased machine learning.
@@ -112,7 +113,7 @@ def bootstrap_cdml_ate(A, Y, mu_mat, pi_mat, weights=None, control_level=0, trea
 
         # Compute ICDML for bootstrap sample
         estimates_boot = estimate_cdml_ate(A_boot, Y_boot, mu_mat_boot, pi_mat_boot, weights=weights_boot, control_level=control_level, treatment_levels=treatment_levels)
-        bootstrap_estimates.append(estimates_boot['estimates'].values)
+        bootstrap_estimates.append(estimates_boot['estimate'].values)
 
     # Convert bootstrap estimates to array
     bootstrap_estimates = np.array(bootstrap_estimates)

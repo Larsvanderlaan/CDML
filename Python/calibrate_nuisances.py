@@ -11,7 +11,7 @@ def calibrate_inverse_probability_weights(A, pi_mat, weights = None, treatment_l
     Args:
         A (np.array): Treatment indicator variable (taking integer values in 0, 1, 2, ...).
         pi_mat (np.array): Matrix of propensity scores, each column corresponding
-                           to a different treatment level.
+                           to a different treatment level in treatment_levels.
         treatment_levels (list, optional): List of treatment levels to consider.
                                            If None, defaults to all columns in pi_mat.
 
@@ -26,8 +26,9 @@ def calibrate_inverse_probability_weights(A, pi_mat, weights = None, treatment_l
     if weights is None:
         weights = np.ones_like(A)
 
-    # Initialize an array to store the calibrated propensity scores
     pi_star_mat = np.zeros_like(pi_mat)
+
+
 
     for idx, a in enumerate(treatment_levels):
         # Create indicator for current treatment level
